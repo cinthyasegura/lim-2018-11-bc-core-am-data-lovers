@@ -1,4 +1,4 @@
-const result = Object.entries(WORLDBANK.PER.indicators);
+const result = Object.entries(WORLDBANK.PER.indicators[0].data);
 
 console.log(result[0]);
 
