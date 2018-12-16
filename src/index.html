@@ -1,22 +1,46 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Data Lovers</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div id="root"></div>
     <h1>Indicadores</h1>
-    
-    <div>
-      <ul id="countries-list">
+ 
+    <!-- form="indicators" -->
+    <label for="indicators"> Escoge entre estos indicadores
+        <select name="indicators" id="select-indicator" onchange="showIndicators()">
+          <option value=""></option>
+          <option value="population">Población</option>
+          <option value="labor">Laboral</option>
+          <option value="education">Educación</option>
+          <option value="unemployment">Desempleo</option>
+          <option value="violence">Violencia</option>
+        </select>
+      </label>
 
-      </ul>
+    <div id="lists">
+      <!-- <ul id="countries-list"></ul> -->
+      <div id="pop-list">
+        <ul id="population-list"></ul>
+      </div>
+      <div id="labor-list">
+        <ul id="laboral-list"></ul>
+      </div>
+     
+      <ul id="unemployment-list"></ul>
+      <ul id="violence-list"></ul>
+      <ul id="education-list"></ul>
     </div>
+
 
     <p id="demo"></p>
     <p id="demo-1"></p>
+    <p id="demo-2"></p>
     <!-- <script src="./data/injuries/injuries.js"></script> -->
     <!-- <script src="./data/pokemon/pokemon.js"></script> -->
     <!-- <script src="./data/steam/steam.js"></script> -->
@@ -26,3 +50,4 @@
     <script src="main.js"></script>
   </body>
 </html>
+

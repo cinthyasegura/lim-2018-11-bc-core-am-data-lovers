@@ -1,3 +1,11 @@
 #countries-list {
     list-style: none;
 }
+
+#select-indicator{
+    
+    border-radius: 5px;
+}
+#lists{
+    display: none;
+}
