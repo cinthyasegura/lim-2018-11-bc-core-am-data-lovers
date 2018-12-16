@@ -2,15 +2,18 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>BANCO MUNDIAL</title>
+    <title>DESARROLLO LATINOAMERICANO</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="imagen/icono.ico" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
       <header>
+        <div class="title">
+          <img src="imagen/logo.png" height="60" alt="">
+          <h1>DESARROLLO LATINOAMERICANO</h1>
+        </div>
         <div class="main">
-          <div class="logo">
-            <img src="http://www.bancomundial.org/content/dam/wbr/logo/logo-wb-header-es.svg">
-          </div>
           <ul>
             <li class="active"><a href="#">Inicio</a></li>
             <li><a href="#">Comparar entre países</a></li>
@@ -18,14 +21,28 @@
             <li><a href="#">Graficos de países</a></li>
           </ul>
         </div>
-        <div class="title">
-          <h1>BANCO MUNDIAL</h1>
-          <p>Aqui podrás encontrar y comprarar indicadores demograficos,
-            economicos y comerciales de estos tres países: Perú, Chile y
-            Brasil</p>
-        </div>
-
       </header>
+      <section>
+        <div class="parrafo">
+          <p>Aqui podrás encontrar y comprarar indicadores demograficos,
+            economicos y comerciales de estos países: Perú, Chile,
+            Brasil y Mexico
+          </p>
+          <p>Haz clic a un país del mapa para acceder a los indicadores</p>
+        </div>
+        <div class="mapa">
+          <map name="mapa1">
+            <area shape="rect" coords="43,92,125,115" href="" alt="">
+            <area shape="rect" coords="271,366,326,390" href="" alt="">
+            <area shape="rect" coords="473,364,551,390" href="" alt="">
+            <area shape="rect" coords="321,557,382,581" href="" alt="">
+          </map>
+          <img src="imagen/mapa.png" usemap="#mapa1">
+        </div>
+      </section>
+
+
+
     <div id="root"></div>
     <!-- <script src="./data/injuries/injuries.js"></script> -->
     <!-- <script src="./data/pokemon/pokemon.js"></script> -->

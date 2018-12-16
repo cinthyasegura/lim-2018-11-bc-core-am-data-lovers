@@ -1,7 +1,13 @@
-const result = Object.entries(WORLDBANK.PER.indicators[0].data);
+//const result = Object.entries(WORLDBANK.PER.indicators[0].data);
 
-console.log(result[0]);
+//console.log(result[0]);
 
+const population = WORLDBANK.PER.indicators.filter(pop => {
+  return pop.indicatorCode.slice(0,6) === 'SP.POP';
+});
+
+console.log(population);
+document.getElementById('demo').innerHTML = population;
 
 
 // console.log(Object.keys(WORLDBANK));
