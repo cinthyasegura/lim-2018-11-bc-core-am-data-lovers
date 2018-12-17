@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <title>DESARROLLO LATINOAMERICANO</title>
@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <div id="welcome-page">
       <header>
         <div class="title">
           <img src="imagen/logo.png" height="60" alt="">
@@ -32,16 +33,25 @@
         </div>
         <div class="mapa">
           <map name="mapa1">
-            <area shape="rect" coords="43,92,125,115" href="" alt="">
-            <area shape="rect" coords="271,366,326,390" href="" alt="">
-            <area shape="rect" coords="473,364,551,390" href="" alt="">
-            <area shape="rect" coords="321,557,382,581" href="" alt="">
+            <area shape="rect" id="mexico-map" coords="43,92,125,115" href="#" alt="">
+            <area shape="rect" id="peru-map" coords="271,366,326,390" href="#" alt="">
+            <area shape="rect" id="brazil-map" coords="473,364,551,390" href="#" alt="">2|1
+            <area shape="rect" id="chile-map" coords="321,557,382,581" href="#" alt="">
           </map>
           <img src="imagen/mapa.png" usemap="#mapa1">
         </div>
       </section>
+    </div>
 
-
+      <div id="lists">
+        <!-- <ul id="countries-list"></ul> -->
+        <ul id="population-list"></ul>
+        <ul id="laboral-list"></ul>
+        <ul id="unemployment-list"></ul>
+        <ul id="violence-list"></ul>
+        <ul id="education-list"></ul>
+      </div>
+  
 
     <div id="root"></div>
     <!-- <script src="./data/injuries/injuries.js"></script> -->
