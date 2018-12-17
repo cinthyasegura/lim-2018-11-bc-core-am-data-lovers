@@ -65,3 +65,12 @@
   border-width: 20px;
   border-color: #009FDA;
 }
+#countries-list {
+    list-style: none;
+}
+#select-indicator{
+    border-radius: 5px;
+}
+#lists{
+    display: none;
+}
