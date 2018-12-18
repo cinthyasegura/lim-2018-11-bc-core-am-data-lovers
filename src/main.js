@@ -1,12 +1,5 @@
-console.table(WORLDBANK.PER.indicators);
-
-//const result = Object.entries(WORLDBANK.PER.indicators[0].data);
-
-//console.log(result[0]);
-
 const mexicoMap = document.getElementById('mexico-map');
 const peruMap = document.getElementById('peru-map');
-
 
 let populationList = '';
 const population = WORLDBANK.PER.indicators
@@ -17,7 +10,6 @@ const population = WORLDBANK.PER.indicators
     populationList += popList;
   });
 document.getElementById('population-list').innerHTML = populationList;
-//document.getElementById('demo').innerHTML = population;
 
 let educationList = '';
 const education = WORLDBANK.PER.indicators
@@ -60,46 +52,6 @@ const violence = WORLDBANK.PER.indicators
 document.getElementById('violence-list').innerHTML = violenceList;
 
 peruMap.addEventListener('click', () =>{
-    document.getElementById('welcome-page').style.display = 'none';
-    document.getElementById('lists').style.display = 'block'; 
+  document.getElementById('welcome-page').style.display = 'none';
+  document.getElementById('lists').style.display = 'block'; 
 });
-//select option
-// function showIndicators() {
-//   const selectIndicator = document.getElementById('select-indicator');
-//   const userInput = selectIndicator.options[selectIndicator.selectedIndex].value;
-//   if(userInput == 'population'){
-//     document.getElementById('population-list').style.visibility = 'visible';
-//   }
-//   else if(userInput == 'labor'){
-//     document.getElementById('laboral-list').style.visibility = 'visible';
-//     document.getElementById('population-list').style.visibility = 'hidden';
-//   }
-//   else if(userInput == 'education'){
-//     document.getElementById('education-list').style.visibility = 'visible';
-//     document.getElementById('laboral-list').style.visibility = 'hidden';
-//   }
-//   else if(userInput == 'unemployment'){
-//     document.getElementById('unemployment-list').style.visibility = 'visible';
-//     document.getElementById('education-list').style.visibility = 'hidden';
-//   }
-//   else if(userInput == 'violence'){
-//     document.getElementById('violence-list').style.visibility = 'visible';
-//     document.getElementById('unemployment-list').style.visibility = 'hidden';
-//   }
-// }
-// selectIndicator.addEventListener('change', showIndicators => {
-
-// console.log(Object.keys(WORLDBANK));
-/*
-const objData = WORLDBANK.PER
-const arrWORLBANK = Object.keys(objData);
-console.log(arrWORLBANK);
-
-let newArrIndicador = [];
-
-for(let i=0; i<arrWORLBANK.length; i++){
-    newArrIndicador.push(objData[arrWORLBANK[i]].indicators.data)
-}
-
-console.log(newArrIndicador);
-*/
