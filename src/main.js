@@ -104,8 +104,3 @@ document.getElementById('violence-option').addEventListener('click', () => {
 // const datos = Object.entries(WORLDBANK.PER.indicators[0].data)
 // console.log(datos)
 
-<<<<<<< HEAD
-const datos = Object.entries(WORLDBANK.PER.indicators[0].data)
-console.log(datos)
-=======
->>>>>>> 76db6e19bb30f9869867e2557da253131dab9c00
