@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
+<<<<<<< HEAD
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Data Lovers</title>
@@ -13,6 +14,86 @@
  
     <!-- form="indicators" -->
     <label for="indicators"> Escoge entre estos indicadores
+=======
+    <title>DESARROLLO LATINOAMERICANO</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="imagen/icono.ico" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="title">
+        <a href="index.html">
+          <img src="imagen/logo.png" height="60" alt="logo">
+        </a>
+        <h1>DESARROLLO LATINOAMERICANO</h1>
+      </div>
+      <div class="main">
+        <ul>
+          <li class="active"><a href="#">Inicio</a></li>
+          <li><a href="#">Quienes somos</a></li>
+          <li><a href="#">Que hacemos</a></li>
+          <li><a href="#">Donde trabajamos</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <div id="welcome-page">
+      <section>
+        <div class="parrafo">
+          <p>Aqui podrás encontrar y comprarar indicadores demograficos,
+            economicos y comerciales de estos países: Perú, Chile,
+            Brasil y Mexico
+          </p>
+        </div>
+      </section>
+      <button id="btn-map">Paises</button>
+    </div>
+
+    <div id="first-page">
+      <div class="map">
+        <p>Haz clic a un país del mapa para acceder a los indicadores</p>
+        <img src="imagen/mapa.png" usemap="#mapa1" alt="mapa-sudamerica">
+        <map name="mapa1">
+          <area shape="rect" id="mexico-map" coords="43,92,125,115" href="#" alt="">
+          <area shape="rect" id="peru-map" coords="271,366,326,390" href="#" alt="">
+          <area shape="rect" id="brazil-map" coords="473,364,551,390" href="#" alt="">
+          <area shape="rect" id="chile-map" coords="321,557,382,581" href="#" alt="">
+        </map>
+      </div>
+      <div id="indicators-icons">
+        <div>
+          <img src="imagen/population-icon.png" alt="poblacion-imagen" height="70">
+          <p id="population-option">Población</p>
+        </div>
+        <div>
+          <img src="imagen/laboral-icon.png" alt="empleo-imagen" height="70">
+          <p id="laboral-option">Empleo</p>
+        </div>
+        <div>
+          <img src="imagen/unemployment-icon.png" alt="desempleo-imagen" height="70">
+          <p id="unemployment-option">Desempleo</p>
+        </div>
+        <div>
+          <img src="imagen/education-icon.png" alt="educacion-imagen" height="70">
+          <p id="education-option">Educación</p>
+        </div>
+        <div>
+          <img src="imagen/violence-icon.png" alt="violencia-imagen" height="70">
+          <p id="violence-option">Violencia</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="second-page">
+      <p id="population-indicators"></p>
+      <p id="laboral-indicators"></p>
+      <p id="unemployment-indicators"></p>
+      <p id="education-indicators"></p>
+      <p id="violence-indicators"></p>
+    </div>
+      <!-- <label for="indicators"> Escoge entre estos indicadores
+>>>>>>> 57c65e1b97e22c0db9eb0931d09414b639876611
         <select name="indicators" id="select-indicator" onchange="showIndicators()">
           <option value=""></option>
           <option value="population">Población</option>
@@ -21,6 +102,7 @@
           <option value="unemployment">Desempleo</option>
           <option value="violence">Violencia</option>
         </select>
+<<<<<<< HEAD
       </label>
 
     <div id="lists">
@@ -41,6 +123,11 @@
     <p id="demo"></p>
     <p id="demo-1"></p>
     <p id="demo-2"></p>
+=======
+      </label> -->  
+    
+  
+>>>>>>> 57c65e1b97e22c0db9eb0931d09414b639876611
     <!-- <script src="./data/injuries/injuries.js"></script> -->
     <!-- <script src="./data/pokemon/pokemon.js"></script> -->
     <!-- <script src="./data/steam/steam.js"></script> -->
