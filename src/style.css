@@ -12,8 +12,13 @@
   display: flex;
 }
 .title h1{
+  box-sizing: border-box;
   font-family: 'Cuprum', sans-serif;
+<<<<<<< HEAD
   font-size: 60px;
+=======
+  font-size: 50px;
+>>>>>>> 76db6e19bb30f9869867e2557da253131dab9c00
   padding-left: 200px;
   padding-top: 20px;
 }
@@ -28,7 +33,7 @@ nav.navbar ul.nav li a{
   font-size: 20px;
   color: #FFF;
 }
-.mapa{
+.map{
   width: auto;
   text-align: center;
 }
@@ -52,4 +57,20 @@ nav.navbar ul.nav li a{
 }
 #lists{
     display: none;
+}
+#first-page{
+  display: none;
+}
+#population-option, #laboral-option, #unemployment-option, #education-option, #violence-option{
+  cursor: pointer;
+}
+#population-option:hover, #laboral-option:hover, #unemployment-option:hover, #education-option:hover, #violence-option:hover{
+  text-decoration-line: underline;
+}
+#population-indicators, #laboral-indicators, #unemployment-indicators, #education-indicators, #violence-indicators {
+  display: none;
+}
+#indicators-icons{
+  display: flex;
+  justify-content: space-around;
 }

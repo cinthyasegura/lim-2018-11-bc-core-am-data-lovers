@@ -33,10 +33,11 @@
     "no-array-constructor": 1,
     "no-const-assign": "error",
     "no-var": "error"
-  },
+ },
   "extends": "eslint:recommended",
   "globals": {
-    "example": false
+    "WORLDBANK": false,
+    "worldbank" : false
   }
 }
 
