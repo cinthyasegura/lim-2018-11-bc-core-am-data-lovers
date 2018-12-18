@@ -14,11 +14,7 @@
 .title h1{
   box-sizing: border-box;
   font-family: 'Cuprum', sans-serif;
-<<<<<<< HEAD
-  font-size: 60px;
-=======
   font-size: 50px;
->>>>>>> 76db6e19bb30f9869867e2557da253131dab9c00
   padding-left: 200px;
   padding-top: 20px;
 }
@@ -36,18 +32,6 @@ nav.navbar ul.nav li a{
 .map{
   width: auto;
   text-align: center;
-}
-.parrafo{
-  width: 400px;
-  float: left;
-  margin-top: 200px;
-  margin-left: 100px;
-  font-size: 20px;
-  color: #002244;
-  padding: 30px 30px;
-  border-style: outset;
-  border-width: 20px;
-  border-color: #009FDA;
 }
 #countries-list {
     list-style: none;
