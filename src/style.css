@@ -1,11 +1,3 @@
-<<<<<<< HEAD
-#countries-list {
-    list-style: none;
-}
-
-#select-indicator{
-    
-=======
 @import url('https://fonts.googleapis.com/css?family=Cuprum:400,700');
 *{
     margin: 0;
@@ -78,13 +70,10 @@
     list-style: none;
 }
 #select-indicator{
->>>>>>> 57c65e1b97e22c0db9eb0931d09414b639876611
     border-radius: 5px;
 }
 #lists{
     display: none;
-<<<<<<< HEAD
-=======
 }
 #first-page{
   display: none;
@@ -101,5 +90,4 @@
 #indicators-icons{
   display: flex;
   justify-content: space-around;
->>>>>>> 57c65e1b97e22c0db9eb0931d09414b639876611
 }
