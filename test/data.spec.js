@@ -1,12 +1,12 @@
 require('../src/data.js');
 
 
-// describe('example', () => {
-//   it('is a function', () => {
-//     expect(typeof example).toBe('function');
-//   });
+ describe('worldbank', () => {
+   it('Deberia ser un objeto', () => {
+     expect(typeof worldbank).toBe('object');
+   });
 
 //   it('returns `example`', () => {
-//     expect(example()).toBe('example');
+//   expect(example()).toBe('example');
 //   });
 // });
