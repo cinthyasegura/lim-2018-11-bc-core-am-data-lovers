@@ -12,8 +12,9 @@
   display: flex;
 }
 .title h1{
+  box-sizing: border-box;
   font-family: 'Cuprum', sans-serif;
-  font-size: 70px;
+  font-size: 50px;
   padding-left: 200px;
   padding-top: 20px;
 }
@@ -21,47 +22,39 @@
   padding-left: 20px;
   padding-top: 20px;
 }
-.main{
-  width: 100%;
-  height: 80px;
-  display: flex;
-  justify-content: flex-start;
-  font-size: px;
+nav.navbar {
   background-color: #009FDA;
 }
-.main ul{
-  display: flex;
-  list-style: none;
+nav.navbar ul.nav li a{
+  font-size: 20px;
+  color: #FFF;
 }
-.main ul li a{
-  display: block;
-  padding: 27.5px 95px;
-  font-size: 25px;
-  color: #fff;
-  text-decoration: none;
-  transition: 0.6s ease;
-}
-.main ul li a:hover{
-  background-color:#fff;
-  color: #009FDA;
-}
-.main ul li.active a{
-    background-color: #fff;
-    color: #009FDA;
-}
-.mapa{
+.map{
   width: auto;
   text-align: center;
 }
-.parrafo{
-  width: 400px;
-  float: left;
-  margin-top: 200px;
-  margin-left: 100px;
-  font-size: 20px;
-  color: #002244;
-  padding: 30px 30px;
-  border-style: outset;
-  border-width: 20px;
-  border-color: #009FDA;
+#countries-list {
+    list-style: none;
+}
+#select-indicator{
+    border-radius: 5px;
+}
+#lists{
+    display: none;
+}
+#first-page{
+  display: none;
+}
+#population-option, #laboral-option, #unemployment-option, #education-option, #violence-option{
+  cursor: pointer;
+}
+#population-option:hover, #laboral-option:hover, #unemployment-option:hover, #education-option:hover, #violence-option:hover{
+  text-decoration-line: underline;
+}
+#population-indicators, #laboral-indicators, #unemployment-indicators, #education-indicators, #violence-indicators {
+  display: none;
+}
+#indicators-icons{
+  display: flex;
+  justify-content: space-around;
 }
