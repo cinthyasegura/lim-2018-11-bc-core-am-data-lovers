@@ -22,7 +22,10 @@
   padding-left: 20px;
   padding-top: 20px;
 }
-nav.navbar {
+nav.navbar{
+  background-color: #009FDA;
+}
+ul .dropdown-menu{
   background-color: #009FDA;
 }
 nav.navbar ul.nav li a{
