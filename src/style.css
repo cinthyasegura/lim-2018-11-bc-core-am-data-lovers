@@ -51,13 +51,13 @@ ul .dropdown-menu li a:hover{
 #first-page{
   display: none;
 }
-#population-option, #laboral-option, #unemployment-option, #education-option, #violence-option{
+#population-option, #labor-option, #unemployment-option, #education-option, #violence-option{
   cursor: pointer;
 }
-#population-option:hover, #laboral-option:hover, #unemployment-option:hover, #education-option:hover, #violence-option:hover{
+#population-option:hover, #labor-option:hover, #unemployment-option:hover, #education-option:hover, #violence-option:hover{
   text-decoration-line: underline;
 }
-#population-indicators, #laboral-indicators, #unemployment-indicators, #education-indicators, #violence-indicators {
+#population-indicators, #labor-indicators, #unemployment-indicators, #education-indicators, #violence-indicators, #demo, #demo-1, #values, #keys, #tabla {
   display: none;
 }
 #indicators-icons{
