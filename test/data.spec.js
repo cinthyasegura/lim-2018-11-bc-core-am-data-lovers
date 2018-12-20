@@ -42,6 +42,6 @@ describe('worldbank.populationFilter', () => {
     expect(typeof worldbank.populationFilter).toBe('function');
   });
   it('deberia retornar un array de objeto con los indicatorNames que inicien su indicatorCode con SP.POP', () => {
-    expect(worldbank.populationFilter(input)).toEqual(output);
+    expect(worldbank.populationFilter(input,"SP.POP")).toEqual(output);
   });
 });

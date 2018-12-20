@@ -1,5 +1,5 @@
 const populationFilter = (arr, string) => {
-  let populationArray = [];
+  let populationArray = ["a"];
   populationArray = arr.filter(pop => pop.indicatorCode.slice(0, 6) === string);
   return populationArray;
 };
