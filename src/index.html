@@ -11,25 +11,32 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </head>
   <body>
-    <header>
-      <div class="title">
-        <a href="index.html"> 
+      <header>
+        <div class="title">
+          <a href="index.html">
           <img src="imagen/logo.png" height="60" alt="logo">
-        </a>
-        <h1>DESARROLLO LATINOAMERICANO</h1>
-      </div>
-      <nav class="navbar navbar-default">
+          </a>
+          <h1>DESARROLLO LATINOAMERICANO</h1>
+        </div>
+        <nav class="navbar navbar-default">
         <div class="container-fluid">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="index.html"><img src="imagen/icon.png" height="30" alt="logo-home"></a></li>
-            <li><a href="#">Quienes somos</a></li>
-            <li><a href="#">Que hacemos</a></li>
-            <li><a href="#">Donde trabajamos</a></li>
+            <li class="active"><a href="index.html"><img src="imagen/icon.png" height="20" alt="logo"></a></li>
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#">Acerca de nosotros
+              <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Quienes somos</a></li>
+                <li><a href="#">Que hacemos</a></li>
+                <li><a href="#">Donde trabajamos</a></li>
+              </ul>
+            </li>
+            <li><a id="btn-map" href="#">Indicadores por paises</a></li>
+            <li><a href="#">Indicadores por sexo</a></li>
           </ul>
         </div>
-      </nav>
-    </header>
-
+        </nav>
+      </header>
     <div id="welcome-page">
       <section>
         <div class="container">
@@ -93,8 +100,7 @@
               </div>
             </div>
       </section>
-      <button id="btn-map">Paises</button>
-    </div>
+  </div>
 
     <div id="first-page">
       <div class="map">
