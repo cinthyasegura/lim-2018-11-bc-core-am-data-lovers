@@ -25,12 +25,15 @@
 nav.navbar{
   background-color: #009FDA;
 }
-ul .dropdown-menu{
-  background-color: #009FDA;
-}
 nav.navbar ul.nav li a{
   font-size: 20px;
   color: #FFF;
+}
+ul .dropdown-menu{
+  background-color:  #009FDA;
+}
+ul .dropdown-menu li a:hover{
+  color: #009FDA;
 }
 .map{
   width: auto;
