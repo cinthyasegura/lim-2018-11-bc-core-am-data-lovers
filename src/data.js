@@ -1,6 +1,6 @@
 const populationFilter = (arr, string) => {
-  let populationArray = ["a"];
-  populationArray = arr.filter(pop => pop.indicatorCode.slice(0, 6) === string);
+  let populationArray = [];
+  populationArray = arr.filter(pop => pop.indicatorCode.slice(0, 6) === string); // pop is like arr[í]
   return populationArray;
 };
 const laborFilter = (arr, string) => {
@@ -23,9 +23,9 @@ const violenceFilter = (arr, string) => {
   violenceArray = arr.filter(violent => violent.indicatorCode.slice(0, 6) === string);
   return violenceArray;
 };
-const womenFilter = (arr, string) => {
+const womenFilter = (arr) => {
   let womenArray = [];
-  womenArray = arr.filter(woman => woman.indicatorCode.includes(string));
+  womenArray = arr.filter(woman => woman.indicatorCode.includes('FE'));
   return womenArray;
 };
 const menFilter = (arr, string) => {
@@ -33,6 +33,12 @@ const menFilter = (arr, string) => {
   menArray = arr.filter(man => man.indicatorCode.includes(string));
   return menArray;
 };
+// const dataFilter = arr => {
+//   let dataArray = [];
+//   dataArray = arr.map(da => da.data)
+//   return dataArray;
+// };
+// console.log(dataFilter(WORLDBANK.PER.indicators));
 
 window.worldbank = {
   populationFilter,

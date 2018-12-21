@@ -38,28 +38,29 @@ worldbank.violenceFilter(indicatorsArray, 'SG.VAW').forEach(violent => {
   violenceIndicators.innerHTML = violenceString;
 });
 // filtrado por sexo femenino y su respectiva data
+// const dataFilter = arr => {
+//   let dataArray = arr.map(da => Object.entries(da.data));
+//   return dataArray;
+// };
+// document.getElementById('demo-1').innerHTML = dataFilter(worldbank.womenFilter);
+
 let womenString = '';
-worldbank.womenFilter(indicatorsArray, 'FE').forEach(woman => {
-  const womenList = `<div><a href=#> ${woman.indicatorName} </a></div>
-  <table id="tabla">
-    <tr> 
-      <th>Año</th>
-      <th>Data</th>
-    </tr>
-    <tr>
-      <td id="keys">${Object.keys(woman.data)}</td>
-      <td id"values">${Object.values(woman.data)}</td>
-    </tr>
-  </table>`;
+worldbank.womenFilter(indicatorsArray).forEach(woman => {
+  const womenList = `<div><a href=#> ${woman.indicatorName} </a></div> <button id="showhide-btn">Mostrar</button>
+  <div id="tabla"> ${Object.entries(woman.data)} </div>`;
   womenString += womenList;
   document.getElementById('demo').innerHTML = womenString;
 });
-let menString = '';
-worldbank.menFilter(indicatorsArray, 'MA').forEach(man => {
-  const menList = `<div><a href=#> ${man.indicatorName} </div></a>`;
-  menString += menList;
-  document.getElementById('demo-1').innerHTML = menString;
+document.getElementById('showhide-btn').addEventListener('click', () => {
+  document.getElementById('tabla').style.display = 'block';
 });
+
+// let menString = '';
+// worldbank.menFilter(indicatorsArray, 'MA').forEach(man => {
+//   const menList = `<div><a href=#> ${man.indicatorName} </div></a>`;
+//   menString += menList;
+//   document.getElementById('demo-1').innerHTML = menString;
+// });
 document.getElementById('btn-map').addEventListener('click', () => {
   document.getElementById('welcome-page').style.display = 'none';
   document.getElementById('first-page').style.display = 'block'; 
