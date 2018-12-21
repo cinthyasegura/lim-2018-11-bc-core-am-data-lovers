@@ -43,7 +43,7 @@ describe('worldbank', () => {
       expect(typeof worldbank.populationFilter).toBe('function');
     });
     it('deberia retornar una nuevo array con los indicadores de poblacion', () => {
-      expect(worldbank.populationFilter(input)).toEqual(output);
+      expect(worldbank.populationFilter(input,'SP.POP')).toEqual(output);
     });
   });
 });
