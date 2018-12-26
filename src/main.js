@@ -20,64 +20,48 @@ worldbank.laborFilter(indicatorsArray, 'SL.TLF').forEach(lab => {
   laborString += laborList;
   laborIndicators.innerHTML = laborString;
 });
-
 let unemploymentString = '';
 worldbank.unemploymentFilter(indicatorsArray, 'SL.UEM').forEach(unemployed => {
   const unemploymentList = `<div><a href=#> ${unemployed.indicatorName} </a></div>`;
   unemploymentString += unemploymentList;
   unemploymentIndicators.innerHTML = unemploymentString;
 });
-
 let educationString = '';
 worldbank.educationFilter(indicatorsArray, 'SE').forEach(edu => {
   const educationList = `<div><a href=#> ${edu.indicatorName} </a></div>`;
   educationString += educationList;
   educationIndicators.innerHTML = educationString;
-});   
-
+}); 
 let violenceString = '';
 worldbank.violenceFilter(indicatorsArray, 'SG.VAW').forEach(violent => {
-  const violenceList = `<div><a href=#> ${violent.indicatorName} </a></div> <button id="btn">Mostrar </button>`;
+  const violenceList = `<div><a href=#> ${violent.indicatorName} </a></div>`;
   violenceString += violenceList;
   violenceIndicators.innerHTML = violenceString;
 });
-
 // filtrado por sexo femenino y su respectiva data
+// const dataFilter = arr => {
+//   let dataArray = arr.map(da => Object.entries(da.data));
+//   return dataArray;
+// };
+// document.getElementById('demo-1').innerHTML = dataFilter(worldbank.womenFilter);
+
 let womenString = '';
-// let datos = '';
-worldbank.womenFilter(indicatorsArray, 'FE').forEach(woman => {
-  const womenList = `<div id="indicadores"><a href=#> ${woman.indicatorName} </a></div>
-  <table id="tabla">
-    <tr> 
-      <th>Año</th>
-      <th>Data</th>
-    </tr>
-    <tr>
-      <td id="keys">${Object.keys(woman.data)}</td>
-      <td id"values">${Object.values(woman.data)}</td>
-    </tr>
-  </table>`;
+worldbank.womenFilter(indicatorsArray).forEach(woman => {
+  const womenList = `<div><a href=#> ${woman.indicatorName} </a></div> <button id="showhide-btn">Mostrar</button>
+  <div id="tabla"> ${Object.entries(woman.data)} </div>`;
   womenString += womenList;
-  // let tRow = document.createElement('tr');
-  // let tData1 = document.createElement('td');
-  // let years = document.createTextNode(Object.keys(woman.data));
-  // let tData2 = document.createElement('td');
-  // let percentage = document.createTextNode(Object.values(woman.data));
-  // tRow.appendChild(tData1);
-  // tRow.appendChild(tData2);
-  // tData1.appendChild(years);
-  // tData2.appendChild(percentage);
-  // document.getElementById('lista').appendChild(tRow);
   document.getElementById('demo').innerHTML = womenString;
 });
-
-let menString = '';
-worldbank.menFilter(indicatorsArray, 'MA').forEach(man => {
-  const menList = `<div><a href=#> ${man.indicatorName} </div></a>`;
-  menString += menList;
-  document.getElementById('demo-1').innerHTML = menString;
+document.getElementById('showhide-btn').addEventListener('click', () => {
+  document.getElementById('tabla').style.display = 'block';
 });
 
+// let menString = '';
+// worldbank.menFilter(indicatorsArray, 'MA').forEach(man => {
+//   const menList = `<div><a href=#> ${man.indicatorName} </div></a>`;
+//   menString += menList;
+//   document.getElementById('demo-1').innerHTML = menString;
+// });
 document.getElementById('btn-map').addEventListener('click', () => {
   document.getElementById('welcome-page').style.display = 'none';
   document.getElementById('first-page').style.display = 'block'; 
@@ -131,6 +115,15 @@ document.getElementById('violence-option').addEventListener('click', () => {
   unemploymentIndicators.style.display = 'none';
   educationIndicators.style.display = 'none';
   violenceIndicators.style.display = 'block';
+});
+document.getElementById('women-btn').addEventListener('click', () => {
+  document.getElementById('welcome-page').style.display = 'none';
+  document.getElementById('demo').style.display = 'block';
+});
+document.getElementById('men-btn').addEventListener('click', () => {
+  document.getElementById('welcome-page').style.display = 'none';
+  document.getElementById('demo').style.display = 'none';
+  document.getElementById('demo-1').style.display = 'block';
 });
 
 // const objData = WORLDBANK.PER
