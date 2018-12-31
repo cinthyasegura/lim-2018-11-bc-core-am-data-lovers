@@ -3,7 +3,6 @@ const laborIndicators = document.getElementById('labor-indicators');
 const unemploymentIndicators = document.getElementById('unemployment-indicators');
 const educationIndicators = document.getElementById('education-indicators');
 const violenceIndicators = document.getElementById('violence-indicators');
-const map = document.getElementsByClassName('map');
 const indicatorsArray = WORLDBANK.PER.indicators;
 
 // filtrado de indicadores por codigo
@@ -54,33 +53,31 @@ worldbank.womenFilter(indicatorsArray).forEach(woman => {
 document.getElementById('showhide-btn').addEventListener('click', () => {
   document.getElementById('tabla').style.display = 'block';
 });
-
 // let menString = '';
 // worldbank.menFilter(indicatorsArray, 'MA').forEach(man => {
 //   const menList = `<div><a href=#> ${man.indicatorName} </div></a>`;
 //   menString += menList;
 //   document.getElementById('demo-1').innerHTML = menString;
 // });
-document.getElementById('btn-map').addEventListener('click', () => {
-  document.getElementById('welcome-page').style.display = 'none';
-  document.getElementById('first-page').style.display = 'block'; 
-  document.getElementById('indicators-icons').style.visibility = 'hidden';
-});
 
 document.getElementById('peru-map').addEventListener('click', () => {
-  document.getElementById('indicators-icons').style.visibility = 'visible'; 
+  document.getElementById('welcome-page').style.display = 'none';
+  document.getElementById('first-page').style.display = 'block'; 
 });
 document.getElementById('mexico-map').addEventListener('click', () => {
-  document.getElementById('indicators-icons').style.visibility = 'visible'; 
+  document.getElementById('welcome-page').style.display = 'none';
+  document.getElementById('first-page').style.display = 'block'; 
 });
 document.getElementById('brazil-map').addEventListener('click', () => {
-  document.getElementById('indicators-icons').style.visibility = 'visible'; 
+  document.getElementById('welcome-page').style.display = 'none';
+  document.getElementById('first-page').style.display = 'block'; 
 });
 document.getElementById('chile-map').addEventListener('click', () => {
-  document.getElementById('indicators-icons').style.visibility = 'visible'; 
+  document.getElementById('welcome-page').style.display = 'none';
+  document.getElementById('first-page').style.display = 'block'; 
 });
+
 document.getElementById('population-option').addEventListener('click', () => {
-  map[0].style.display = 'none';
   populationIndicators.style.display = 'block';
   laborIndicators.style.display = 'none';
   unemploymentIndicators.style.display = 'none';
@@ -123,6 +120,11 @@ document.getElementById('men-btn').addEventListener('click', () => {
   document.getElementById('welcome-page').style.display = 'none';
   document.getElementById('demo').style.display = 'none';
   document.getElementById('demo-1').style.display = 'block';
+});
+
+document.getElementById('order-indicator').addEventListener('click', () =>{
+  document.getElementById('third-page').style.display = 'block';
+  document.getElementById('welcome-page').style.display = 'none';
 });
 
 // const objData = WORLDBANK.PER

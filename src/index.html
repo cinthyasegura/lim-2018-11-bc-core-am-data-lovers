@@ -31,8 +31,25 @@
                 <li><a href="#">Donde trabajamos</a></li>
               </ul>
             </li>
-            <li><a id="btn-map" href="#">Indicadores por paises</a></li>
-            <li><a href="#">Indicadores por sexo</a></li>
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#">Indicadores por pais
+              <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a id="peru-map" href="#">Perú</a></li>
+                <li><a id="brazil-map" href="#">Brasil</a></li>
+                <li><a id="chile-map" href="#">Chile</a></li>
+                <li><a id="mexico-map" href="#">México</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#">Indicadores por sexo
+              <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a id="women-btn" href="#">Mujer</a></li>
+                <li><a id="men-btn" href="#">Hombre</a></li>
+              </ul>
+            </li>
+            <li><a id="order-indicator" href="#">Ordenar los indicadores</a></li>
           </ul>
         </div>
         </nav>
@@ -54,36 +71,31 @@
               <div class="item active">
                 <img src="https://portal.andina.pe/EDPfotografia2/Thumbnail/2008/01/28/000052811W.jpg" alt="Población" style="width:100%;">
                 <div class="carousel-caption">
-                  <h3>Población</h3>
-                  <p>Indicadores</p>
+                  <h3 class="carousel-caption-text hidden-sm hidden-xs">¿Cual es % de la población femenina de 20 a 24 años en México?</h3>
                 </div>
               </div>
               <div class="item">
                 <img src="https://portal.andina.pe/EDPfotografia3/Thumbnail/2017/11/20/000464129W.jpg" alt="Educación" style="width:100%;">
                 <div class="carousel-caption">
-                  <h3>Educación</h3>
-                  <p>Indicadores</p>
+                  <h3 class="carousel-caption-text hidden-sm hidden-xs">¿Cual es la tasa de alfabetización de las mujeres jóvenes de 15 y 24 años en Brasil?</h3> 
                 </div>
               </div>
               <div class="item">
                 <img src="https://www.grupoverona.pe/wp-content/uploads/2018/02/vacaciones_gverona.jpg" alt="Laboral" style="width:100%;">
                 <div class="carousel-caption">
-                  <h3>Laboral</h3>
-                  <p>Indicadores</p>
+                  <h3 class="carousel-caption-text hidden-sm hidden-xs">¿Cual es el % de la fuerza laboral con educación avanzada en el Perú?</h3>
                 </div>
               </div>
               <div class="item">
                 <img src="https://portal.andina.pe/EDPfotografia3/Thumbnail/2016/03/01/000343822W.jpg" alt="Desempleo" style="width:100%;">
                 <div class="carousel-caption">
-                  <h3>Desempleo</h3>
-                  <p>Indicadores</p>
+                  <h3 class="carousel-caption-text hidden-sm hidden-xs">¿Cual es el % mujeres desempleadas con educación avanzada en Chile?</h3>
                 </div>
               </div>
               <div class="item">
                 <img src="https://www.radionacional.com.pe/sites/default/files/noticias/000310030w.jpg" alt="Violencia" style="width:100%;">
                 <div class="carousel-caption">
-                  <h3>Violencia</h3>
-                  <p>Indicadores</p>
+                  <h3 class="carousel-caption-text hidden-sm hidden-xs">¿Cual es el % de mujeres que creen que está justificado que un marido golpee a su esposa cuando ella se niega a tener relaciones sexuales?</h3> 
                 </div>
               </div>
             </div>
@@ -102,15 +114,12 @@
       </section>
   </div>
 
-  <button id="women-btn">Mujeres</button>
-  <button id="men-btn">Hombres</button>
-
   <div id="demo"></div>
   <div id="demo-1"></div>
   <div id="demo-2"></div>
   
     <div id="first-page">
-      <div class="map">
+    <!--  <div class="map">
         <p>Haz clic a un país del mapa para acceder a los indicadores</p>
         <img src="imagen/mapa.png" usemap="#mapa1" alt="mapa-sudamerica">
         <map name="mapa1">
@@ -119,7 +128,7 @@
           <area shape="rect" id="brazil-map" coords="473,364,551,390" href="#" alt="">
           <area shape="rect" id="chile-map" coords="321,557,382,581" href="#" alt="">
         </map>
-      </div>
+      </div> -->
       <div id="indicators-icons">
         <div>
           <img src="imagen/population-icon.png" alt="poblacion-imagen" height="70">
@@ -151,6 +160,11 @@
       <p id="education-indicators"></p>
       <p id="violence-indicators"></p>
     </div>
+
+    <div id="third-page">
+      <button id="btn-asc">ascendente</button>
+      <button id="btn-desc">descendente</button>
+    </div>
     <!-- <script src="./data/injuries/injuries.js"></script> -->
     <!-- <script src="./data/pokemon/pokemon.js"></script> -->
     <!-- <script src="./data/steam/steam.js"></script> -->
@@ -158,5 +172,8 @@
     <!-- <script src="./data/lol/lol.js"></script> -->
     <script src="data.js"></script>
     <script src="main.js"></script>
+    <footer>
+      <p>Más información: <a href="https://www.worldbank.org/">www.worldbank.org</a></p>
+    </footer>
   </body>
 </html>

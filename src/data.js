@@ -33,12 +33,11 @@ const menFilter = (arr, string) => {
   menArray = arr.filter(man => man.indicatorCode.includes(string));
   return menArray;
 };
-// const dataFilter = arr => {
-//   let dataArray = [];
-//   dataArray = arr.map(da => da.data)
-//   return dataArray;
-// };
-// console.log(dataFilter(WORLDBANK.PER.indicators));
+const orderIndicator = (arr) => {
+  let indicatorOrder = [];
+  indicatorOrder = arr.sort(order => order.indicatorName); // pop is like arr[í]
+  return indicatorOrder;
+};
 
 window.worldbank = {
   populationFilter,
@@ -47,5 +46,6 @@ window.worldbank = {
   educationFilter,
   violenceFilter,
   womenFilter,
-  menFilter
+  menFilter,
+  orderIndicator
 };
