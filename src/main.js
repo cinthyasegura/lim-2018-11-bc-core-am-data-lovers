@@ -117,28 +117,43 @@ worldbank.womenFilter(indicatorsPeruArray).forEach(woman => {
 document.getElementById('showhide-btn').addEventListener('click', () => {
   document.getElementById('tabla').style.display = 'block';
 });
-// let menString = '';
-// worldbank.menFilter(indicatorsPeruArray, 'MA').forEach(man => {
-//   const menList = `<div><a href=#> ${man.indicatorName} </div></a>`;
-//   menString += menList;
-//   document.getElementById('demo-1').innerHTML = menString;
-// });
+let menString = '';
+worldbank.menFilter(indicatorsPeruArray, 'MA').forEach(man => {
+  const menList = `<div><a href=#> ${man.indicatorName} </div></a>`;
+  menString += menList;
+  document.getElementById('demo-1').innerHTML = menString;
+});
+let sortString = '';
+worldbank.orderIndicator(indicatorsPeruArray).for( const indicador of orderIndicatorName){
+  console.log(indicador.indicatorName)
+}; 
+/*let sortString = '';
+worldbank.orderIndicator(indicatorsPeruArray).forEach(order => {
+  const orderList = `<div><a href=#> ${order.indicatorName} </div></a>`;
+  sortString += orderList;
+  document.getElementById('btn-asc').style.display = 'block'; 
+});*/
+
 
 document.getElementById('peru-map').addEventListener('click', () => {
   document.getElementById('welcome-page').style.display = 'none';
   document.getElementById('first-page').style.display = 'block'; 
+  document.getElementById('third-page').style.display = 'none';
 });
 document.getElementById('mexico-map').addEventListener('click', () => {
   document.getElementById('welcome-page').style.display = 'none';
   document.getElementById('first-page').style.display = 'block'; 
+  document.getElementById('third-page').style.display = 'none';
 });
 document.getElementById('brazil-map').addEventListener('click', () => {
   document.getElementById('welcome-page').style.display = 'none';
   document.getElementById('first-page').style.display = 'block'; 
+  document.getElementById('third-page').style.display = 'none';
 });
 document.getElementById('chile-map').addEventListener('click', () => {
   document.getElementById('welcome-page').style.display = 'none';
   document.getElementById('first-page').style.display = 'block'; 
+  document.getElementById('third-page').style.display = 'none';
 });
 
 document.getElementById('population-option').addEventListener('click', () => {
@@ -179,11 +194,13 @@ document.getElementById('violence-option').addEventListener('click', () => {
 document.getElementById('women-btn').addEventListener('click', () => {
   document.getElementById('welcome-page').style.display = 'none';
   document.getElementById('demo').style.display = 'block';
+  document.getElementById('third-page').style.display = 'none';
 });
 document.getElementById('men-btn').addEventListener('click', () => {
   document.getElementById('welcome-page').style.display = 'none';
   document.getElementById('demo').style.display = 'none';
   document.getElementById('demo-1').style.display = 'block';
+  document.getElementById('third-page').style.display = 'none';
 });
 
 document.getElementById('order-indicator').addEventListener('click', () => {
