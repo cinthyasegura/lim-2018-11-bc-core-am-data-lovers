@@ -1,12 +1,12 @@
 const populationFilter = (arr, string) => {
   let populationArray = [];
-  populationArray = arr.filter(pop => pop.indicatorCode.slice(0, 6) === string);
+  populationArray = arr.filter(pop => pop.indicatorCode.slice(0, 6) === string); // pop is like arr[í]
   return populationArray;
 };
-const laboralFilter = (arr, string) => {
-  let laboralArray = [];
-  laboralArray = arr.filter(lab => lab.indicatorCode.slice(0, 6) === string);
-  return laboralArray;
+const laborFilter = (arr, string) => {
+  let laborArray = [];
+  laborArray = arr.filter(lab => lab.indicatorCode.slice(0, 6) === string);
+  return laborArray;
 };
 const unemploymentFilter = (arr, string) => {
   let unemploymentArray = [];
@@ -23,11 +23,29 @@ const violenceFilter = (arr, string) => {
   violenceArray = arr.filter(violent => violent.indicatorCode.slice(0, 6) === string);
   return violenceArray;
 };
+const womenFilter = (arr) => {
+  let womenArray = [];
+  womenArray = arr.filter(woman => woman.indicatorCode.includes('FE'));
+  return womenArray;
+};
+const menFilter = (arr, string) => {
+  let menArray = [];
+  menArray = arr.filter(man => man.indicatorCode.includes(string));
+  return menArray;
+};
+const orderIndicator = (arr) => {
+  let indicatorOrder = [];
+  indicatorOrder = arr.sort(order => order.indicatorName); // pop is like arr[í]
+  return indicatorOrder;
+};
 
 window.worldbank = {
   populationFilter,
-  laboralFilter,
+  laborFilter,
   unemploymentFilter,
   educationFilter,
-  violenceFilter
+  violenceFilter,
+  womenFilter,
+  menFilter,
+  orderIndicator
 };
