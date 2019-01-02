@@ -49,3 +49,15 @@ window.worldbank = {
   menFilter,
   orderIndicator
 };
+
+
+/* utilizando array.sort
+var orderIndicatorName = indicatorsArray.sort(function (a, b) {
+  if (a.indicatorName > b.indicatorName) {
+      return 1;
+  } if (a.indicatorName < b.indicatorName){
+      return -1;
+  }
+      return 0
+});
+orderIndicatorName; */
