@@ -4,6 +4,14 @@
     padding: 0;
     font-family: Arial ;
 }
+html {
+  min-height: 100%;
+  position: relative;
+}
+body {
+  margin: 0;
+  margin-bottom: 40px;
+}
 .title{
   /*position: absolute;*/
   color:#009FDA;
@@ -25,12 +33,15 @@
 nav.navbar{
   background-color: #009FDA;
 }
-ul .dropdown-menu{
-  background-color: #009FDA;
-}
 nav.navbar ul.nav li a{
   font-size: 20px;
   color: #FFF;
+}
+ul .dropdown-menu{
+  background-color:  #009FDA;
+}
+ul .dropdown-menu li a:hover{
+  color: #009FDA;
 }
 .map{
   width: auto;
@@ -48,16 +59,37 @@ nav.navbar ul.nav li a{
 #first-page{
   display: none;
 }
-#population-option, #laboral-option, #unemployment-option, #education-option, #violence-option{
+#population-option, #labor-option, #unemployment-option, #education-option, #violence-option{
   cursor: pointer;
 }
-#population-option:hover, #laboral-option:hover, #unemployment-option:hover, #education-option:hover, #violence-option:hover{
+#population-option:hover, #labor-option:hover, #unemployment-option:hover, #education-option:hover, #violence-option:hover{
   text-decoration-line: underline;
 }
-#population-indicators, #laboral-indicators, #unemployment-indicators, #education-indicators, #violence-indicators {
+#population-indicators, #labor-indicators, #unemployment-indicators, #education-indicators, #violence-indicators, #demo, #demo-1, #tabla {
   display: none;
 }
 #indicators-icons{
   display: flex;
   justify-content: space-around;
+}
+section{
+  margin-bottom: 70px;
+}
+#second-page{
+  margin-bottom: 80px; 
+}
+footer{
+  background-color: #009FDA;
+  text-align: center;
+  height: 50px;
+  margin-top: 10px;
+  padding-top: 17px;
+  font-size: 15px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  color: white;
+}
+footer a{
+  color: white; 
 }
