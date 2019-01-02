@@ -28,15 +28,21 @@ const womenFilter = (arr) => {
   womenArray = arr.filter(woman => woman.indicatorCode.includes('FE'));
   return womenArray;
 };
-const menFilter = (arr, string) => {
+const menFilter = (arr) => {
   let menArray = [];
-  menArray = arr.filter(man => man.indicatorCode.includes(string));
+  menArray = arr.filter(man => man.indicatorCode.includes('MA'));
   return menArray;
 };
+
 const orderIndicator = (arr) => {
-  let indicatorOrder = [];
-  indicatorOrder = arr.sort(order => order.indicatorName); // pop is like arr[í]
-  return indicatorOrder;
+  let orderIndicatorName = []; 
+  orderIndicatorName = arr.sort(function(prev, next) {
+    if (prev.indicatorName > next.indicatorName) {
+      return 1;
+    } if (prev.indicatorName < next.indicatorName) {
+      return -1;
+    } return 0; 
+  });
 };
 
 window.worldbank = {

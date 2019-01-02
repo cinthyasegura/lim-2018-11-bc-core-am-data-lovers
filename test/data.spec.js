@@ -42,6 +42,23 @@ const input = [
     'indicatorCode': 'SL.UEM.ADVN.FE.ZS'
   }
 ];
+const input1 = [
+  {
+    'countryName': 'Perú',
+    'countryCode': 'PER',
+    'indicatorName': 'Empleo de tiempo parcial, mujeres (% del total de mujeres empleadas)',
+    'indicatorCode': 'SL.TLF.PART.FE.ZS'
+  },
+];
+const input2 = [
+  {
+    'countryName': 'Perú',
+    'countryCode': 'PER',
+    'indicatorName': 'Desempleo, varones jóvenes (% de participación en la fuerza laboral de varones de 15 a 24 años) (estimación nacional)',
+    'indicatorCode': 'SL.UEM.1524.MA.NE.ZS'
+  },
+];
+
 
 const output = [
   {
@@ -83,7 +100,14 @@ const output4 = [
     'indicatorCode': 'SG.VAW.NEGL.ZS'
   }
 ];
-
+const output5 = [
+  {
+    'countryName': 'Perú',
+    'countryCode': 'PER',
+    'indicatorName': 'Desempleo, varones jóvenes (% de participación en la fuerza laboral de varones de 15 a 24 años) (estimación nacional)',
+    'indicatorCode': 'SL.UEM.1524.MA.NE.ZS'
+  },
+];
 
 describe('worldbank', () => {
   it('deberia ser un objeto', () => {
@@ -133,5 +157,23 @@ describe('worldbank.violenceFilter', () => {
   });
   it('deberia retornar una nuevo array con los indicadores de violencia', () => {
     expect(worldbank.violenceFilter(input, 'SG.VAW')).toEqual(output4);
+  });
+});
+
+describe('worldbank.womenFilter', () => {
+  it('deberia ser una funcion', () => {
+    expect(typeof worldbank.womenFilter).toBe('function');
+  });
+  it('deberia retornar una nuevo array con los indicadores de mujeres', () => {
+    expect(worldbank.womenFilter(input1, 'FE')).toEqual(output1);
+  });
+});
+
+describe('worldbank.menFilter', () => {
+  it('deberia ser una funcion', () => {
+    expect(typeof worldbank.menFilter).toBe('function');
+  });
+  it('deberia retornar una nuevo array con los indicadores de hombres', () => {
+    expect(worldbank.menFilter(input2, 'MA')).toEqual(output5);
   });
 });
