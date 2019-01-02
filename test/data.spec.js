@@ -42,6 +42,14 @@ const input = [
     'indicatorCode': 'SL.UEM.ADVN.FE.ZS'
   }
 ];
+const input1 = [
+  {
+    'countryName': 'Perú',
+    'countryCode': 'PER',
+    'indicatorName': 'Empleo de tiempo parcial, mujeres (% del total de mujeres empleadas)',
+    'indicatorCode': 'SL.TLF.PART.FE.ZS'
+  },
+];
 
 const output = [
   {
@@ -133,5 +141,14 @@ describe('worldbank.violenceFilter', () => {
   });
   it('deberia retornar una nuevo array con los indicadores de violencia', () => {
     expect(worldbank.violenceFilter(input, 'SG.VAW')).toEqual(output4);
+  });
+});
+
+describe('worldbank.womenFilter', () => {
+  it('deberia ser una funcion', () => {
+    expect(typeof worldbank.womenFilter).toBe('function');
+  });
+  it('deberia retornar una nuevo array con los indicadores de mujeres', () => {
+    expect(worldbank.womenFilter(input1, 'FE')).toEqual(output1);
   });
 });
