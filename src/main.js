@@ -3,38 +3,102 @@ const laborIndicators = document.getElementById('labor-indicators');
 const unemploymentIndicators = document.getElementById('unemployment-indicators');
 const educationIndicators = document.getElementById('education-indicators');
 const violenceIndicators = document.getElementById('violence-indicators');
-const indicatorsArray = WORLDBANK.PER.indicators;
+const indicatorsPeruArray = WORLDBANK.PER.indicators;
 
-// filtrado de indicadores por codigo
-let populationString = '';
-worldbank.populationFilter(indicatorsArray, 'SP.POP').forEach(pop => {
-  const populationList = `<div><a href=#> ${pop.indicatorName} </a></div>`;
-  populationString += populationList;
-  populationIndicators.innerHTML = populationString;
+// filtrado de indicadores por codigo PARA PERU
+const populationData = (people) => {
+  return `
+  <ul> ${people.map(pop => `
+    <li>${pop.join(' - ')}</li>`).join('')}
+  </ul>
+  `;
+};
+let populationStringPer = '';
+worldbank.populationFilter(indicatorsPeruArray, 'SP.POP').forEach(pop => {
+  const populationListPer = `
+    <div> ${pop.indicatorName}</div>
+    <a href="#" onclick="showElement()">Ver |</a>
+       <a href="#" onclick="hideElement(this)">Ocultar</a>
+       <section id="listado">
+          <h5>Año  -  Datos</h5>
+          ${populationData(Object.entries(pop.data))}
+       </section>
+    `;
+  populationStringPer += populationListPer;
+  populationIndicators.innerHTML = populationStringPer;
 });
-let laborString = '';
-worldbank.laborFilter(indicatorsArray, 'SL.TLF').forEach(lab => {
-  const laborList = `<div><a href=#> ${lab.indicatorName} <a/></div>`;
-  laborString += laborList;
-  laborIndicators.innerHTML = laborString;
+// funcion para ocultar la data
+// const hideElement = (hiddenElement) => {
+//   hiddenElement.style.display = 'none';
+//   document.getElementById('listado').style.display = 'none';
+// };
+const laborData = work => {
+  return `
+    <ul> ${work.map(lab => `
+      <li>${lab.join(' - ')}</li>`).join('')}
+    </ul>
+  `;
+};
+let laborStringPer = '';
+worldbank.laborFilter(indicatorsPeruArray, 'SL.TLF').forEach(lab => {
+  const laborListPer = `
+  <div> ${lab.indicatorName} </div>
+  <h5>Año  -  Datos</h5>
+   ${laborData(Object.entries(lab.data))}
+  `;
+  laborStringPer += laborListPer;
+  laborIndicators.innerHTML = laborStringPer;
 });
-let unemploymentString = '';
-worldbank.unemploymentFilter(indicatorsArray, 'SL.UEM').forEach(unemployed => {
-  const unemploymentList = `<div><a href=#> ${unemployed.indicatorName} </a></div>`;
-  unemploymentString += unemploymentList;
-  unemploymentIndicators.innerHTML = unemploymentString;
+const unemploymentData = unemploy => {
+  return `
+    <ul> ${unemploy.map(unemployed => `
+      <li>${unemployed.join(' - ')}</li>`).join('')}
+    </ul>
+  `;
+};
+let unemploymentStringPer = '';
+worldbank.unemploymentFilter(indicatorsPeruArray, 'SL.UEM').forEach(unemployed => {
+  const unemploymentListPer = `
+  <div> ${unemployed.indicatorName}</div>
+  <h5>Año  -  Datos</h5>
+   ${unemploymentData(Object.entries(unemployed.data))}
+  `;
+  unemploymentStringPer += unemploymentListPer;
+  unemploymentIndicators.innerHTML = unemploymentStringPer;
 });
-let educationString = '';
-worldbank.educationFilter(indicatorsArray, 'SE').forEach(edu => {
-  const educationList = `<div><a href=#> ${edu.indicatorName} </a></div>`;
-  educationString += educationList;
-  educationIndicators.innerHTML = educationString;
+const educationData = educa => {
+  return `
+    <ul> ${educa.map(edu => `
+      <li>${edu.join(' - ')}</li>`).join('')}
+    </ul>
+  `;
+};
+let educationStringPer = '';
+worldbank.educationFilter(indicatorsPeruArray, 'SE').forEach(edu => {
+  const educationListPer = `
+  <div> ${edu.indicatorName}</div>
+  <h5>Año  -  Datos</h5>
+   ${educationData(Object.entries(edu.data))}
+  `;
+  educationStringPer += educationListPer;
+  educationIndicators.innerHTML = educationStringPer;
 }); 
-let violenceString = '';
-worldbank.violenceFilter(indicatorsArray, 'SG.VAW').forEach(violent => {
-  const violenceList = `<div><a href=#> ${violent.indicatorName} </a></div>`;
-  violenceString += violenceList;
-  violenceIndicators.innerHTML = violenceString;
+const violenceData = assault => {
+  return `
+    <ul> ${assault.map(violent => `
+      <li>${violent.join(' - ')}</li>`).join('')}
+    </ul>
+  `;
+};
+let violenceStringPer = '';
+worldbank.violenceFilter(indicatorsPeruArray, 'SG.VAW').forEach(violent => {
+  const violenceListPer = `
+  <div> ${violent.indicatorName} </div>
+  <h5>Año  -  Datos</h5>
+   ${violenceData(Object.entries(violent.data))}
+  `;
+  violenceStringPer += violenceListPer;
+  violenceIndicators.innerHTML = violenceStringPer;
 });
 // filtrado por sexo femenino y su respectiva data
 // const dataFilter = arr => {
@@ -44,7 +108,7 @@ worldbank.violenceFilter(indicatorsArray, 'SG.VAW').forEach(violent => {
 // document.getElementById('demo-1').innerHTML = dataFilter(worldbank.womenFilter);
 
 let womenString = '';
-worldbank.womenFilter(indicatorsArray).forEach(woman => {
+worldbank.womenFilter(indicatorsPeruArray).forEach(woman => {
   const womenList = `<div><a href=#> ${woman.indicatorName} </a></div> <button id="showhide-btn">Mostrar</button>
   <div id="tabla"> ${Object.entries(woman.data)} </div>`;
   womenString += womenList;
@@ -53,28 +117,43 @@ worldbank.womenFilter(indicatorsArray).forEach(woman => {
 document.getElementById('showhide-btn').addEventListener('click', () => {
   document.getElementById('tabla').style.display = 'block';
 });
-// let menString = '';
-// worldbank.menFilter(indicatorsArray, 'MA').forEach(man => {
-//   const menList = `<div><a href=#> ${man.indicatorName} </div></a>`;
-//   menString += menList;
-//   document.getElementById('demo-1').innerHTML = menString;
-// });
+let menString = '';
+worldbank.menFilter(indicatorsPeruArray, 'MA').forEach(man => {
+  const menList = `<div><a href=#> ${man.indicatorName} </div></a>`;
+  menString += menList;
+  document.getElementById('demo-1').innerHTML = menString;
+});
+let sortString = '';
+worldbank.orderIndicator(indicatorsPeruArray).for( const indicador of orderIndicatorName){
+  console.log(indicador.indicatorName)
+}; 
+/*let sortString = '';
+worldbank.orderIndicator(indicatorsPeruArray).forEach(order => {
+  const orderList = `<div><a href=#> ${order.indicatorName} </div></a>`;
+  sortString += orderList;
+  document.getElementById('btn-asc').style.display = 'block'; 
+});*/
+
 
 document.getElementById('peru-map').addEventListener('click', () => {
   document.getElementById('welcome-page').style.display = 'none';
   document.getElementById('first-page').style.display = 'block'; 
+  document.getElementById('third-page').style.display = 'none';
 });
 document.getElementById('mexico-map').addEventListener('click', () => {
   document.getElementById('welcome-page').style.display = 'none';
   document.getElementById('first-page').style.display = 'block'; 
+  document.getElementById('third-page').style.display = 'none';
 });
 document.getElementById('brazil-map').addEventListener('click', () => {
   document.getElementById('welcome-page').style.display = 'none';
   document.getElementById('first-page').style.display = 'block'; 
+  document.getElementById('third-page').style.display = 'none';
 });
 document.getElementById('chile-map').addEventListener('click', () => {
   document.getElementById('welcome-page').style.display = 'none';
   document.getElementById('first-page').style.display = 'block'; 
+  document.getElementById('third-page').style.display = 'none';
 });
 
 document.getElementById('population-option').addEventListener('click', () => {
@@ -115,14 +194,16 @@ document.getElementById('violence-option').addEventListener('click', () => {
 document.getElementById('women-btn').addEventListener('click', () => {
   document.getElementById('welcome-page').style.display = 'none';
   document.getElementById('demo').style.display = 'block';
+  document.getElementById('third-page').style.display = 'none';
 });
 document.getElementById('men-btn').addEventListener('click', () => {
   document.getElementById('welcome-page').style.display = 'none';
   document.getElementById('demo').style.display = 'none';
   document.getElementById('demo-1').style.display = 'block';
+  document.getElementById('third-page').style.display = 'none';
 });
 
-document.getElementById('order-indicator').addEventListener('click', () =>{
+document.getElementById('order-indicator').addEventListener('click', () => {
   document.getElementById('third-page').style.display = 'block';
   document.getElementById('welcome-page').style.display = 'none';
 });
