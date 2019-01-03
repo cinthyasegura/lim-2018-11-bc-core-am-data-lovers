@@ -56,26 +56,35 @@ ul .dropdown-menu li a:hover{
 #lists{
     display: none;
 }
-#first-page{
+#peru-page, #brazil-page, #chile-page, #mexico-page{
   display: none;
 }
-#population-option, #labor-option, #unemployment-option, #education-option, #violence-option{
+.population-option, .labor-option, .unemployment-option, .education-option, .violence-option{
   cursor: pointer;
 }
-#population-option:hover, #labor-option:hover, #unemployment-option:hover, #education-option:hover, #violence-option:hover{
+/* #population-option-bra, #labor-option-bra, #unemployment-option-bra, #education-option-bra, #violence-option-bra{
+  cursor: pointer;
+} */
+.population-option:hover, .labor-option:hover, .unemployment-option:hover, .education-option:hover, .violence-option:hover{
   text-decoration-line: underline;
 }
-#population-indicators, #labor-indicators, #unemployment-indicators, #education-indicators, #violence-indicators, #demo, #demo-1, #tabla {
+/* #population-option-bra:hover, #labor-option-bra:hover, #unemployment-option-bra:hover, #education-option-bra:hover, #violence-option-bra:hover{
+  text-decoration-line: underline;
+} */
+.population-indicators, .labor-indicators, .unemployment-indicators, .education-indicators, .violence-indicators, #demo, #demo-1, #tabla {
   display: none;
 }
-#indicators-icons{
+/* #population-indicators-bra, #labor-indicators-bra, #unemployment-indicators-bra, #education-indicators-bra, #violence-indicators-bra {
+  display: none;
+} */
+.indicators-icons{
   display: flex;
   justify-content: space-around;
 }
 section{
   margin-bottom: 70px;
 }
-#second-page{
+.indicators-filter{
   margin-bottom: 80px; 
 }
 footer{

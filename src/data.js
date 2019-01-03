@@ -34,16 +34,16 @@ const menFilter = (arr) => {
   return menArray;
 };
 
-const orderIndicator = (arr) => {
-  let orderIndicatorName = []; 
-  orderIndicatorName = arr.sort(function(prev, next) {
-    if (prev.indicatorName > next.indicatorName) {
-      return 1;
-    } if (prev.indicatorName < next.indicatorName) {
-      return -1;
-    } return 0; 
-  });
-};
+// const orderIndicator = (arr) => {
+//   let orderIndicatorName = []; 
+//   orderIndicatorName = arr.sort(function(prev, next) {
+//     if (prev.indicatorName > next.indicatorName) {
+//       return 1;
+//     } if (prev.indicatorName < next.indicatorName) {
+//       return -1;
+//     } return 0; 
+//   });
+// };
 
 window.worldbank = {
   populationFilter,
@@ -53,5 +53,5 @@ window.worldbank = {
   violenceFilter,
   womenFilter,
   menFilter,
-  orderIndicator
+  // orderIndicator
 };
