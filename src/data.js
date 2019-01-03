@@ -53,6 +53,16 @@ const fallingIndicator = (arr) => {
   });
   return fallingIndicatorName; 
 };
+const fallingYears = (arr) => {
+  let fallingYear = arr.sort(function(prev, next) {
+    if (prev[0] > next[0]) {
+      return -1;
+    } if (prev[0] < next[0]) {
+      return 1;
+    } return 0; 
+  });
+  return fallingYear;
+}; 
 
 window.worldbank = {
   populationFilter,
@@ -63,7 +73,8 @@ window.worldbank = {
   womenFilter,
   menFilter,
   orderIndicator,
-  fallingIndicator
+  fallingIndicator,
+  fallingYears
 };
 
 

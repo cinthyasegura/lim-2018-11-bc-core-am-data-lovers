@@ -27,6 +27,8 @@ worldbank.populationFilter(indicatorsPeruArray, 'SP.POP').forEach(pop => {
   populationStringPer += populationListPer;
   populationIndicators.innerHTML = populationStringPer;
 });
+let yearsArray = '';
+
 // funcion para ocultar la data
 // const hideElement = (hiddenElement) => {
 //   hiddenElement.style.display = 'none';
