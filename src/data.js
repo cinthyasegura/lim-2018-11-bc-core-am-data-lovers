@@ -33,16 +33,25 @@ const menFilter = (arr) => {
   menArray = arr.filter(man => man.indicatorCode.includes('MA'));
   return menArray;
 };
-
 const orderIndicator = (arr) => {
-  let orderIndicatorName = []; 
-  orderIndicatorName = arr.sort(function(prev, next) {
+  let orderIndicatorName = arr.sort(function(prev, next) {
     if (prev.indicatorName > next.indicatorName) {
       return 1;
     } if (prev.indicatorName < next.indicatorName) {
       return -1;
     } return 0; 
   });
+  return orderIndicatorName; 
+};
+const fallingIndicator = (arr) => {
+  let fallingIndicatorName = arr.sort(function(prev, next) {
+    if (prev.indicatorName > next.indicatorName) {
+      return -1;
+    } if (prev.indicatorName < next.indicatorName) {
+      return 1;
+    } return 0; 
+  });
+  return fallingIndicatorName; 
 };
 
 window.worldbank = {
@@ -53,5 +62,18 @@ window.worldbank = {
   violenceFilter,
   womenFilter,
   menFilter,
-  orderIndicator
+  orderIndicator,
+  fallingIndicator
 };
+
+
+/* utilizando array.sort
+var orderIndicatorName = indicatorsArray.sort(function (a, b) {
+  if (a.indicatorName > b.indicatorName) {
+      return 1;
+  } if (a.indicatorName < b.indicatorName){
+      return -1;
+  }
+      return 0
+});
+orderIndicatorName; */

@@ -56,7 +56,7 @@ ul .dropdown-menu li a:hover{
 #lists{
     display: none;
 }
-#first-page{
+#first-page, #third-page{
   display: none;
 }
 #population-option, #labor-option, #unemployment-option, #education-option, #violence-option{
