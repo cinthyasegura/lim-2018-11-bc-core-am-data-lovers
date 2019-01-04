@@ -55,9 +55,9 @@ const fallingIndicator = (arr) => {
 };
 const fallingYears = (arr) => {
   let fallingYear = arr.sort(function(prev, next) {
-    if (prev[0] > next[0]) {
-      return -1;
-    } if (prev[0] < next[0]) {
+    if (prev[0] < next[0]) {
+      return 1;
+    } if (prev[0] > next[0]) {
       return 1;
     } return 0; 
   });

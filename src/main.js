@@ -22,12 +22,32 @@ worldbank.populationFilter(indicatorsPeruArray, 'SP.POP').forEach(pop => {
        <section id="listado">
           <h5>Año  -  Datos</h5>
           ${populationData(Object.entries(pop.data))}
+        <a href="#" id="link-desc">Descendente</a>
        </section>
     `;
   populationStringPer += populationListPer;
   populationIndicators.innerHTML = populationStringPer;
 });
-let yearsArray = '';
+//const btnDescData = document.getElementById('link-desc');
+//btnDescData.addEventListener('click', () => {
+let getDescDataList = '';
+worldbank.fallingYears(populationData(Object.entries(pop.data).forEach(pop => {
+  const descDataList = `
+       <section id="listado">
+          <h5>Año  -  Datos</h5>
+          ${populationData(Object.entries(pop.data))}
+        <a href="#" id="link-desc">Descendente</a>
+       </section>
+      `; 
+  getDescDataList += descDataList;
+  populationData.innerHTML = getDescDataList;
+})));
+//  const staticData = document.getElementById('static-data');
+//  const descData = document.getElementById('des-data');
+//  staticData.style.display = 'none';
+//  descData.style.display = 'block';
+//  descData.innerHTML = getDescDataList; 
+//}); 
 
 // funcion para ocultar la data
 // const hideElement = (hiddenElement) => {
