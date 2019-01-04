@@ -23,31 +23,22 @@ worldbank.populationFilter(indicatorsPeruArray, 'SP.POP').forEach(pop => {
           <h5>Año  -  Datos</h5>
           ${populationData(Object.entries(pop.data))}
         <a href="#" id="link-desc">Descendente</a>
+        <div id="mostrar-desc-años"></div>
        </section>
     `;
   populationStringPer += populationListPer;
   populationIndicators.innerHTML = populationStringPer;
 });
-//const btnDescData = document.getElementById('link-desc');
-//btnDescData.addEventListener('click', () => {
+/*
+const yearsData = (people) => {
+  return `
+  <ul> ${people.map(pop => `
+    <li>${pop.join(' - ')}</li>`).join('')}
+  </ul>
+  `;
+};
 let getDescDataList = '';
-worldbank.fallingYears(populationData(Object.entries(pop.data).forEach(pop => {
-  const descDataList = `
-       <section id="listado">
-          <h5>Año  -  Datos</h5>
-          ${populationData(Object.entries(pop.data))}
-        <a href="#" id="link-desc">Descendente</a>
-       </section>
-      `; 
-  getDescDataList += descDataList;
-  populationData.innerHTML = getDescDataList;
-})));
-//  const staticData = document.getElementById('static-data');
-//  const descData = document.getElementById('des-data');
-//  staticData.style.display = 'none';
-//  descData.style.display = 'block';
-//  descData.innerHTML = getDescDataList; 
-//}); 
+worldbank.fallingYears().; */
 
 // funcion para ocultar la data
 // const hideElement = (hiddenElement) => {
@@ -140,15 +131,11 @@ document.getElementById('showhide-btn').addEventListener('click', () => {
   document.getElementById('tabla').style.display = 'block';
 });
 let menString = '';
-worldbank.menFilter(indicatorsPeruArray, 'MA').forEach(man => {
+worldbank.menFilter(indicatorsPeruArray).forEach(man => {
   const menList = `<div><a href=#> ${man.indicatorName} </div></a>`;
   menString += menList;
   document.getElementById('demo-1').innerHTML = menString;
 });
-/*let sortString = '';
-worldbank.orderIndicator(indicatorsPeruArray).for(let indicador of orderIndicatorName){
-  console.log(indicador.indicatorName)
-};*/
 let sortString = '';
 worldbank.orderIndicator(indicatorsPeruArray).forEach(order => {
   const orderList = `<div>${order.indicatorName} </div>`;

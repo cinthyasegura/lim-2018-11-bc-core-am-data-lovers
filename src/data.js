@@ -53,16 +53,6 @@ const fallingIndicator = (arr) => {
   });
   return fallingIndicatorName; 
 };
-const fallingYears = (arr) => {
-  let fallingYear = arr.sort(function(prev, next) {
-    if (prev[0] < next[0]) {
-      return 1;
-    } if (prev[0] > next[0]) {
-      return 1;
-    } return 0; 
-  });
-  return fallingYear;
-}; 
 
 window.worldbank = {
   populationFilter,
@@ -73,10 +63,8 @@ window.worldbank = {
   womenFilter,
   menFilter,
   orderIndicator,
-  fallingIndicator,
-  fallingYears
+  fallingIndicator
 };
-
 
 /* utilizando array.sort
 var orderIndicatorName = indicatorsArray.sort(function (a, b) {
@@ -88,3 +76,18 @@ var orderIndicatorName = indicatorsArray.sort(function (a, b) {
       return 0
 });
 orderIndicatorName; */
+
+/* const fallingYears = (data) => {
+  let fallingYear = data.sort(function(prev, next) {
+    if (prev[0] < next[0]) {
+      return 1;
+    } if (prev[0] > next[0]) {
+      return 1;
+    } return 0; 
+  });
+  return fallingYear;
+}; */
+/* let sortString = '';
+worldbank.orderIndicator(indicatorsPeruArray).for(let indicador of orderIndicatorName){
+  console.log(indicador.indicatorName)
+};*/
