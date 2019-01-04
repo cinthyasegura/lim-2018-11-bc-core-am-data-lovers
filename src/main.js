@@ -286,17 +286,18 @@ worldbank.menFilter(indicatorsPeruArray, 'MA').forEach(man => {
   menString += menList;
   document.getElementById('demo-1').innerHTML = menString;
 });
-// let sortString = '';
-// worldbank.orderIndicator(indicatorsPeruArray).for( const indicador of orderIndicatorName){
-//   console.log(indicador.indicatorName)
-// }; 
-/* let sortString = '';
+let sortString = '';
 worldbank.orderIndicator(indicatorsPeruArray).forEach(order => {
-  const orderList = `<div><a href=#> ${order.indicatorName} </div></a>`;
+  const orderList = `<div>${order.indicatorName} </div>`;
   sortString += orderList;
-  document.getElementById('btn-asc').style.display = 'block'; 
-});*/
-
+  document.getElementById('upward-order').innerHTML = sortString;
+});
+let fallingString = '';
+worldbank.fallingIndicator(indicatorsPeruArray).forEach(falling => {
+  const fallingList = `<div>${falling.indicatorName} </div>`;
+  fallingString += fallingList;
+  document.getElementById('falling-order').innerHTML = fallingString;
+});
 
 document.getElementById('peru-map').addEventListener('click', () => {
   document.getElementById('welcome-page').style.display = 'none';
@@ -487,10 +488,20 @@ document.getElementById('men-btn').addEventListener('click', () => {
   document.getElementById('demo-1').style.display = 'block';
   document.getElementById('third-page').style.display = 'none';
 });
-
 document.getElementById('order-indicator').addEventListener('click', () => {
   document.getElementById('third-page').style.display = 'block';
   document.getElementById('welcome-page').style.display = 'none';
+  document.getElementById('upward-order').style.display = 'none';
+  document.getElementById('falling-order').style.display = 'none';
+});
+document.getElementById('btn-asc').addEventListener('click', () => {
+  document.getElementById('upward-order').style.display = 'block'; 
+  document.getElementById('welcome-page').style.display = 'none';
+});
+document.getElementById('btn-desc').addEventListener('click', () => {
+  document.getElementById('falling-order').style.display = 'block'; 
+  document.getElementById('welcome-page').style.display = 'none';
+  document.getElementById('upward-order').style.display = 'none';
 });
 
 // const objData = WORLDBANK.PER
