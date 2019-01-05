@@ -56,27 +56,18 @@ ul .dropdown-menu li a:hover{
 #lists{
     display: none;
 }
-#peru-page, #brazil-page, #chile-page, #mexico-page, #first-page, #third-page{
+#peru-page, #brazil-page, #chile-page, #mexico-page, #first-page, #sort-page{
   display: none;
 }
 .population-option, .labor-option, .unemployment-option, .education-option, .violence-option{
   cursor: pointer;
 }
-/* #population-option-bra, #labor-option-bra, #unemployment-option-bra, #education-option-bra, #violence-option-bra{
-  cursor: pointer;
-} */
 .population-option:hover, .labor-option:hover, .unemployment-option:hover, .education-option:hover, .violence-option:hover{
   text-decoration-line: underline;
 }
-/* #population-option-bra:hover, #labor-option-bra:hover, #unemployment-option-bra:hover, #education-option-bra:hover, #violence-option-bra:hover{
-  text-decoration-line: underline;
-} */
 .population-indicators, .labor-indicators, .unemployment-indicators, .education-indicators, .violence-indicators, #demo, #demo-1, #tabla {
   display: none;
 }
-/* #population-indicators-bra, #labor-indicators-bra, #unemployment-indicators-bra, #education-indicators-bra, #violence-indicators-bra {
-  display: none;
-} */
 .indicators-icons{
   display: flex;
   justify-content: space-around;
@@ -101,4 +92,10 @@ footer{
 }
 footer a{
   color: white; 
+}
+.listado, .hide-btn {
+  display: none;
+}
+.listado-data {
+  display: none;
 }

@@ -1,6 +1,6 @@
 const populationFilter = (arr, string) => {
   let populationArray = [];
-  populationArray = arr.filter(pop => pop.indicatorCode.slice(0, 6) === string); // pop is like arr[í]
+  populationArray = arr.filter(pop => pop.indicatorCode.slice(0, 6) === string); 
   return populationArray;
 };
 const laborFilter = (arr, string) => {
