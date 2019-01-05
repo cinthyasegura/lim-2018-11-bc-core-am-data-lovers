@@ -1,8 +1,8 @@
-# Data Lovers
+# Desarrollo latinoamericano - WORLDBANK
 
 ## Índice
 
-* [Preámbulo](#preámbulo)
+* [Historias de usuarios](#historias-de-usuarios)
 * [Descripción](#resumen-del-proyecto)
 * [Consideraciones generales](#consideraciones-generales)
 * [Objetivos de aprendizaje](#objetivos-de-aprendizaje)
@@ -15,7 +15,7 @@
 
 ***
 
-## Preámbulo
+## Historias de usuarios
 
 Según un [estudio de IBM](https://www-01.ibm.com/common/ssi/cgi-bin/ssialias?htmlfid=WRL12345USEN),
 el 90% de la data que existe hoy ha sido creada durante los últimos dos años.
