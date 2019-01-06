@@ -28,11 +28,13 @@ Como historias de usuarios tenemos:
 
 #### Prototipo de baja fidelidad
 
-
+![prototipo-baja-fidelidad-1](src/imagen/prototipo-baja-1.jpeg) ![prototipo-baja-fidelidad-2](src/imagen/prototipo-baja-2.jpeg)
+[prototipo-baja-fidelidad-3](src/imagen/prototipo-baja-3.jpeg)
 
 #### Prototipo de alta fidelidad
 
-
+![prototipo-baja-fidelidad-1](src/imagen/prototipo-alta-1.png) ![prototipo-baja-fidelidad-2](src/imagen/prototipo-alta-2.png)
+[prototipo-baja-fidelidad-3](src/imagen/prototipo-alta-3.png)
 
 
 ## Descripción del producto
