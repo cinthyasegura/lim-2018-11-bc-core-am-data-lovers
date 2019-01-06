@@ -302,22 +302,43 @@ worldbank.violenceFilter(indicatorsMexicoArray, 'SG.VAW').forEach(violent => {
   violenceIndicators[3].innerHTML = violenceStringMex;
 });
 
+// filtrado por sexo - per
+const womenData = (girl) => {
+  return `
+  <ul class="women-list"> ${girl.map(woman => `
+    <li>${woman.join(' - ')}</li>`).join('')}
+  </ul>
+  `;
+};
 let womenString = '';
 worldbank.womenFilter(indicatorsPeruArray).forEach(woman => {
-  const womenList = `<div><a href=#> ${woman.indicatorName} </a></div> <button id="showhide-btn">Mostrar</button>
-  <div id="tabla"> ${Object.entries(woman.data)} </div>`;
+  const womenList = `
+  <div> ${woman.indicatorName}</div>
+  <h5>Año  -  Datos</h5>
+  ${womenData(Object.entries(woman.data))} 
+  `;
   womenString += womenList;
   document.getElementById('demo').innerHTML = womenString;
 });
-document.getElementById('showhide-btn').addEventListener('click', () => {
-  document.getElementById('tabla').style.display = 'block';
-});
+
+const menData = (guy) => {
+  return `
+  <ul class="women-list"> ${guy.map(man => `
+    <li>${man.join(' - ')}</li>`).join('')}
+  </ul>
+  `;
+};
 let menString = '';
 worldbank.menFilter(indicatorsPeruArray).forEach(man => {
-  const menList = `<div><a href=#> ${man.indicatorName} </div></a>`;
+  const menList = `
+  <div> ${man.indicatorName} </div>
+  <h5>Año  -  Datos</h5>
+  ${menData(Object.entries(man.data))} 
+  `;
   menString += menList;
-  document.getElementById('demo-1').innerHTML = menString;
+  document.getElementById('men-indicators').innerHTML = menString;
 });
+
 // sort 
 let sortString = '';
 worldbank.orderIndicator(indicatorsPeruArray).forEach(order => {
@@ -338,6 +359,8 @@ document.getElementById('peru-map').addEventListener('click', () => {
   document.getElementById('brazil-page').style.display = 'none'; 
   document.getElementById('chile-page').style.display = 'none';
   document.getElementById('mexico-page').style.display = 'none';
+  document.getElementById('women-page').style.display = 'none';
+  document.getElementById('men-page').style.display = 'none';
   document.getElementById('sort-page').style.display = 'none';
 });
 document.getElementById('brazil-map').addEventListener('click', () => {
@@ -346,6 +369,8 @@ document.getElementById('brazil-map').addEventListener('click', () => {
   document.getElementById('brazil-page').style.display = 'block';
   document.getElementById('chile-page').style.display = 'none';
   document.getElementById('mexico-page').style.display = 'none';
+  document.getElementById('women-page').style.display = 'none';
+  document.getElementById('men-page').style.display = 'none';
   document.getElementById('sort-page').style.display = 'none';
 });
 document.getElementById('chile-map').addEventListener('click', () => {
@@ -353,7 +378,9 @@ document.getElementById('chile-map').addEventListener('click', () => {
   document.getElementById('peru-page').style.display = 'none';
   document.getElementById('brazil-page').style.display = 'none';
   document.getElementById('chile-page').style.display = 'block';
-  document.getElementById('mexico-page').style.display = 'none'; 
+  document.getElementById('mexico-page').style.display = 'none';
+  document.getElementById('women-page').style.display = 'none';
+  document.getElementById('men-page').style.display = 'none'; 
   document.getElementById('sort-page').style.display = 'none';
 });
 document.getElementById('mexico-map').addEventListener('click', () => {
@@ -362,6 +389,8 @@ document.getElementById('mexico-map').addEventListener('click', () => {
   document.getElementById('brazil-page').style.display = 'none';
   document.getElementById('chile-page').style.display = 'none';
   document.getElementById('mexico-page').style.display = 'block';
+  document.getElementById('women-page').style.display = 'none';
+  document.getElementById('men-page').style.display = 'none';
   document.getElementById('sort-page').style.display = 'none';
 });
 // peru
@@ -510,53 +539,46 @@ document.getElementsByClassName('violence-option')[3].addEventListener('click', 
   violenceIndicators[3].style.display = 'block';
 });
 
-document.getElementById('women-btn').addEventListener('click', () => {
+document.getElementById('women-option').addEventListener('click', () => {
   document.getElementById('welcome-page').style.display = 'none';
+  document.getElementById('peru-page').style.display = 'none';
+  document.getElementById('brazil-page').style.display = 'none';
+  document.getElementById('chile-page').style.display = 'none';
+  document.getElementById('mexico-page').style.display = 'none';
   document.getElementById('demo').style.display = 'block';
+  document.getElementById('women-page').style.display = 'block';
+  document.getElementById('men-page').style.display = 'none';
+  document.getElementById('sort-page').style.display = 'none';
+});
+document.getElementById('men-option').addEventListener('click', () => {
+  document.getElementById('welcome-page').style.display = 'none';
   document.getElementById('peru-page').style.display = 'none';
   document.getElementById('brazil-page').style.display = 'none';
   document.getElementById('chile-page').style.display = 'none';
   document.getElementById('mexico-page').style.display = 'none';
-  document.getElementById('sort-page').style.display = 'none';
-});
-document.getElementById('men-btn').addEventListener('click', () => {
-  document.getElementById('welcome-page').style.display = 'none';
   document.getElementById('demo').style.display = 'none';
-  document.getElementById('peru-page').style.display = 'none';
-  document.getElementById('brazil-page').style.display = 'none';
-  document.getElementById('chile-page').style.display = 'none';
-  document.getElementById('mexico-page').style.display = 'none';
-  document.getElementById('demo-1').style.display = 'block';
+  document.getElementById('women-page').style.display = 'none';
+  document.getElementById('men-page').style.display = 'block';
+  document.getElementById('men-indicators').style.display = 'block';
   document.getElementById('sort-page').style.display = 'none';
 });
-document.getElementById('order-indicator').addEventListener('click', () => {
-  document.getElementById('sort-page').style.display = 'block';
+document.getElementById('order-option').addEventListener('click', () => {
   document.getElementById('welcome-page').style.display = 'none';
-  document.getElementById('upward-order').style.display = 'none';
-  document.getElementById('falling-order').style.display = 'none';
   document.getElementById('peru-page').style.display = 'none';
   document.getElementById('brazil-page').style.display = 'none';
   document.getElementById('chile-page').style.display = 'none';
   document.getElementById('mexico-page').style.display = 'none';
+  document.getElementById('women-page').style.display = 'none';
+  document.getElementById('men-page').style.display = 'none';
+  document.getElementById('sort-page').style.display = 'block';
 });
 document.getElementById('btn-asc').addEventListener('click', () => {
-  document.getElementById('upward-order').style.display = 'block'; 
-  document.getElementById('welcome-page').style.display = 'none';
-  document.getElementById('peru-page').style.display = 'none';
-  document.getElementById('brazil-page').style.display = 'none';
-  document.getElementById('chile-page').style.display = 'none';
-  document.getElementById('mexico-page').style.display = 'none';
-  document.getElementById('sort-page').style.display = 'none';
+  document.getElementById('upward-order').style.display = 'block';
+  document.getElementById('falling-order').style.display = 'none'; 
 });
 document.getElementById('btn-desc').addEventListener('click', () => {
   document.getElementById('falling-order').style.display = 'block'; 
-  document.getElementById('welcome-page').style.display = 'none';
   document.getElementById('upward-order').style.display = 'none';
-  document.getElementById('peru-page').style.display = 'none';
-  document.getElementById('brazil-page').style.display = 'none';
-  document.getElementById('chile-page').style.display = 'none';
-  document.getElementById('mexico-page').style.display = 'none';
-  document.getElementById('sort-page').style.display = 'none';
 });
 
 
