@@ -65,4 +65,3 @@ window.worldbank = {
   orderIndicator,
   fallingIndicator
 };
-

@@ -329,7 +329,7 @@ const menData = (guy) => {
   `;
 };
 let menString = '';
-worldbank.menFilter(indicatorsPeruArray, 'MA').forEach(man => {
+worldbank.menFilter(indicatorsPeruArray).forEach(man => {
   const menList = `
   <div> ${man.indicatorName} </div>
   <h5>Año  -  Datos</h5>
@@ -338,6 +338,7 @@ worldbank.menFilter(indicatorsPeruArray, 'MA').forEach(man => {
   menString += menList;
   document.getElementById('men-indicators').innerHTML = menString;
 });
+
 // sort 
 let sortString = '';
 worldbank.orderIndicator(indicatorsPeruArray).forEach(order => {
