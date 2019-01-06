@@ -48,7 +48,7 @@ const input1 = [
     'countryCode': 'PER',
     'indicatorName': 'Empleo de tiempo parcial, mujeres (% del total de mujeres empleadas)',
     'indicatorCode': 'SL.TLF.PART.FE.ZS'
-  },
+  }
 ];
 const input2 = [
   {
@@ -56,9 +56,25 @@ const input2 = [
     'countryCode': 'PER',
     'indicatorName': 'Desempleo, varones jóvenes (% de participación en la fuerza laboral de varones de 15 a 24 años) (estimación nacional)',
     'indicatorCode': 'SL.UEM.1524.MA.NE.ZS'
-  },
+  }
 ];
-
+const input3 = [
+  {
+    'countryName': 'Perú',
+    'countryCode': 'PER',
+    'indicatorName': 'Empleo de tiempo parcial, mujeres (% del total de mujeres empleadas)',
+  }, 
+  {
+    'countryName': 'Perú',
+    'countryCode': 'PER',
+    'indicatorName': 'Proporción de participación en la fuerza laboral de mujeres y varones (%) (estimación nacional)',
+  },
+  {
+    'countryName': 'Perú',
+    'countryCode': 'PER',
+    'indicatorName': 'Alumnos de mayor edad, nivel primario, mujeres (% de matrícula de mujeres)',
+  }
+];
 
 const output = [
   {
@@ -108,7 +124,40 @@ const output5 = [
     'indicatorCode': 'SL.UEM.1524.MA.NE.ZS'
   },
 ];
-
+const output6 = [
+  {
+    'countryName': 'Perú',
+    'countryCode': 'PER',
+    'indicatorName': 'Alumnos de mayor edad, nivel primario, mujeres (% de matrícula de mujeres)',
+  },
+  {
+    'countryName': 'Perú',
+    'countryCode': 'PER',
+    'indicatorName': 'Empleo de tiempo parcial, mujeres (% del total de mujeres empleadas)',
+  },
+  {
+    'countryName': 'Perú',
+    'countryCode': 'PER',
+    'indicatorName': 'Proporción de participación en la fuerza laboral de mujeres y varones (%) (estimación nacional)',
+  }
+];
+const output7 = [
+  {
+    'countryName': 'Perú',
+    'countryCode': 'PER',
+    'indicatorName': 'Proporción de participación en la fuerza laboral de mujeres y varones (%) (estimación nacional)',
+  },
+  {
+    'countryName': 'Perú',
+    'countryCode': 'PER',
+    'indicatorName': 'Empleo de tiempo parcial, mujeres (% del total de mujeres empleadas)',
+  },
+  {
+    'countryName': 'Perú',
+    'countryCode': 'PER',
+    'indicatorName': 'Alumnos de mayor edad, nivel primario, mujeres (% de matrícula de mujeres)',
+  }
+];
 describe('worldbank', () => {
   it('deberia ser un objeto', () => {
     expect(typeof worldbank).toBe('object');
@@ -175,5 +224,21 @@ describe('worldbank.menFilter', () => {
   });
   it('deberia retornar una nuevo array con los indicadores de hombres', () => {
     expect(worldbank.menFilter(input2, 'MA')).toEqual(output5);
+  });
+});
+describe('worldbank.orderIndicator', () => {
+  it('deberia ser una funcion', () => {
+    expect(typeof worldbank.orderIndicator).toBe('function');
+  });
+  it('deberia retornar una función con el nombre de los indicadores en ascendente', () => {
+    expect(worldbank.orderIndicator(input3)).toEqual(output6);
+  });
+});
+describe('worldbank.fallingIndicator', () => {
+  it('deberia ser una funcion', () => {
+    expect(typeof worldbank.fallingIndicator).toBe('function');
+  });
+  it('deberia retornar una función con el nombre de los indicadores en descendente', () => {
+    expect(worldbank.fallingIndicator(input3)).toEqual(output7);
   });
 });

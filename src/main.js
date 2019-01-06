@@ -25,11 +25,14 @@ worldbank.populationFilter(indicatorsPeruArray, 'SP.POP').forEach(pop => {
        <section id="listado">
           <h5>Año  -  Datos</h5>
           ${populationData(Object.entries(pop.data))}
+        <a href="#" id="link-desc">Descendente</a>
+        <div id="mostrar-desc-años"></div>
        </section>
     `;
   populationStringPer += populationListPer;
   populationIndicators[0].innerHTML = populationStringPer;
 });
+
 // funcion para ocultar la data
 // const hideElement = (hiddenElement) => {
 //   hiddenElement.style.display = 'none';
@@ -281,7 +284,7 @@ document.getElementById('showhide-btn').addEventListener('click', () => {
   document.getElementById('tabla').style.display = 'block';
 });
 let menString = '';
-worldbank.menFilter(indicatorsPeruArray, 'MA').forEach(man => {
+worldbank.menFilter(indicatorsPeruArray).forEach(man => {
   const menList = `<div><a href=#> ${man.indicatorName} </div></a>`;
   menString += menList;
   document.getElementById('demo-1').innerHTML = menString;
