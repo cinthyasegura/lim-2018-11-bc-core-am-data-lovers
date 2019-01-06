@@ -11,7 +11,7 @@ const indicatorsMexicoArray = WORLDBANK.MEX.indicators;
 // filtrado de indicadores por codigo PARA PERU
 const populationData = (people) => {
   return `
-  <ul> ${people.map(pop => `
+  <ul class="population-list"> ${people.map(pop => `
     <li>${pop.join(' - ')}</li>`).join('')}
   </ul>
   `;
@@ -20,18 +20,47 @@ let populationStringPer = '';
 worldbank.populationFilter(indicatorsPeruArray, 'SP.POP').forEach(pop => {
   const populationListPer = `
     <div> ${pop.indicatorName}</div>
-    <a href="#" onclick="showElement()">Ver |</a>
-       <a href="#" onclick="hideElement(this)">Ocultar</a>
-       <section id="listado">
-          <h5>Año  -  Datos</h5>
-          ${populationData(Object.entries(pop.data))}
-        <a href="#" id="link-desc">Descendente</a>
-        <div id="mostrar-desc-años"></div>
-       </section>
+    <button class="show-btn">Ver</button>
+    <button class="hide-btn">Ocultar</button>
+    <section class="listado-data">
+      <h5>Año  -  Datos</h5>
+      ${populationData(Object.entries(pop.data))}
+    </section>
     `;
   populationStringPer += populationListPer;
   populationIndicators[0].innerHTML = populationStringPer;
 });
+
+const showBtn = document.getElementsByClassName('show-btn');
+const hideBtn = document.getElementsByClassName('hide-btn');
+
+for (let i = 0; i < showBtn.length; i++) {
+  for (let j = 0; j < hideBtn.length; j++) {
+    showBtn[i].addEventListener('click', () => {
+      showBtn[i].style.display = 'none';
+      hideBtn[j].style.display = 'block';  
+    });
+    hideBtn[j].addEventListener('click', () => {
+      showBtn[i].style.display = 'block'; 
+      hideBtn[j].style.display = 'none';
+    // document.getElementsByClassName('listado-data').style.display = 'block'; 
+    });
+  }
+}
+
+
+// document.getElementById('show-btn').addEventListener('click', () => {
+//   document.getElementById('hide-btn').style.display = 'block';
+//   document.getElementById('show-btn').style.display = 'none';
+//   document.getElementsByClassName('listado-data').style.display = 'block';
+// });
+
+// document.getElementById('hide-btn').addEventListener('click', () => {
+//   document.getElementById('hide-btn').style.display = 'none';
+//   document.getElementById('show-btn').style.display = 'block';
+//   document.getElementsByClassName('listado-data').style.display = 'none';
+// });
+
 
 // funcion para ocultar la data
 // const hideElement = (hiddenElement) => {
@@ -111,12 +140,12 @@ let populationStringBra = '';
 worldbank.populationFilter(indicatorsBrazilArray, 'SP.POP').forEach(pop => {
   const populationListBra = `
     <div> ${pop.indicatorName}</div>
-    <a href="#" onclick="showElement()">Ver |</a>
-       <a href="#" onclick="hideElement(this)">Ocultar</a>
-       <section id="listado">
-          <h5>Año  -  Datos</h5>
-          ${populationData(Object.entries(pop.data))}
-       </section>
+    <button class="show-btn">Ver</button>
+    <button class="hide-btn">Ocultar</button>
+    <section class="listado-data">
+      <h5>Año  -  Datos</h5>
+      ${populationData(Object.entries(pop.data))}
+    </section>
     `;
   populationStringBra += populationListBra;
   populationIndicators[1].innerHTML = populationStringBra;
@@ -167,12 +196,12 @@ let populationStringChl = '';
 worldbank.populationFilter(indicatorsChileArray, 'SP.POP').forEach(pop => {
   const populationListChl = `
     <div> ${pop.indicatorName}</div>
-    <a href="#" onclick="showElement()">Ver |</a>
-       <a href="#" onclick="hideElement(this)">Ocultar</a>
-       <section id="listado">
-          <h5>Año  -  Datos</h5>
-          ${populationData(Object.entries(pop.data))}
-       </section>
+    <button class="show-btn">Ver</button>
+    <button class="hide-btn">Ocultar</button>
+    <section class="listado-data">
+      <h5>Año  -  Datos</h5>
+      ${populationData(Object.entries(pop.data))}
+    </section>
     `;
   populationStringChl += populationListChl;
   populationIndicators[2].innerHTML = populationStringChl;
@@ -212,7 +241,7 @@ worldbank.violenceFilter(indicatorsChileArray, 'SG.VAW').forEach(violent => {
   const violenceListChl = `
   <div> ${violent.indicatorName} </div>
   <h5>Año  -  Datos</h5>
-   ${violenceData(Object.entries(violent.data))}
+  ${violenceData(Object.entries(violent.data))}
   `;
   violenceStringChl += violenceListChl;
   violenceIndicators[2].innerHTML = violenceStringChl;
@@ -222,12 +251,12 @@ let populationStringMex = '';
 worldbank.populationFilter(indicatorsMexicoArray, 'SP.POP').forEach(pop => {
   const populationListMex = `
     <div> ${pop.indicatorName}</div>
-    <a href="#" onclick="showElement()">Ver |</a>
-       <a href="#" onclick="hideElement(this)">Ocultar</a>
-       <section id="listado">
-          <h5>Año  -  Datos</h5>
-          ${populationData(Object.entries(pop.data))}
-       </section>
+    <button class="show-btn">Ver</button>
+    <button class="hide-btn">Ocultar</button>
+    <section class="listado-data">
+      <h5>Año  -  Datos</h5>
+      ${populationData(Object.entries(pop.data))}
+    </section>
     `;
   populationStringMex += populationListMex;
   populationIndicators[3].innerHTML = populationStringMex;
@@ -289,6 +318,7 @@ worldbank.menFilter(indicatorsPeruArray).forEach(man => {
   menString += menList;
   document.getElementById('demo-1').innerHTML = menString;
 });
+// sort 
 let sortString = '';
 worldbank.orderIndicator(indicatorsPeruArray).forEach(order => {
   const orderList = `<div>${order.indicatorName} </div>`;
@@ -308,7 +338,7 @@ document.getElementById('peru-map').addEventListener('click', () => {
   document.getElementById('brazil-page').style.display = 'none'; 
   document.getElementById('chile-page').style.display = 'none';
   document.getElementById('mexico-page').style.display = 'none';
-  document.getElementById('third-page').style.display = 'none';
+  document.getElementById('sort-page').style.display = 'none';
 });
 document.getElementById('brazil-map').addEventListener('click', () => {
   document.getElementById('welcome-page').style.display = 'none';
@@ -316,7 +346,7 @@ document.getElementById('brazil-map').addEventListener('click', () => {
   document.getElementById('brazil-page').style.display = 'block';
   document.getElementById('chile-page').style.display = 'none';
   document.getElementById('mexico-page').style.display = 'none';
-  document.getElementById('third-page').style.display = 'none';
+  document.getElementById('sort-page').style.display = 'none';
 });
 document.getElementById('chile-map').addEventListener('click', () => {
   document.getElementById('welcome-page').style.display = 'none';
@@ -324,7 +354,7 @@ document.getElementById('chile-map').addEventListener('click', () => {
   document.getElementById('brazil-page').style.display = 'none';
   document.getElementById('chile-page').style.display = 'block';
   document.getElementById('mexico-page').style.display = 'none'; 
-  document.getElementById('third-page').style.display = 'none';
+  document.getElementById('sort-page').style.display = 'none';
 });
 document.getElementById('mexico-map').addEventListener('click', () => {
   document.getElementById('welcome-page').style.display = 'none';
@@ -332,7 +362,7 @@ document.getElementById('mexico-map').addEventListener('click', () => {
   document.getElementById('brazil-page').style.display = 'none';
   document.getElementById('chile-page').style.display = 'none';
   document.getElementById('mexico-page').style.display = 'block';
-  document.getElementById('third-page').style.display = 'none';
+  document.getElementById('sort-page').style.display = 'none';
 });
 // peru
 document.getElementsByClassName('population-option')[0].addEventListener('click', () => {
@@ -483,34 +513,50 @@ document.getElementsByClassName('violence-option')[3].addEventListener('click', 
 document.getElementById('women-btn').addEventListener('click', () => {
   document.getElementById('welcome-page').style.display = 'none';
   document.getElementById('demo').style.display = 'block';
-  document.getElementById('third-page').style.display = 'none';
+  document.getElementById('peru-page').style.display = 'none';
+  document.getElementById('brazil-page').style.display = 'none';
+  document.getElementById('chile-page').style.display = 'none';
+  document.getElementById('mexico-page').style.display = 'none';
+  document.getElementById('sort-page').style.display = 'none';
 });
 document.getElementById('men-btn').addEventListener('click', () => {
   document.getElementById('welcome-page').style.display = 'none';
   document.getElementById('demo').style.display = 'none';
+  document.getElementById('peru-page').style.display = 'none';
+  document.getElementById('brazil-page').style.display = 'none';
+  document.getElementById('chile-page').style.display = 'none';
+  document.getElementById('mexico-page').style.display = 'none';
   document.getElementById('demo-1').style.display = 'block';
-  document.getElementById('third-page').style.display = 'none';
+  document.getElementById('sort-page').style.display = 'none';
 });
 document.getElementById('order-indicator').addEventListener('click', () => {
-  document.getElementById('third-page').style.display = 'block';
+  document.getElementById('sort-page').style.display = 'block';
   document.getElementById('welcome-page').style.display = 'none';
   document.getElementById('upward-order').style.display = 'none';
   document.getElementById('falling-order').style.display = 'none';
+  document.getElementById('peru-page').style.display = 'none';
+  document.getElementById('brazil-page').style.display = 'none';
+  document.getElementById('chile-page').style.display = 'none';
+  document.getElementById('mexico-page').style.display = 'none';
 });
 document.getElementById('btn-asc').addEventListener('click', () => {
   document.getElementById('upward-order').style.display = 'block'; 
   document.getElementById('welcome-page').style.display = 'none';
+  document.getElementById('peru-page').style.display = 'none';
+  document.getElementById('brazil-page').style.display = 'none';
+  document.getElementById('chile-page').style.display = 'none';
+  document.getElementById('mexico-page').style.display = 'none';
+  document.getElementById('sort-page').style.display = 'none';
 });
 document.getElementById('btn-desc').addEventListener('click', () => {
   document.getElementById('falling-order').style.display = 'block'; 
   document.getElementById('welcome-page').style.display = 'none';
   document.getElementById('upward-order').style.display = 'none';
+  document.getElementById('peru-page').style.display = 'none';
+  document.getElementById('brazil-page').style.display = 'none';
+  document.getElementById('chile-page').style.display = 'none';
+  document.getElementById('mexico-page').style.display = 'none';
+  document.getElementById('sort-page').style.display = 'none';
 });
 
-// const objData = WORLDBANK.PER
-// const arrWORLBANK = Object.keys(objData);
-// console.log(arrWORLBANK);
-
-// const datos = Object.entries(WORLDBANK.PER.indicators[0].data)
-// console.log(datos)
 
