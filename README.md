@@ -36,6 +36,10 @@ Como historias de usuarios tenemos:
 ![prototipo-baja-fidelidad-1](src/imagen/prototipo-alta-1.png) ![prototipo-baja-fidelidad-2](src/imagen/prototipo-alta-2.png)
 [prototipo-baja-fidelidad-3](src/imagen/prototipo-alta-3.png)
 
+#### Link a Zeplin 
+
+- Se puede mostrar el diseño en este link: (https://zpl.io/awWPk01)
 
 ## Descripción del producto
+
 
