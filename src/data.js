@@ -53,6 +53,29 @@ const fallingIndicator = (arr) => {
   });
   return fallingIndicatorName; 
 };
+// let indicData = [];
+// let maximo = [];
+// const calculateMax = arr => {
+//   for (let indx in arr) {
+//     for (let key in arr[indx].data) {
+//       indicData.push(Number(arr[indx].data[key]));
+//     }
+//   }
+//   maximo.push(Math.max(...indicData))
+//   return maximo;
+// };
+
+const calculateAverage = (arr) => {
+  let averageArray = [];
+  arr.forEach(value => {
+    let sum = value.reduce((total, current) => {
+      return (Number(total) + Number(current));
+    }, 0);
+    let average = sum / value.length;
+    averageArray.push(average.toFixed(2));    
+  });
+  return averageArray;
+};
 
 window.worldbank = {
   populationFilter,
@@ -63,5 +86,6 @@ window.worldbank = {
   womenFilter,
   menFilter,
   orderIndicator,
-  fallingIndicator
+  fallingIndicator,
+  calculateAverage
 };

@@ -53,7 +53,7 @@ ul .dropdown-menu li a:hover{
 #lists{
     display: none;
 }
-#peru-page, #brazil-page, #chile-page, #mexico-page, #first-page, #sort-page{
+#peru-page, #brazil-page, #chile-page, #mexico-page, #first-page, #sort-page, #women-page, #men-page{
   display: none;
 }
 .population-option, .labor-option, .unemployment-option, .education-option, .violence-option{
