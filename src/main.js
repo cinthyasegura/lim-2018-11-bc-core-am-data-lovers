@@ -79,11 +79,12 @@ worldbank.laborFilter(indicatorsPeruArray, 'SL.TLF').forEach(lab => {
   const laborListPer = `
   <div> ${lab.indicatorName} </div>
   <h5>Año  -  Datos</h5>
-   ${laborData(Object.entries(lab.data))}
+  ${laborData(Object.entries(lab.data))}
   `;
   laborStringPer += laborListPer;
   laborIndicators[0].innerHTML = laborStringPer;
 });
+// const <p>${worldbank.calculateAverage(Object.values(lab.data))}</p>
 const unemploymentData = unemploy => {
   return `
     <ul> ${unemploy.map(unemployed => `
@@ -580,5 +581,4 @@ document.getElementById('btn-desc').addEventListener('click', () => {
   document.getElementById('falling-order').style.display = 'block'; 
   document.getElementById('upward-order').style.display = 'none';
 });
-
 

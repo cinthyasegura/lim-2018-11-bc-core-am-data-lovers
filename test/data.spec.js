@@ -75,6 +75,9 @@ const input3 = [
     'indicatorName': 'Alumnos de mayor edad, nivel primario, mujeres (% de matrícula de mujeres)',
   }
 ];
+const input4 = [
+  ['50.25', '52.15'], ['60.34', '25.10'], ['23.12', '24.22']
+];
 
 const output = [
   {
@@ -158,6 +161,8 @@ const output7 = [
     'indicatorName': 'Alumnos de mayor edad, nivel primario, mujeres (% de matrícula de mujeres)',
   }
 ];
+const output8 = ['51.20', '42.72', '23.67'];
+
 describe('worldbank', () => {
   it('deberia ser un objeto', () => {
     expect(typeof worldbank).toBe('object');
@@ -214,7 +219,7 @@ describe('worldbank.womenFilter', () => {
     expect(typeof worldbank.womenFilter).toBe('function');
   });
   it('deberia retornar una nuevo array con los indicadores de mujeres', () => {
-    expect(worldbank.womenFilter(input1, 'FE')).toEqual(output1);
+    expect(worldbank.womenFilter(input1)).toEqual(output1);
   });
 });
 
@@ -223,7 +228,7 @@ describe('worldbank.menFilter', () => {
     expect(typeof worldbank.menFilter).toBe('function');
   });
   it('deberia retornar una nuevo array con los indicadores de hombres', () => {
-    expect(worldbank.menFilter(input2, 'MA')).toEqual(output5);
+    expect(worldbank.menFilter(input2)).toEqual(output5);
   });
 });
 describe('worldbank.orderIndicator', () => {
@@ -240,5 +245,13 @@ describe('worldbank.fallingIndicator', () => {
   });
   it('deberia retornar una función con el nombre de los indicadores en descendente', () => {
     expect(worldbank.fallingIndicator(input3)).toEqual(output7);
+  });
+});
+describe('worldbank.calculateAverage', () => {
+  it('deberia ser una funcion', () => {
+    expect(typeof worldbank.calculateAverage).toBe('function');
+  });
+  it('deberia calcular el promedio de los valores de la data', () => {
+    expect(worldbank.calculateAverage(input4)).toEqual(output8);
   });
 });
