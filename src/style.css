@@ -32,6 +32,7 @@ body {
 }
 nav.navbar{
   background-color: #009FDA;
+  
 }
 nav.navbar ul.nav li a{
   font-size: 20px;
@@ -42,10 +43,6 @@ ul .dropdown-menu{
 }
 ul .dropdown-menu li a:hover{
   color: #009FDA;
-}
-.map{
-  width: auto;
-  text-align: center;
 }
 #countries-list {
     list-style: none;
@@ -98,4 +95,19 @@ footer a{
 }
 .listado-data {
   display: none;
+}
+#flag-peru, #flag-brazil, #flag-chile, #flag-mexico, #ind-women{
+  background:#002244;
+  color: #FFF; 
+  padding-left: 5%;
+  padding-top: 0.3%;
+  padding-bottom: 0.3%;
+  margin-top: -20px;
+}
+h3{
+  display: inline;
+  padding-left: 1%;
+}
+h4{
+  padding-left: 2%;
 }
