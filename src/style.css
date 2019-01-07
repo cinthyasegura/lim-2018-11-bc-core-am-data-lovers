@@ -62,7 +62,7 @@ ul .dropdown-menu li a:hover{
 .population-option:hover, .labor-option:hover, .unemployment-option:hover, .education-option:hover, .violence-option:hover{
   text-decoration-line: underline;
 }
-.population-indicators, .labor-indicators, .unemployment-indicators, .education-indicators, .violence-indicators, #women-indicators, #men-indicators, #upward-order, #falling-order, #women-page, #men-page{
+.population-indicators, .labor-indicators, .unemployment-indicators, .education-indicators, .violence-indicators, #women-indicators, #men-indicators, #upward-order, #falling-order, #women-page, #men-page, #women-indicators-pe, #women-indicators-br, #women-indicators-ch, #women-indicators-me{
   display: none;
 }
 .indicators-icons{
