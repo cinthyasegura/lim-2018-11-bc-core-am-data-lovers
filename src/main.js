@@ -311,17 +311,83 @@ const womenData = (girl) => {
   </ul>
   `;
 };
-let womenString = '';
+// Mujeres Peru
+let womenStringPe = '';
 worldbank.womenFilter(indicatorsPeruArray).forEach(woman => {
   const womenList = `
   <div> ${woman.indicatorName}</div>
   <h5>Año  -  Datos</h5>
   ${womenData(Object.entries(woman.data))} 
   `;
-  womenString += womenList;
-  document.getElementById('demo').innerHTML = womenString;
+  womenStringPe += womenList;
+  document.getElementById('women-indicators-pe').innerHTML = womenStringPe;
+});
+// Mujeres Brasil
+let womenStringBr = '';
+worldbank.womenFilter(indicatorsBrazilArray).forEach(woman => {
+  const womenList = `
+  <div> ${woman.indicatorName}</div>
+  <h5>Año  -  Datos</h5>
+  ${womenData(Object.entries(woman.data))} 
+  `;
+  womenStringBr += womenList;
+  document.getElementById('women-indicators-br').innerHTML = womenStringBr;
+});
+// Mujer Chile 
+let womenStringCh = '';
+worldbank.womenFilter(indicatorsChileArray).forEach(woman => {
+  const womenList = `
+  <div> ${woman.indicatorName}</div>
+  <h5>Año  -  Datos</h5>
+  ${womenData(Object.entries(woman.data))} 
+  `;
+  womenStringCh += womenList;
+  document.getElementById('women-indicators-ch').innerHTML = womenStringCh;
+});
+// Mujeres Mexico
+let womenStringMe = '';
+worldbank.womenFilter(indicatorsMexicoArray).forEach(woman => {
+  const womenList = `
+  <div> ${woman.indicatorName}</div>
+  <h5>Año  -  Datos</h5>
+  ${womenData(Object.entries(woman.data))} 
+  `;
+  womenStringMe += womenList;
+  document.getElementById('women-indicators-me').innerHTML = womenStringMe;
 });
 
+// Mostrar en html con select
+const countrySelectWomen = document.getElementById('country-select-women');
+
+const showIndicator = () => {
+  if (countrySelectWomen.selectedIndex === 0) {
+    document.getElementById('select1').style.display = 'block';
+    document.getElementById('women-indicators-pe').style.display = 'block';
+    document.getElementById('women-indicators-br').style.display = 'none';
+    document.getElementById('women-indicators-ch').style.display = 'none';
+    document.getElementById('women-indicators-me').style.display = 'none';
+  } else if (countrySelectWomen.selectedIndex === 1) {
+    document.getElementById('select1').style.display = 'block';
+    document.getElementById('women-indicators-pe').style.display = 'none';
+    document.getElementById('women-indicators-br').style.display = 'block';
+    document.getElementById('women-indicators-ch').style.display = 'none';
+    document.getElementById('women-indicators-me').style.display = 'none';
+  } else if (countrySelectWomen.selectedIndex === 2) {
+    document.getElementById('select1').style.display = 'block';
+    document.getElementById('women-indicators-pe').style.display = 'none';
+    document.getElementById('women-indicators-br').style.display = 'none';
+    document.getElementById('women-indicators-ch').style.display = 'block';
+    document.getElementById('women-indicators-me').style.display = 'none';
+  } else {
+    document.getElementById('select1').style.display = 'block';
+    document.getElementById('women-indicators-pe').style.display = 'none';
+    document.getElementById('women-indicators-br').style.display = 'none';
+    document.getElementById('women-indicators-ch').style.display = 'none';
+    document.getElementById('women-indicators-me').style.display = 'block';
+  }
+};
+
+countrySelectWomen.addEventListener('click', showIndicator);
 const menData = (guy) => {
   return `
   <ul class="women-list"> ${guy.map(man => `
@@ -363,6 +429,10 @@ document.getElementById('peru-map').addEventListener('click', () => {
   document.getElementById('women-page').style.display = 'none';
   document.getElementById('men-page').style.display = 'none';
   document.getElementById('sort-page').style.display = 'none';
+  document.getElementById('women-indicators-pe').style.display = 'none';
+  document.getElementById('women-indicators-br').style.display = 'none';
+  document.getElementById('women-indicators-ch').style.display = 'none';
+  document.getElementById('women-indicators-me').style.display = 'none';
 });
 document.getElementById('brazil-map').addEventListener('click', () => {
   document.getElementById('welcome-page').style.display = 'none';
@@ -373,6 +443,10 @@ document.getElementById('brazil-map').addEventListener('click', () => {
   document.getElementById('women-page').style.display = 'none';
   document.getElementById('men-page').style.display = 'none';
   document.getElementById('sort-page').style.display = 'none';
+  document.getElementById('women-indicators-pe').style.display = 'none';
+  document.getElementById('women-indicators-br').style.display = 'none';
+  document.getElementById('women-indicators-ch').style.display = 'none';
+  document.getElementById('women-indicators-me').style.display = 'none';
 });
 document.getElementById('chile-map').addEventListener('click', () => {
   document.getElementById('welcome-page').style.display = 'none';
@@ -383,6 +457,10 @@ document.getElementById('chile-map').addEventListener('click', () => {
   document.getElementById('women-page').style.display = 'none';
   document.getElementById('men-page').style.display = 'none'; 
   document.getElementById('sort-page').style.display = 'none';
+  document.getElementById('women-indicators-pe').style.display = 'none';
+  document.getElementById('women-indicators-br').style.display = 'none';
+  document.getElementById('women-indicators-ch').style.display = 'none';
+  document.getElementById('women-indicators-me').style.display = 'none';
 });
 document.getElementById('mexico-map').addEventListener('click', () => {
   document.getElementById('welcome-page').style.display = 'none';
@@ -393,6 +471,10 @@ document.getElementById('mexico-map').addEventListener('click', () => {
   document.getElementById('women-page').style.display = 'none';
   document.getElementById('men-page').style.display = 'none';
   document.getElementById('sort-page').style.display = 'none';
+  document.getElementById('women-indicators-pe').style.display = 'none';
+  document.getElementById('women-indicators-br').style.display = 'none';
+  document.getElementById('women-indicators-ch').style.display = 'none';
+  document.getElementById('women-indicators-me').style.display = 'none';
 });
 // peru
 document.getElementsByClassName('population-option')[0].addEventListener('click', () => {
@@ -541,15 +623,18 @@ document.getElementsByClassName('violence-option')[3].addEventListener('click', 
 });
 
 document.getElementById('women-option').addEventListener('click', () => {
+  document.getElementById('women-page').style.display = 'block';
   document.getElementById('welcome-page').style.display = 'none';
   document.getElementById('peru-page').style.display = 'none';
   document.getElementById('brazil-page').style.display = 'none';
   document.getElementById('chile-page').style.display = 'none';
   document.getElementById('mexico-page').style.display = 'none';
-  document.getElementById('demo').style.display = 'block';
-  document.getElementById('women-page').style.display = 'block';
   document.getElementById('men-page').style.display = 'none';
   document.getElementById('sort-page').style.display = 'none';
+  document.getElementById('women-indicators-pe').style.display = 'none';
+  document.getElementById('women-indicators-br').style.display = 'none';
+  document.getElementById('women-indicators-ch').style.display = 'none';
+  document.getElementById('women-indicators-me').style.display = 'none';
 });
 document.getElementById('men-option').addEventListener('click', () => {
   document.getElementById('welcome-page').style.display = 'none';
@@ -557,7 +642,7 @@ document.getElementById('men-option').addEventListener('click', () => {
   document.getElementById('brazil-page').style.display = 'none';
   document.getElementById('chile-page').style.display = 'none';
   document.getElementById('mexico-page').style.display = 'none';
-  document.getElementById('demo').style.display = 'none';
+  document.getElementById('women-indicators').style.display = 'none';
   document.getElementById('women-page').style.display = 'none';
   document.getElementById('men-page').style.display = 'block';
   document.getElementById('men-indicators').style.display = 'block';

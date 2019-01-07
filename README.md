@@ -28,12 +28,36 @@ Como historias de usuarios tenemos:
 
 #### Prototipo de baja fidelidad
 
-
+![prototipo-baja-fidelidad-1](src/imagen/prototipo-baja-1.jpeg) 
+![prototipo-baja-fidelidad-2](src/imagen/prototipo-baja-2.jpeg) 
+![prototipo-baja-fidelidad-3](src/imagen/prototipo-baja-3.jpeg) 
 
 #### Prototipo de alta fidelidad
 
+![prototipo-baja-fidelidad-1](src/imagen/prototipo-alta-1.png) 
+![prototipo-baja-fidelidad-2](src/imagen/prototipo-alta-2.png) 
+![prototipo-baja-fidelidad-3](src/imagen/prototipo-alta-3.png) 
 
+#### Link a Zeplin 
 
+- Se puede mostrar el diseño en este link: [Diseño en Zeplin](https://zpl.io/awWPk01)
 
 ## Descripción del producto
 
+- **¿Quiénes son los principales usuarios del producto?**
+
+Estudiantes universitarios o de institutos que estén realizado trabajos de investigación como por ejemplo tesina, tesis. También profesionales que trabajan en el rubro de la investigación, los cuales requieren de la información de los indicadores demográficos y económicos que se muestran en nuestra página.
+
+- **¿Cuáles son los objetivos de estos usuarios en relación con tu producto?**
+
+Que los principales usuarios puedan acceder a los datos del banco mundial de manera rápida, dinámica y comprensible.  
+
+- **¿Cómo crees que el producto que estás creando está resolviendo sus problemas?**
+
+Se identificó la necesidad que tiene los usuarios principales en buscar información de los indicadores demográficos y económicos, pero la información es difícil de encontrar y en las actuales páginas web que brindan la información, los datos se muestran de forma poco dinámica. Esto siendo tedioso para los usuarios. 
+
+- **Proceso de diseño**
+
+Primero se realizó entrevistas a nuestros usuarios principales, preguntando de qué manera se puede diseñar nuestra página web para que sea atractiva, y los ayude cuando realicen su actividad de investigación. 
+
+Los usuarios nos dijeron que para que la página sea atractiva tiene que presentar los datos en gráficos, que las letras sean compresibles y  facilidad para acceder a los datos. De esta manera se pudo escribir las historias de usuario para realizar la página web. 
