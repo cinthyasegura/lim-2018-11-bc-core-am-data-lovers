@@ -93,9 +93,9 @@ footer a{
 .listado, .hide-btn {
   display: none;
 }
-.listado-data {
+/* .listado-data {
   display: none;
-}
+} */
 #flag-peru, #flag-brazil, #flag-chile, #flag-mexico, #ind-women, #ind-men{
   background:#002244;
   color: #FFF; 
@@ -110,4 +110,8 @@ h3{
 }
 h4{
   padding-left: 2%;
+}
+.indicator-name {
+  color: #002244;
+  font-weight: 600;
 }
