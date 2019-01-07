@@ -96,7 +96,7 @@ footer a{
 .listado-data {
   display: none;
 }
-#flag-peru, #flag-brazil, #flag-chile, #flag-mexico, #ind-women{
+#flag-peru, #flag-brazil, #flag-chile, #flag-mexico, #ind-women, #ind-men{
   background:#002244;
   color: #FFF; 
   padding-left: 5%;
