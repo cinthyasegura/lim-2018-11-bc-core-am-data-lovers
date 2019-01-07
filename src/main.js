@@ -303,7 +303,7 @@ worldbank.violenceFilter(indicatorsMexicoArray, 'SG.VAW').forEach(violent => {
   violenceIndicators[3].innerHTML = violenceStringMex;
 });
 
-// filtrado por sexo - per
+// filtrado por sexo 
 const womenData = (girl) => {
   return `
   <ul class="women-list"> ${girl.map(woman => `
@@ -356,10 +356,10 @@ worldbank.womenFilter(indicatorsMexicoArray).forEach(woman => {
   document.getElementById('women-indicators-me').innerHTML = womenStringMe;
 });
 
-// Mostrar en html con select
+// Mostrar indicadores mujeres en html con select
 const countrySelectWomen = document.getElementById('country-select-women');
 
-const showIndicator = () => {
+const womenShowIndicator = () => {
   if (countrySelectWomen.selectedIndex === 0) {
     document.getElementById('select1').style.display = 'block';
     document.getElementById('women-indicators-pe').style.display = 'block';
@@ -386,7 +386,7 @@ const showIndicator = () => {
     document.getElementById('women-indicators-me').style.display = 'block';
   }
 };
-countrySelectWomen.addEventListener('click', showIndicator);
+countrySelectWomen.addEventListener('click', womenShowIndicator);
 
 const menData = (guy) => {
   return `
@@ -395,16 +395,81 @@ const menData = (guy) => {
   </ul>
   `;
 };
-let menString = '';
+// Hombres Perú
+let menStringPe = '';
 worldbank.menFilter(indicatorsPeruArray).forEach(man => {
   const menList = `
   <div> ${man.indicatorName} </div>
   <h5>Año  -  Datos</h5>
   ${menData(Object.entries(man.data))} 
   `;
-  menString += menList;
-  document.getElementById('men-indicators').innerHTML = menString;
+  menStringPe += menList;
+  document.getElementById('men-indicators-pe').innerHTML = menStringPe;
 });
+// Hombres Brasil
+let menStringBr = '';
+worldbank.menFilter(indicatorsBrazilArray).forEach(man => {
+  const menList = `
+  <div> ${man.indicatorName} </div>
+  <h5>Año  -  Datos</h5>
+  ${menData(Object.entries(man.data))} 
+  `;
+  menStringBr += menList;
+  document.getElementById('men-indicators-br').innerHTML = menStringBr;
+});
+// Hombres Chile
+let menStringCh = '';
+worldbank.menFilter(indicatorsChileArray).forEach(man => {
+  const menList = `
+  <div> ${man.indicatorName} </div>
+  <h5>Año  -  Datos</h5>
+  ${menData(Object.entries(man.data))} 
+  `;
+  menStringCh += menList;
+  document.getElementById('men-indicators-ch').innerHTML = menStringCh;
+});
+// Hombres México
+let menStringMe = '';
+worldbank.menFilter(indicatorsMexicoArray).forEach(man => {
+  const menList = `
+  <div> ${man.indicatorName} </div>
+  <h5>Año  -  Datos</h5>
+  ${menData(Object.entries(man.data))} 
+  `;
+  menStringMe += menList;
+  document.getElementById('men-indicators-me').innerHTML = menStringMe;
+});
+// Mostrar indicadores hombres en html con select
+const countrySelectMen = document.getElementById('country-select-men');
+
+const menShowIndicator = () => {
+  if (countrySelectMen.selectedIndex === 0) {
+    document.getElementById('select2').style.display = 'block';
+    document.getElementById('men-indicators-pe').style.display = 'block';
+    document.getElementById('men-indicators-br').style.display = 'none';
+    document.getElementById('men-indicators-ch').style.display = 'none';
+    document.getElementById('men-indicators-me').style.display = 'none';
+  } else if (countrySelectMen.selectedIndex === 1) {
+    document.getElementById('select2').style.display = 'block';
+    document.getElementById('men-indicators-pe').style.display = 'none';
+    document.getElementById('men-indicators-br').style.display = 'block';
+    document.getElementById('men-indicators-ch').style.display = 'none';
+    document.getElementById('men-indicators-me').style.display = 'none';
+  } else if (countrySelectMen.selectedIndex === 2) {
+    document.getElementById('select2').style.display = 'block';
+    document.getElementById('men-indicators-pe').style.display = 'none';
+    document.getElementById('men-indicators-br').style.display = 'none';
+    document.getElementById('men-indicators-ch').style.display = 'block';
+    document.getElementById('men-indicators-me').style.display = 'none';
+  } else {
+    document.getElementById('select2').style.display = 'block';
+    document.getElementById('men-indicators-pe').style.display = 'none';
+    document.getElementById('men-indicators-br').style.display = 'none';
+    document.getElementById('men-indicators-ch').style.display = 'none';
+    document.getElementById('men-indicators-me').style.display = 'block';
+  }
+};
+countrySelectMen.addEventListener('click', menShowIndicator);
 
 // sort 
 let sortString = '';
@@ -638,19 +703,17 @@ document.getElementById('women-option').addEventListener('click', () => {
 });
 document.getElementById('men-option').addEventListener('click', () => {
   document.getElementById('men-page').style.display = 'block';
-  document.getElementById('men-indicators').style.display = 'block';
   document.getElementById('welcome-page').style.display = 'none';
   document.getElementById('peru-page').style.display = 'none';
   document.getElementById('brazil-page').style.display = 'none';
   document.getElementById('chile-page').style.display = 'none';
   document.getElementById('mexico-page').style.display = 'none';
   document.getElementById('women-page').style.display = 'none';
-  document.getElementById('men-page').style.display = 'block';
   document.getElementById('sort-page').style.display = 'none';
-  document.getElementById('women-indicators-pe').style.display = 'none';
-  document.getElementById('women-indicators-br').style.display = 'none';
-  document.getElementById('women-indicators-ch').style.display = 'none';
-  document.getElementById('women-indicators-me').style.display = 'none';
+  document.getElementById('men-indicators-pe').style.display = 'none';
+  document.getElementById('men-indicators-br').style.display = 'none';
+  document.getElementById('men-indicators-ch').style.display = 'none';
+  document.getElementById('men-indicators-me').style.display = 'none';
 });
 document.getElementById('order-option').addEventListener('click', () => {
   document.getElementById('welcome-page').style.display = 'none';
