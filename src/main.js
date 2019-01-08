@@ -8,13 +8,14 @@ const indicatorsBrazilArray = WORLDBANK.BRA.indicators;
 const indicatorsChileArray = WORLDBANK.CHL.indicators;
 const indicatorsMexicoArray = WORLDBANK.MEX.indicators;
 
-
 // funcion que me muesta en un array de arrays los values de data
-let acum = [];
+
 const dataOfData = arr => {
+  let acum = [];
   const arrData = arr.map(val => val.data);
   const valuesOfData = arrData.map(val => Object.values(val));
   acum.push(valuesOfData);
+  // console.log(acum)
   return acum;
 };
 
@@ -26,14 +27,15 @@ const populationData = (people) => {
   </ul>
   `;
 };
-const populationInfo = (pop) => {
+const populationInfo = (pop, index) => {
+  const averagePopulationArray = worldbank.calculateAverage(...dataOfData(worldbank.populationFilter(indicatorsPeruArray, 'SP.POP')));
   return `
   <div class="indicator-name"> ${pop.indicatorName}</div>
   <section class="listado-data">
     ${populationData(Object.entries(pop.data))}
-    <p class ="average-value"> El promedio es: ${(worldbank.calculateAverage(...dataOfData(worldbank.populationFilter(indicatorsPeruArray, 'SP.POP'))))}</p>
+    <p class ="average-value"> El promedio es: ${averagePopulationArray[index]}</p>
   </section>
-  `;
+  `; 
 };
 // map will run the function populationInfo once for each item in the original array and each time the function runs whatever it returns gets added to the new array
 populationIndicators[0].innerHTML = `${worldbank.populationFilter(indicatorsPeruArray, 'SP.POP').map(populationInfo).join('')}`;
@@ -67,11 +69,13 @@ const laborData = work => {
     </ul>
   `;
 };
-const laborInfo = (lab) => {
+const laborInfo = (lab, index) => {
+  const averageLaborArray = worldbank.calculateAverage(...dataOfData(worldbank.laborFilter(indicatorsPeruArray, 'SL.TLF')));
   return `
   <div class="indicator-name"> ${lab.indicatorName} </div>
   <section class="listado-data">
     ${laborData(Object.entries(lab.data))}
+    <p class ="average-value"> El promedio es: ${averageLaborArray[index]}</p>
   </section>
   `;
 };
@@ -88,11 +92,13 @@ const unemploymentData = unemploy => {
     </ul>
   `;
 };
-const unemploymentInfo = (unemployed) => {
+const unemploymentInfo = (unemployed, index) => {
+  const averageUnemploymentArray = worldbank.calculateAverage(...dataOfData(worldbank.unemploymentFilter(indicatorsPeruArray, 'SL.UEM')));
   return `
   <div class="indicator-name"> ${unemployed.indicatorName}</div>
   <section class="listado-data">
-    ${unemploymentData(Object.entries(unemployed.data))}
+    ${unemploymentData(Object.entries(unemployed.data))} 
+    <p class="average-value"> El promedio es: ${averageUnemploymentArray[index]}<p/>
    </section>
   `;
 };
@@ -109,11 +115,13 @@ const educationData = educa => {
     </ul>
   `;
 };
-const educationInfo = (edu) => {
+const educationInfo = (edu, index) => {
+  const averageEducationArray = worldbank.calculateAverage(...dataOfData(worldbank.educationFilter(indicatorsPeruArray, 'SE')));
   return `
   <div class="indicator-name"> ${edu.indicatorName}</div>
   <section class="listado-data">
     ${educationData(Object.entries(edu.data))}
+    <p class="average-value"> El promedio es: ${averageEducationArray[index]}<p/>
    </section>
   `;
 };
@@ -130,11 +138,13 @@ const violenceData = assault => {
     </ul>
   `;
 };
-const violenceInfo = (violent) => {
+const violenceInfo = (violent, index) => {
+  const averageViolenceArray = worldbank.calculateAverage(...dataOfData(worldbank.violenceFilter(indicatorsPeruArray, 'SG.VAW')));
   return `
   <div class="indicator-name"> ${violent.indicatorName} </div>
   <section class="listado-data">
     ${violenceData(Object.entries(violent.data))}
+    <p class="average-value"> El promedio es: ${averageViolenceArray[index]}<p/>
   </section>
   `;
 };
