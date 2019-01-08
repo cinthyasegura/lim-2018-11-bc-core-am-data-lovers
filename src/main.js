@@ -10,8 +10,8 @@ const indicatorsMexicoArray = WORLDBANK.MEX.indicators;
 
 
 // funcion que me muesta en un array de arrays los values de data
-let acum = [];
 const dataOfData = arr => {
+  let acum = [];
   const arrData = arr.map(val => val.data);
   const valuesOfData = arrData.map(val => Object.values(val));
   acum.push(valuesOfData);
@@ -27,20 +27,19 @@ const populationData = (people) => {
   `;
 };
 let populationStringPer = '';
-worldbank.populationFilter(indicatorsPeruArray, 'SP.POP').forEach(pop => {
+worldbank.populationFilter(indicatorsPeruArray, 'SP.POP').forEach((pop, index) => {
+  const arrayPromedio = worldbank.calculateAverage(...dataOfData(worldbank.populationFilter(indicatorsPeruArray, 'SP.POP'))); 
   const populationListPer = `
     <div class="indicator-name"> ${pop.indicatorName}</div>
     <section class="listado-data">
       <h5>Año  -  Datos</h5>
       ${populationData(Object.entries(pop.data))}
-      <p class ="average-value"> El promedio es: ${(worldbank.calculateAverage(...dataOfData(worldbank.populationFilter(indicatorsPeruArray, 'SP.POP'))))}</p>
+      <p class ="average-value"> El promedio es: ${arrayPromedio[index]}</p>
     </section>
     `;
   populationStringPer += populationListPer;
   populationIndicators[0].innerHTML = populationStringPer;
 });
-
-//https://www.youtube.com/watch?annotation_id=annotation_4085373927&feature=iv&src_vid=WT2YwgeUuDU&v=F-KCncXMPk0https://www.youtube.com/watch?annotation_id=annotation_4085373927&feature=iv&src_vid=WT2YwgeUuDU&v=F-KCncXMPk0
 
 /* <button class="show-btn">Ver</button>
     <button class="hide-btn">Ocultar</button>
@@ -71,12 +70,14 @@ const laborData = work => {
   `;
 };
 let laborStringPer = '';
-worldbank.laborFilter(indicatorsPeruArray, 'SL.TLF').forEach(lab => {
+worldbank.laborFilter(indicatorsPeruArray, 'SL.TLF').forEach((lab, index) => {
+  const arrayPromedio = worldbank.calculateAverage(...dataOfData(worldbank.laborFilter(indicatorsPeruArray, 'SL.TLF'))); 
   const laborListPer = `
   <div class="indicator-name"> ${lab.indicatorName} </div>
   <section class="listado-data">
     <h5>Año  -  Datos</h5>
     ${laborData(Object.entries(lab.data))}
+    <p class ="average-value"> El promedio es: ${arrayPromedio[index]}</p>
   </section>
   `;
   laborStringPer += laborListPer;
@@ -91,12 +92,14 @@ const unemploymentData = unemploy => {
   `;
 };
 let unemploymentStringPer = '';
-worldbank.unemploymentFilter(indicatorsPeruArray, 'SL.UEM').forEach(unemployed => {
+worldbank.unemploymentFilter(indicatorsPeruArray, 'SL.UEM').forEach((unemployed, index) => {
+  const arrayPromedio = worldbank.calculateAverage(...dataOfData(worldbank.unemploymentFilter(indicatorsPeruArray, 'SL.UEM'))); 
   const unemploymentListPer = `
   <div class="indicator-name"> ${unemployed.indicatorName}</div>
   <section class="listado-data">
     <h5>Año  -  Datos</h5>
     ${unemploymentData(Object.entries(unemployed.data))}
+    <p class ="average-value"> El promedio es: ${arrayPromedio[index]}</p>
    </section>
   `;
   unemploymentStringPer += unemploymentListPer;

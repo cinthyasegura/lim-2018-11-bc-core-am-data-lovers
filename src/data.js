@@ -72,7 +72,7 @@ const calculateAverage = (arr) => {
       return (Number(total) + Number(current));
     }, 0);
     let average = sum / value.length;
-    averageArray.push(average.toFixed(2));    
+    averageArray.push(Object.assign(average.toFixed(2)));    
   });
   return averageArray;
 };
