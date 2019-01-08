@@ -27,8 +27,8 @@ const populationData = (people) => {
   </ul>
   `;
 };
-const populationInfo = (pop, index) => {
-  const averagePopulationArray = worldbank.calculateAverage(...dataOfData(worldbank.populationFilter(indicatorsPeruArray, 'SP.POP')));
+const populationInfo = (pop, index, country) => {
+  const averagePopulationArray = worldbank.calculateAverage(...dataOfData(worldbank.populationFilter(country, 'SP.POP')));
   return `
   <div class="indicator-name"> ${pop.indicatorName}</div>
   <section class="listado-data">
@@ -69,8 +69,8 @@ const laborData = work => {
     </ul>
   `;
 };
-const laborInfo = (lab, index) => {
-  const averageLaborArray = worldbank.calculateAverage(...dataOfData(worldbank.laborFilter(indicatorsPeruArray, 'SL.TLF')));
+const laborInfo = (lab, index, country) => {
+  const averageLaborArray = worldbank.calculateAverage(...dataOfData(worldbank.laborFilter(country, 'SL.TLF')));
   return `
   <div class="indicator-name"> ${lab.indicatorName} </div>
   <section class="listado-data">
@@ -115,8 +115,8 @@ const educationData = educa => {
     </ul>
   `;
 };
-const educationInfo = (edu, index) => {
-  const averageEducationArray = worldbank.calculateAverage(...dataOfData(worldbank.educationFilter(indicatorsPeruArray, 'SE')));
+const educationInfo = (edu, index, country) => {
+  const averageEducationArray = worldbank.calculateAverage(...dataOfData(worldbank.educationFilter(country, 'SE')));
   return `
   <div class="indicator-name"> ${edu.indicatorName}</div>
   <section class="listado-data">
@@ -138,8 +138,8 @@ const violenceData = assault => {
     </ul>
   `;
 };
-const violenceInfo = (violent, index) => {
-  const averageViolenceArray = worldbank.calculateAverage(...dataOfData(worldbank.violenceFilter(indicatorsPeruArray, 'SG.VAW')));
+const violenceInfo = (violent, index, country) => {
+  const averageViolenceArray = worldbank.calculateAverage(...dataOfData(worldbank.violenceFilter(country, 'SG.VAW')));
   return `
   <div class="indicator-name"> ${violent.indicatorName} </div>
   <section class="listado-data">
