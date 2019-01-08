@@ -18,28 +18,28 @@ const dataOfData = arr => {
   return acum;
 };
 
-// filtrado de indicadores por codigo PARA PERU
 const populationData = (people) => {
   return `
+  <h5><strong>Año  -  Datos</strong></h5>
   <ul class="population-list"> ${people.map(pop => `
     <li>${pop.join(' - ')}</li>`).join('')}
   </ul>
   `;
 };
-let populationStringPer = '';
-worldbank.populationFilter(indicatorsPeruArray, 'SP.POP').forEach(pop => {
-  const populationListPer = `
-    <div class="indicator-name"> ${pop.indicatorName}</div>
-    <section class="listado-data">
-      <h5>Año  -  Datos</h5>
-      ${populationData(Object.entries(pop.data))}
-      <p class ="average-value"> El promedio es: ${(worldbank.calculateAverage(...dataOfData(worldbank.populationFilter(indicatorsPeruArray, 'SP.POP'))))}</p>
-    </section>
-    `;
-  populationStringPer += populationListPer;
-  populationIndicators[0].innerHTML = populationStringPer;
-});
-
+const populationInfo = (pop) => {
+  return `
+  <div class="indicator-name"> ${pop.indicatorName}</div>
+  <section class="listado-data">
+    ${populationData(Object.entries(pop.data))}
+    <p class ="average-value"> El promedio es: ${(worldbank.calculateAverage(...dataOfData(worldbank.populationFilter(indicatorsPeruArray, 'SP.POP'))))}</p>
+  </section>
+  `;
+};
+// map will run the function populationInfo once for each item in the original array and each time the function runs whatever it returns gets added to the new array
+populationIndicators[0].innerHTML = `${worldbank.populationFilter(indicatorsPeruArray, 'SP.POP').map(populationInfo).join('')}`;
+populationIndicators[1].innerHTML = `${worldbank.populationFilter(indicatorsBrazilArray, 'SP.POP').map(populationInfo).join('')}`;
+populationIndicators[2].innerHTML = `${worldbank.populationFilter(indicatorsChileArray, 'SP.POP').map(populationInfo).join('')}`;
+populationIndicators[3].innerHTML = `${worldbank.populationFilter(indicatorsMexicoArray, 'SP.POP').map(populationInfo).join('')}`;
 /* <button class="show-btn">Ver</button>
     <button class="hide-btn">Ocultar</button>
 
@@ -59,334 +59,112 @@ for (let i = 0; i < showBtn.length; i++) {
     });
   }
 } */
-
-
 const laborData = work => {
   return `
+    <h5>Año  -  Datos</h5>
     <ul> ${work.map(lab => `
       <li>${lab.join(' - ')}</li>`).join('')}
     </ul>
   `;
 };
-let laborStringPer = '';
-worldbank.laborFilter(indicatorsPeruArray, 'SL.TLF').forEach(lab => {
-  const laborListPer = `
+const laborInfo = (lab) => {
+  return `
   <div class="indicator-name"> ${lab.indicatorName} </div>
   <section class="listado-data">
-    <h5>Año  -  Datos</h5>
     ${laborData(Object.entries(lab.data))}
   </section>
   `;
-  laborStringPer += laborListPer;
-  laborIndicators[0].innerHTML = laborStringPer;
-});
+};
+laborIndicators[0].innerHTML = `${worldbank.laborFilter(indicatorsPeruArray, 'SL.TLF').map(laborInfo).join('')}`;
+laborIndicators[1].innerHTML = `${worldbank.laborFilter(indicatorsBrazilArray, 'SL.TLF').map(laborInfo).join('')}`;
+laborIndicators[2].innerHTML = `${worldbank.laborFilter(indicatorsChileArray, 'SL.TLF').map(laborInfo).join('')}`;
+laborIndicators[3].innerHTML = `${worldbank.laborFilter(indicatorsMexicoArray, 'SL.TLF').map(laborInfo).join('')}`;
 // const <p>${worldbank.calculateAverage(Object.values(lab.data))}</p>
 const unemploymentData = unemploy => {
   return `
+    <h5>Año  -  Datos</h5>
     <ul> ${unemploy.map(unemployed => `
       <li>${unemployed.join(' - ')}</li>`).join('')}
     </ul>
   `;
 };
-let unemploymentStringPer = '';
-worldbank.unemploymentFilter(indicatorsPeruArray, 'SL.UEM').forEach(unemployed => {
-  const unemploymentListPer = `
+const unemploymentInfo = (unemployed) => {
+  return `
   <div class="indicator-name"> ${unemployed.indicatorName}</div>
   <section class="listado-data">
-    <h5>Año  -  Datos</h5>
     ${unemploymentData(Object.entries(unemployed.data))}
    </section>
   `;
-  unemploymentStringPer += unemploymentListPer;
-  unemploymentIndicators[0].innerHTML = unemploymentStringPer;
-});
+};
+unemploymentIndicators[0].innerHTML = `${worldbank.unemploymentFilter(indicatorsPeruArray, 'SL.UEM').map(unemploymentInfo).join('')}`;
+unemploymentIndicators[1].innerHTML = `${worldbank.unemploymentFilter(indicatorsBrazilArray, 'SL.UEM').map(unemploymentInfo).join('')}`;
+unemploymentIndicators[2].innerHTML = `${worldbank.unemploymentFilter(indicatorsChileArray, 'SL.UEM').map(unemploymentInfo).join('')}`;
+unemploymentIndicators[3].innerHTML = `${worldbank.unemploymentFilter(indicatorsMexicoArray, 'SL.UEM').map(unemploymentInfo).join('')}`;
+
 const educationData = educa => {
   return `
+    <h5>Año  -  Datos</h5>
     <ul> ${educa.map(edu => `
       <li>${edu.join(' - ')}</li>`).join('')}
     </ul>
   `;
 };
-let educationStringPer = '';
-worldbank.educationFilter(indicatorsPeruArray, 'SE').forEach(edu => {
-  const educationListPer = `
+const educationInfo = (edu) => {
+  return `
   <div class="indicator-name"> ${edu.indicatorName}</div>
   <section class="listado-data">
-    <h5>Año  -  Datos</h5>
     ${educationData(Object.entries(edu.data))}
-  </section>
+   </section>
   `;
-  educationStringPer += educationListPer;
-  educationIndicators[0].innerHTML = educationStringPer;
-}); 
+};
+educationIndicators[0].innerHTML = `${worldbank.educationFilter(indicatorsPeruArray, 'SE').map(educationInfo).join('')}`;
+educationIndicators[1].innerHTML = `${worldbank.educationFilter(indicatorsBrazilArray, 'SE').map(educationInfo).join('')}`;
+educationIndicators[2].innerHTML = `${worldbank.educationFilter(indicatorsChileArray, 'SE').map(educationInfo).join('')}`;
+educationIndicators[3].innerHTML = `${worldbank.educationFilter(indicatorsMexicoArray, 'SE').map(educationInfo).join('')}`;
+
 const violenceData = assault => {
   return `
+    <h5>Año  -  Datos</h5>
     <ul> ${assault.map(violent => `
       <li>${violent.join(' - ')}</li>`).join('')}
     </ul>
   `;
 };
-let violenceStringPer = '';
-worldbank.violenceFilter(indicatorsPeruArray, 'SG.VAW').forEach(violent => {
-  const violenceListPer = `
+const violenceInfo = (violent) => {
+  return `
   <div class="indicator-name"> ${violent.indicatorName} </div>
   <section class="listado-data">
-    <h5>Año  -  Datos</h5>
     ${violenceData(Object.entries(violent.data))}
   </section>
   `;
-  violenceStringPer += violenceListPer;
-  violenceIndicators[0].innerHTML = violenceStringPer;
-});
-
-let populationStringBra = '';
-worldbank.populationFilter(indicatorsBrazilArray, 'SP.POP').forEach(pop => {
-  const populationListBra = `
-    <div class="indicator-name"> ${pop.indicatorName}</div>
-    <section class="listado-data">
-      <h5>Año  -  Datos</h5>
-      ${populationData(Object.entries(pop.data))}
-    </section>
-    `;
-  populationStringBra += populationListBra;
-  populationIndicators[1].innerHTML = populationStringBra;
-});
-let laborStringBra = '';
-worldbank.laborFilter(indicatorsBrazilArray, 'SL.TLF').forEach(lab => {
-  const laborListBra = `
-  <div class="indicator-name"> ${lab.indicatorName} </div>
-  <section class="listado-data">
-    <h5>Año  -  Datos</h5>
-    ${laborData(Object.entries(lab.data))}
-  </section>
-  `;
-  laborStringBra += laborListBra;
-  laborIndicators[1].innerHTML = laborStringBra;
-});
-let unemploymentStringBra = '';
-worldbank.unemploymentFilter(indicatorsBrazilArray, 'SL.UEM').forEach(unemployed => {
-  const unemploymentListBra = `
-  <div class="indicator-name"> ${unemployed.indicatorName}</div>
-  <section class="listado-data">
-    <h5>Año  -  Datos</h5>
-    ${unemploymentData(Object.entries(unemployed.data))}
-  </section>
-  `;
-  unemploymentStringBra += unemploymentListBra;
-  unemploymentIndicators[1].innerHTML = unemploymentStringBra;
-});
-let educationStringBra = '';
-worldbank.educationFilter(indicatorsBrazilArray, 'SE').forEach(edu => {
-  const educationListBra = `
-  <div class="indicator-name"> ${edu.indicatorName}</div>
-  <section class="listado-data">
-    <h5>Año  -  Datos</h5>
-    ${educationData(Object.entries(edu.data))}
-  </section>
-  `;
-  educationStringBra += educationListBra;
-  educationIndicators[1].innerHTML = educationStringBra;
-}); 
-let violenceStringBra = '';
-worldbank.violenceFilter(indicatorsBrazilArray, 'SG.VAW').forEach(violent => {
-  const violenceListBra = `
-  <div class="indicator-name"> ${violent.indicatorName} </div>
-  <section class="listado-data">
-    <h5>Año  -  Datos</h5>
-    ${violenceData(Object.entries(violent.data))}
-  </section>
-  `;
-  violenceStringBra += violenceListBra;
-  violenceIndicators[1].innerHTML = violenceStringBra;
-});
-
-// chile
-let populationStringChl = '';
-worldbank.populationFilter(indicatorsChileArray, 'SP.POP').forEach(pop => {
-  const populationListChl = `
-    <div class="indicator-name"> ${pop.indicatorName}</div>
-    <section class="listado-data">
-      <h5>Año  -  Datos</h5>
-      ${populationData(Object.entries(pop.data))}
-    </section>
-    `;
-  populationStringChl += populationListChl;
-  populationIndicators[2].innerHTML = populationStringChl;
-});
-let laborStringChl = '';
-worldbank.laborFilter(indicatorsChileArray, 'SL.TLF').forEach(lab => {
-  const laborListChl = `
-  <div class="indicator-name"> ${lab.indicatorName} </div>
-  <section class="listado-data">
-    <h5>Año  -  Datos</h5>
-    ${laborData(Object.entries(lab.data))}
-  </section>
-  `;
-  laborStringChl += laborListChl;
-  laborIndicators[2].innerHTML = laborStringChl;
-});
-let unemploymentStringChl = '';
-worldbank.unemploymentFilter(indicatorsChileArray, 'SL.UEM').forEach(unemployed => {
-  const unemploymentListChl = `
-  <div class="indicator-name"> ${unemployed.indicatorName}</div>
-  <section class="listado-data">
-    <h5>Año  -  Datos</h5>
-    ${unemploymentData(Object.entries(unemployed.data))}
-  </section>
-  `;
-  unemploymentStringChl += unemploymentListChl;
-  unemploymentIndicators[2].innerHTML = unemploymentStringChl;
-});
-let educationStringChl = '';
-worldbank.educationFilter(indicatorsChileArray, 'SE').forEach(edu => {
-  const educationListChl = `
-  <div class="indicator-name"> ${edu.indicatorName}</div>
-  <section class="listado-data">
-    <h5>Año  -  Datos</h5>
-    ${educationData(Object.entries(edu.data))}
-  </section>
-  `;
-  educationStringChl += educationListChl;
-  educationIndicators[2].innerHTML = educationStringChl;
-}); 
-let violenceStringChl = '';
-worldbank.violenceFilter(indicatorsChileArray, 'SG.VAW').forEach(violent => {
-  const violenceListChl = `
-  <div class="indicator-name"> ${violent.indicatorName} </div>
-  <section class="listado-data">
-    <h5>Año  -  Datos</h5>
-    ${violenceData(Object.entries(violent.data))}
-  </section>
-  `;
-  violenceStringChl += violenceListChl;
-  violenceIndicators[2].innerHTML = violenceStringChl;
-});
-// mexico 
-let populationStringMex = '';
-worldbank.populationFilter(indicatorsMexicoArray, 'SP.POP').forEach(pop => {
-  const populationListMex = `
-    <div class="indicator-name"> ${pop.indicatorName}</div>
-    <section class="listado-data">
-      <h5>Año  -  Datos</h5>
-      ${populationData(Object.entries(pop.data))}
-    </section>
-    `;
-  populationStringMex += populationListMex;
-  populationIndicators[3].innerHTML = populationStringMex;
-});
-let laborStringMex = '';
-worldbank.laborFilter(indicatorsMexicoArray, 'SL.TLF').forEach(lab => {
-  const laborListMex = `
-  <div class="indicator-name"> ${lab.indicatorName} </div>
-  <section class="listado-data">
-    <h5>Año  -  Datos</h5>
-    ${laborData(Object.entries(lab.data))}
-  </section>
-  `;
-  laborStringMex += laborListMex;
-  laborIndicators[3].innerHTML = laborStringMex;
-});
-let unemploymentStringMex = '';
-worldbank.unemploymentFilter(indicatorsMexicoArray, 'SL.UEM').forEach(unemployed => {
-  const unemploymentListMex = `
-  <div class="indicator-name"> ${unemployed.indicatorName}</div>
-  <section class="listado-data">
-    <h5>Año  -  Datos</h5>
-    ${unemploymentData(Object.entries(unemployed.data))}
-  </section>
-  `;
-  unemploymentStringMex += unemploymentListMex;
-  unemploymentIndicators[3].innerHTML = unemploymentStringMex;
-});
-let educationStringMex = '';
-worldbank.educationFilter(indicatorsMexicoArray, 'SE').forEach(edu => {
-  const educationListMex = `
-  <div class="indicator-name"> ${edu.indicatorName}</div>
-  <section class="listado-data">
-    <h5>Año  -  Datos</h5>
-    ${educationData(Object.entries(edu.data))}
-  </section>
-  `;
-  educationStringMex += educationListMex;
-  educationIndicators[3].innerHTML = educationStringMex;
-}); 
-let violenceStringMex = '';
-worldbank.violenceFilter(indicatorsMexicoArray, 'SG.VAW').forEach(violent => {
-  const violenceListMex = `
-  <div class="indicator-name"> ${violent.indicatorName} </div>
-  <section class="listado-data">
-    <h5>Año  -  Datos</h5>
-    ${violenceData(Object.entries(violent.data))}
-  </section>
-  `;
-  violenceStringMex += violenceListMex;
-  violenceIndicators[3].innerHTML = violenceStringMex;
-});
-
+};
+violenceIndicators[0].innerHTML = `${worldbank.violenceFilter(indicatorsPeruArray, 'SG.VAW').map(violenceInfo).join('')}`;
+violenceIndicators[1].innerHTML = `${worldbank.violenceFilter(indicatorsBrazilArray, 'SG.VAW').map(violenceInfo).join('')}`;
+violenceIndicators[2].innerHTML = `${worldbank.violenceFilter(indicatorsChileArray, 'SG.VAW').map(violenceInfo).join('')}`;
+violenceIndicators[3].innerHTML = `${worldbank.violenceFilter(indicatorsMexicoArray, 'SG.VAW').map(violenceInfo).join('')}`;
 // filtrado por sexo 
 const womenData = (girl) => {
   return `
+  <h5>Año  -  Datos</h5>
   <ul class="women-list"> ${girl.map(woman => `
     <li>${woman.join(' - ')}</li>`).join('')}
   </ul>
   `;
 };
-// Mujeres Peru
-let womenStringPe = '';
-worldbank.womenFilter(indicatorsPeruArray).forEach(woman => {
-  const womenList = `
+const womenInfo = (woman) => {
+  return `
   <div class="indicator-name"> ${woman.indicatorName}</div>
   <section class="listado-data">
-    <h5>Año  -  Datos</h5>
     ${womenData(Object.entries(woman.data))} 
   </section>
   `;
-  womenStringPe += womenList;
-  document.getElementById('women-indicators-pe').innerHTML = womenStringPe;
-});
-// Mujeres Brasil
-let womenStringBr = '';
-worldbank.womenFilter(indicatorsBrazilArray).forEach(woman => {
-  const womenList = `
-  <div class="indicator-name"> ${woman.indicatorName}</div>
-  <section class="listado-data">
-    <h5>Año  -  Datos</h5>
-    ${womenData(Object.entries(woman.data))}
-  </section> 
-  `;
-  womenStringBr += womenList;
-  document.getElementById('women-indicators-br').innerHTML = womenStringBr;
-});
-// Mujer Chile 
-let womenStringCh = '';
-worldbank.womenFilter(indicatorsChileArray).forEach(woman => {
-  const womenList = `
-  <div class="indicator-name"> ${woman.indicatorName}</div>
-  <section class="listado-data">
-    <h5>Año  -  Datos</h5>
-    ${womenData(Object.entries(woman.data))} 
-  </section>
-  `;
-  womenStringCh += womenList;
-  document.getElementById('women-indicators-ch').innerHTML = womenStringCh;
-});
-// Mujeres Mexico
-let womenStringMe = '';
-worldbank.womenFilter(indicatorsMexicoArray).forEach(woman => {
-  const womenList = `
-  <div class="indicator-name"> ${woman.indicatorName}</div>
-  <section class="listado-data">
-    <h5>Año  -  Datos</h5>
-    ${womenData(Object.entries(woman.data))} 
-  </section>
-  `;
-  womenStringMe += womenList;
-  document.getElementById('women-indicators-me').innerHTML = womenStringMe;
-});
-
+};
+document.getElementById('women-indicators-pe').innerHTML = `${worldbank.womenFilter(indicatorsPeruArray).map(womenInfo).join('')}`;
+document.getElementById('women-indicators-br').innerHTML = `${worldbank.womenFilter(indicatorsBrazilArray).map(womenInfo).join('')}`;
+document.getElementById('women-indicators-ch').innerHTML = `${worldbank.womenFilter(indicatorsChileArray).map(womenInfo).join('')}`;
+document.getElementById('women-indicators-me').innerHTML = `${worldbank.womenFilter(indicatorsMexicoArray).map(womenInfo).join('')}`;
 // Mostrar indicadores mujeres en html con select
 const countrySelectWomen = document.getElementById('country-select-women');
-
 const womenShowIndicator = () => {
   if (countrySelectWomen.selectedIndex === 0) {
     document.getElementById('select1').style.display = 'block';
@@ -418,57 +196,24 @@ countrySelectWomen.addEventListener('click', womenShowIndicator);
 
 const menData = (guy) => {
   return `
+  <h5>Año  -  Datos</h5>
   <ul class="women-list"> ${guy.map(man => `
     <li>${man.join(' - ')}</li>`).join('')}
   </ul>
   `;
 };
-// Hombres Perú
-let menStringPe = '';
-worldbank.menFilter(indicatorsPeruArray).forEach(man => {
-  const menList = `
+const menInfo = man => {
+  return `
   <div class="indicator-name"> ${man.indicatorName} </div>
   <section class="listado-data">
-    <h5>Año  -  Datos</h5>
     ${menData(Object.entries(man.data))}
   </section>
   `;
-  menStringPe += menList;
-  document.getElementById('men-indicators-pe').innerHTML = menStringPe;
-});
-// Hombres Brasil
-let menStringBr = '';
-worldbank.menFilter(indicatorsBrazilArray).forEach(man => {
-  const menList = `
-  <div> ${man.indicatorName} </div>
-  <h5>Año  -  Datos</h5>
-  ${menData(Object.entries(man.data))} 
-  `;
-  menStringBr += menList;
-  document.getElementById('men-indicators-br').innerHTML = menStringBr;
-});
-// Hombres Chile
-let menStringCh = '';
-worldbank.menFilter(indicatorsChileArray).forEach(man => {
-  const menList = `
-  <div> ${man.indicatorName} </div>
-  <h5>Año  -  Datos</h5>
-  ${menData(Object.entries(man.data))} 
-  `;
-  menStringCh += menList;
-  document.getElementById('men-indicators-ch').innerHTML = menStringCh;
-});
-// Hombres México
-let menStringMe = '';
-worldbank.menFilter(indicatorsMexicoArray).forEach(man => {
-  const menList = `
-  <div> ${man.indicatorName} </div>
-  <h5>Año  -  Datos</h5>
-  ${menData(Object.entries(man.data))} 
-  `;
-  menStringMe += menList;
-  document.getElementById('men-indicators-me').innerHTML = menStringMe;
-});
+};
+document.getElementById('men-indicators-pe').innerHTML = `${worldbank.menFilter(indicatorsPeruArray).map(menInfo).join('')}`;
+document.getElementById('men-indicators-br').innerHTML = `${worldbank.menFilter(indicatorsBrazilArray).map(menInfo).join('')}`;
+document.getElementById('men-indicators-ch').innerHTML = `${worldbank.menFilter(indicatorsChileArray).map(menInfo).join('')}`;
+document.getElementById('men-indicators-me').innerHTML = `${worldbank.menFilter(indicatorsMexicoArray).map(menInfo).join('')}`;
 // Mostrar indicadores hombres en html con select
 const countrySelectMen = document.getElementById('country-select-men');
 
