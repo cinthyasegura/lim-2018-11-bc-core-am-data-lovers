@@ -39,8 +39,7 @@ const orderIndicator = (arr) => {
       return 1;
     } if (prev.indicatorName < next.indicatorName) {
       return -1;
-    } 
-    return 0; 
+    } return 0; 
   });
   return orderIndicatorName; 
 };

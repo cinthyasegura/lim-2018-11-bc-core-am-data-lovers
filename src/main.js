@@ -26,12 +26,15 @@ const populationData = (people) => {
   </ul>
   `;
 };
-const populationInfo = (pop) => {
+
+const populationInfo = (pop, index) => {
+  const arrayPromedio = worldbank.calculateAverage(...dataOfData(worldbank.populationFilter(indicatorsPeruArray, 'SP.POP'))); 
+  // console.log(arrayPromedio,pop,index)
   return `
   <div class="indicator-name"> ${pop.indicatorName}</div>
   <section class="listado-data">
     ${populationData(Object.entries(pop.data))}
-    <p class ="average-value"> El promedio es: ${(worldbank.calculateAverage(...dataOfData(worldbank.populationFilter(indicatorsPeruArray, 'SP.POP'))))}</p>
+    <p class ="average-value"> El promedio es: ${arrayPromedio[index]}</p>
   </section>
   `;
 };
