@@ -35,6 +35,7 @@ const populationInfo = (pop) => {
   </section>
   `;
 };
+// map will run the function populationInfo once for each item in the original array and each time the function runs whatever it returns gets added to the new array
 populationIndicators[0].innerHTML = `${worldbank.populationFilter(indicatorsPeruArray, 'SP.POP').map(populationInfo).join('')}`;
 populationIndicators[1].innerHTML = `${worldbank.populationFilter(indicatorsBrazilArray, 'SP.POP').map(populationInfo).join('')}`;
 populationIndicators[2].innerHTML = `${worldbank.populationFilter(indicatorsChileArray, 'SP.POP').map(populationInfo).join('')}`;
@@ -158,7 +159,6 @@ const womenInfo = (woman) => {
   </section>
   `;
 };
-// map will run the function womenInfo once for each item in the original array and each time the function runs whatever it returns gets added to the new array
 document.getElementById('women-indicators-pe').innerHTML = `${worldbank.womenFilter(indicatorsPeruArray).map(womenInfo).join('')}`;
 document.getElementById('women-indicators-br').innerHTML = `${worldbank.womenFilter(indicatorsBrazilArray).map(womenInfo).join('')}`;
 document.getElementById('women-indicators-ch').innerHTML = `${worldbank.womenFilter(indicatorsChileArray).map(womenInfo).join('')}`;
