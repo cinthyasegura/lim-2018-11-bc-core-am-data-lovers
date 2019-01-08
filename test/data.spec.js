@@ -10,7 +10,7 @@ require('../src/data.js');
 //   });
 // });
 
-const input = [
+const filtration = [
   {
     'countryName': 'Perú',
     'countryCode': 'PER',
@@ -169,30 +169,30 @@ describe('worldbank', () => {
   });
 });
 
-describe('worldbank.populationFilter', () => {
+describe('worldbank.filter', () => {
   it('deberia ser una funcion', () => {
-    expect(typeof worldbank.populationFilter).toBe('function');
+    expect(typeof worldbank.filter).toBe('function');
   });
   it('deberia retornar una nuevo array con los indicadores de poblacion', () => {
-    expect(worldbank.populationFilter(input, 'SP.POP')).toEqual(output);
+    expect(worldbank.filter(filtration, 'SP.POP')).toEqual(output);
   });
 });
 
-describe('worldbank.laborFilter', () => {
+describe('worldbank.filter', () => {
   it('deberia ser una funcion', () => {
-    expect(typeof worldbank.laborFilter).toBe('function');
+    expect(typeof worldbank.filter).toBe('function');
   });
   it('deberia retornar una nuevo array con los indicadores de empleo', () => {
-    expect(worldbank.laborFilter(input, 'SL.TLF')).toEqual(output1);
+    expect(worldbank.filter(filtration, 'SL.TLF')).toEqual(output1);
   });
 });
 
-describe('worldbank.unemploymentFilter', () => {
+describe('worldbank.filter', () => {
   it('deberia ser una funcion', () => {
-    expect(typeof worldbank.unemploymentFilter).toBe('function');
+    expect(typeof worldbank.filter).toBe('function');
   });
   it('deberia retornar una nuevo array con los indicadores de desempleo', () => {
-    expect(worldbank.unemploymentFilter(input, 'SL.UEM')).toEqual(output2);
+    expect(worldbank.filter(filtration, 'SL.UEM')).toEqual(output2);
   });
 });
 
@@ -201,34 +201,34 @@ describe('worldbank.educationFilter', () => {
     expect(typeof worldbank.educationFilter).toBe('function');
   });
   it('deberia retornar una nuevo array con los indicadores de educacion', () => {
-    expect(worldbank.educationFilter(input, 'SE')).toEqual(output3);
+    expect(worldbank.educationFilter(filtration, 'SE')).toEqual(output3);
   });
 });
 
-describe('worldbank.violenceFilter', () => {
+describe('worldbank.filter', () => {
   it('deberia ser una funcion', () => {
-    expect(typeof worldbank.violenceFilter).toBe('function');
+    expect(typeof worldbank.filter).toBe('function');
   });
   it('deberia retornar una nuevo array con los indicadores de violencia', () => {
-    expect(worldbank.violenceFilter(input, 'SG.VAW')).toEqual(output4);
+    expect(worldbank.filter(filtration, 'SG.VAW')).toEqual(output4);
   });
 });
 
-describe('worldbank.womenFilter', () => {
+describe('worldbank.genreFilter', () => {
   it('deberia ser una funcion', () => {
-    expect(typeof worldbank.womenFilter).toBe('function');
+    expect(typeof worldbank.genreFilter).toBe('function');
   });
   it('deberia retornar una nuevo array con los indicadores de mujeres', () => {
-    expect(worldbank.womenFilter(input1)).toEqual(output1);
+    expect(worldbank.genreFilter(input1, 'FE')).toEqual(output1);
   });
 });
 
-describe('worldbank.menFilter', () => {
+describe('worldbank.genreFilter', () => {
   it('deberia ser una funcion', () => {
-    expect(typeof worldbank.menFilter).toBe('function');
+    expect(typeof worldbank.genreFilter).toBe('function');
   });
   it('deberia retornar una nuevo array con los indicadores de hombres', () => {
-    expect(worldbank.menFilter(input2)).toEqual(output5);
+    expect(worldbank.genreFilter(input2, 'MA')).toEqual(output5);
   });
 });
 describe('worldbank.orderIndicator', () => {

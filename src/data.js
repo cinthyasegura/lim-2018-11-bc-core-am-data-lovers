@@ -1,37 +1,17 @@
-const populationFilter = (arr, string) => {
-  let populationArray = [];
-  populationArray = arr.filter(pop => pop.indicatorCode.slice(0, 6) === string); 
-  return populationArray;
-};
-const laborFilter = (arr, string) => {
-  let laborArray = [];
-  laborArray = arr.filter(lab => lab.indicatorCode.slice(0, 6) === string);
-  return laborArray;
-};
-const unemploymentFilter = (arr, string) => {
-  let unemploymentArray = [];
-  unemploymentArray = arr.filter(unemployed => unemployed.indicatorCode.slice(0, 6) === string);
-  return unemploymentArray;
+const filter = (arr, string) => {
+  let filterArray = [];
+  filterArray = arr.filter(indicator => indicator.indicatorCode.slice(0, 6) === string); 
+  return filterArray;
 };
 const educationFilter = (arr, string) => {
   let educationArray = [];
   educationArray = arr.filter(edu => edu.indicatorCode.slice(0, 2) === string);
   return educationArray;
 };
-const violenceFilter = (arr, string) => {
-  let violenceArray = [];
-  violenceArray = arr.filter(violent => violent.indicatorCode.slice(0, 6) === string);
-  return violenceArray;
-};
-const womenFilter = (arr) => {
-  let womenArray = [];
-  womenArray = arr.filter(woman => woman.indicatorCode.includes('FE'));
-  return womenArray;
-};
-const menFilter = (arr) => {
-  let menArray = [];
-  menArray = arr.filter(man => man.indicatorCode.includes('MA'));
-  return menArray;
+const genreFilter = (arr, string) => {
+  let genreArray = [];
+  genreArray = arr.filter(genre => genre.indicatorCode.includes(string));
+  return genreArray;
 };
 const orderIndicator = (arr) => {
   let orderIndicatorName = arr.sort(function(prev, next) {
@@ -54,18 +34,6 @@ const fallingIndicator = (arr) => {
   });
   return fallingIndicatorName; 
 };
-// let indicData = [];
-// let maximo = [];
-// const calculateMax = arr => {
-//   for (let indx in arr) {
-//     for (let key in arr[indx].data) {
-//       indicData.push(Number(arr[indx].data[key]));
-//     }
-//   }
-//   maximo.push(Math.max(...indicData))
-//   return maximo;
-// };
-
 const calculateAverage = (arr) => {
   let averageArray = [];
   arr.forEach(value => {
@@ -79,13 +47,9 @@ const calculateAverage = (arr) => {
 };
 
 window.worldbank = {
-  populationFilter,
-  laborFilter,
-  unemploymentFilter,
+  filter,
   educationFilter,
-  violenceFilter,
-  womenFilter,
-  menFilter,
+  genreFilter,
   orderIndicator,
   fallingIndicator,
   calculateAverage

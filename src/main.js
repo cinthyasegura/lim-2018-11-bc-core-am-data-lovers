@@ -15,7 +15,6 @@ const dataOfData = arr => {
   const arrData = arr.map(val => val.data);
   const valuesOfData = arrData.map(val => Object.values(val));
   acum.push(valuesOfData);
-  // console.log(acum)
   return acum;
 };
 
@@ -27,8 +26,8 @@ const populationData = (people) => {
   </ul>
   `;
 };
-const populationInfo = (pop, index) => {
-  const averagePopulationArray = worldbank.calculateAverage(...dataOfData(worldbank.populationFilter(indicatorsPeruArray, 'SP.POP')));
+const populationInfo = (pop, index, country) => {
+  const averagePopulationArray = worldbank.calculateAverage(...dataOfData(worldbank.filter(country, 'SP.POP')));
   return `
   <div class="indicator-name"> ${pop.indicatorName}</div>
   <section class="listado-data">
@@ -38,10 +37,10 @@ const populationInfo = (pop, index) => {
   `; 
 };
 // map will run the function populationInfo once for each item in the original array and each time the function runs whatever it returns gets added to the new array
-populationIndicators[0].innerHTML = `${worldbank.populationFilter(indicatorsPeruArray, 'SP.POP').map(populationInfo).join('')}`;
-populationIndicators[1].innerHTML = `${worldbank.populationFilter(indicatorsBrazilArray, 'SP.POP').map(populationInfo).join('')}`;
-populationIndicators[2].innerHTML = `${worldbank.populationFilter(indicatorsChileArray, 'SP.POP').map(populationInfo).join('')}`;
-populationIndicators[3].innerHTML = `${worldbank.populationFilter(indicatorsMexicoArray, 'SP.POP').map(populationInfo).join('')}`;
+populationIndicators[0].innerHTML = `${worldbank.filter(indicatorsPeruArray, 'SP.POP').map(populationInfo).join('')}`;
+populationIndicators[1].innerHTML = `${worldbank.filter(indicatorsBrazilArray, 'SP.POP').map(populationInfo).join('')}`;
+populationIndicators[2].innerHTML = `${worldbank.filter(indicatorsChileArray, 'SP.POP').map(populationInfo).join('')}`;
+populationIndicators[3].innerHTML = `${worldbank.filter(indicatorsMexicoArray, 'SP.POP').map(populationInfo).join('')}`;
 /* <button class="show-btn">Ver</button>
     <button class="hide-btn">Ocultar</button>
 
@@ -69,8 +68,8 @@ const laborData = work => {
     </ul>
   `;
 };
-const laborInfo = (lab, index) => {
-  const averageLaborArray = worldbank.calculateAverage(...dataOfData(worldbank.laborFilter(indicatorsPeruArray, 'SL.TLF')));
+const laborInfo = (lab, index, country) => {
+  const averageLaborArray = worldbank.calculateAverage(...dataOfData(worldbank.filter(country, 'SL.TLF')));
   return `
   <div class="indicator-name"> ${lab.indicatorName} </div>
   <section class="listado-data">
@@ -79,10 +78,10 @@ const laborInfo = (lab, index) => {
   </section>
   `;
 };
-laborIndicators[0].innerHTML = `${worldbank.laborFilter(indicatorsPeruArray, 'SL.TLF').map(laborInfo).join('')}`;
-laborIndicators[1].innerHTML = `${worldbank.laborFilter(indicatorsBrazilArray, 'SL.TLF').map(laborInfo).join('')}`;
-laborIndicators[2].innerHTML = `${worldbank.laborFilter(indicatorsChileArray, 'SL.TLF').map(laborInfo).join('')}`;
-laborIndicators[3].innerHTML = `${worldbank.laborFilter(indicatorsMexicoArray, 'SL.TLF').map(laborInfo).join('')}`;
+laborIndicators[0].innerHTML = `${worldbank.filter(indicatorsPeruArray, 'SL.TLF').map(laborInfo).join('')}`;
+laborIndicators[1].innerHTML = `${worldbank.filter(indicatorsBrazilArray, 'SL.TLF').map(laborInfo).join('')}`;
+laborIndicators[2].innerHTML = `${worldbank.filter(indicatorsChileArray, 'SL.TLF').map(laborInfo).join('')}`;
+laborIndicators[3].innerHTML = `${worldbank.filter(indicatorsMexicoArray, 'SL.TLF').map(laborInfo).join('')}`;
 // const <p>${worldbank.calculateAverage(Object.values(lab.data))}</p>
 const unemploymentData = unemploy => {
   return `
@@ -92,8 +91,8 @@ const unemploymentData = unemploy => {
     </ul>
   `;
 };
-const unemploymentInfo = (unemployed, index) => {
-  const averageUnemploymentArray = worldbank.calculateAverage(...dataOfData(worldbank.unemploymentFilter(indicatorsPeruArray, 'SL.UEM')));
+const unemploymentInfo = (unemployed, index, country) => {
+  const averageUnemploymentArray = worldbank.calculateAverage(...dataOfData(worldbank.filter(country, 'SL.UEM')));
   return `
   <div class="indicator-name"> ${unemployed.indicatorName}</div>
   <section class="listado-data">
@@ -102,10 +101,10 @@ const unemploymentInfo = (unemployed, index) => {
    </section>
   `;
 };
-unemploymentIndicators[0].innerHTML = `${worldbank.unemploymentFilter(indicatorsPeruArray, 'SL.UEM').map(unemploymentInfo).join('')}`;
-unemploymentIndicators[1].innerHTML = `${worldbank.unemploymentFilter(indicatorsBrazilArray, 'SL.UEM').map(unemploymentInfo).join('')}`;
-unemploymentIndicators[2].innerHTML = `${worldbank.unemploymentFilter(indicatorsChileArray, 'SL.UEM').map(unemploymentInfo).join('')}`;
-unemploymentIndicators[3].innerHTML = `${worldbank.unemploymentFilter(indicatorsMexicoArray, 'SL.UEM').map(unemploymentInfo).join('')}`;
+unemploymentIndicators[0].innerHTML = `${worldbank.filter(indicatorsPeruArray, 'SL.UEM').map(unemploymentInfo).join('')}`;
+unemploymentIndicators[1].innerHTML = `${worldbank.filter(indicatorsBrazilArray, 'SL.UEM').map(unemploymentInfo).join('')}`;
+unemploymentIndicators[2].innerHTML = `${worldbank.filter(indicatorsChileArray, 'SL.UEM').map(unemploymentInfo).join('')}`;
+unemploymentIndicators[3].innerHTML = `${worldbank.filter(indicatorsMexicoArray, 'SL.UEM').map(unemploymentInfo).join('')}`;
 
 const educationData = educa => {
   return `
@@ -115,8 +114,8 @@ const educationData = educa => {
     </ul>
   `;
 };
-const educationInfo = (edu, index) => {
-  const averageEducationArray = worldbank.calculateAverage(...dataOfData(worldbank.educationFilter(indicatorsPeruArray, 'SE')));
+const educationInfo = (edu, index, country) => {
+  const averageEducationArray = worldbank.calculateAverage(...dataOfData(worldbank.educationFilter(country, 'SE')));
   return `
   <div class="indicator-name"> ${edu.indicatorName}</div>
   <section class="listado-data">
@@ -138,8 +137,8 @@ const violenceData = assault => {
     </ul>
   `;
 };
-const violenceInfo = (violent, index) => {
-  const averageViolenceArray = worldbank.calculateAverage(...dataOfData(worldbank.violenceFilter(indicatorsPeruArray, 'SG.VAW')));
+const violenceInfo = (violent, index, country) => {
+  const averageViolenceArray = worldbank.calculateAverage(...dataOfData(worldbank.filter(country, 'SG.VAW')));
   return `
   <div class="indicator-name"> ${violent.indicatorName} </div>
   <section class="listado-data">
@@ -148,10 +147,10 @@ const violenceInfo = (violent, index) => {
   </section>
   `;
 };
-violenceIndicators[0].innerHTML = `${worldbank.violenceFilter(indicatorsPeruArray, 'SG.VAW').map(violenceInfo).join('')}`;
-violenceIndicators[1].innerHTML = `${worldbank.violenceFilter(indicatorsBrazilArray, 'SG.VAW').map(violenceInfo).join('')}`;
-violenceIndicators[2].innerHTML = `${worldbank.violenceFilter(indicatorsChileArray, 'SG.VAW').map(violenceInfo).join('')}`;
-violenceIndicators[3].innerHTML = `${worldbank.violenceFilter(indicatorsMexicoArray, 'SG.VAW').map(violenceInfo).join('')}`;
+violenceIndicators[0].innerHTML = `${worldbank.filter(indicatorsPeruArray, 'SG.VAW').map(violenceInfo).join('')}`;
+violenceIndicators[1].innerHTML = `${worldbank.filter(indicatorsBrazilArray, 'SG.VAW').map(violenceInfo).join('')}`;
+violenceIndicators[2].innerHTML = `${worldbank.filter(indicatorsChileArray, 'SG.VAW').map(violenceInfo).join('')}`;
+violenceIndicators[3].innerHTML = `${worldbank.filter(indicatorsMexicoArray, 'SG.VAW').map(violenceInfo).join('')}`;
 // filtrado por sexo 
 const womenData = (girl) => {
   return `
@@ -161,18 +160,20 @@ const womenData = (girl) => {
   </ul>
   `;
 };
-const womenInfo = (woman) => {
+const womenInfo = (woman, index, country) => {
+  const averageWomenArray = worldbank.calculateAverage(...dataOfData(worldbank.genreFilter(country, 'FE')));
   return `
   <div class="indicator-name"> ${woman.indicatorName}</div>
   <section class="listado-data">
-    ${womenData(Object.entries(woman.data))} 
+    ${womenData(Object.entries(woman.data))}
+    <p class="average-value"> El promedio es: ${averageWomenArray[index]}<p/> 
   </section>
   `;
 };
-document.getElementById('women-indicators-pe').innerHTML = `${worldbank.womenFilter(indicatorsPeruArray).map(womenInfo).join('')}`;
-document.getElementById('women-indicators-br').innerHTML = `${worldbank.womenFilter(indicatorsBrazilArray).map(womenInfo).join('')}`;
-document.getElementById('women-indicators-ch').innerHTML = `${worldbank.womenFilter(indicatorsChileArray).map(womenInfo).join('')}`;
-document.getElementById('women-indicators-me').innerHTML = `${worldbank.womenFilter(indicatorsMexicoArray).map(womenInfo).join('')}`;
+document.getElementById('women-indicators-pe').innerHTML = `${worldbank.genreFilter(indicatorsPeruArray, 'FE').map(womenInfo).join('')}`;
+document.getElementById('women-indicators-br').innerHTML = `${worldbank.genreFilter(indicatorsBrazilArray, 'FE').map(womenInfo).join('')}`;
+document.getElementById('women-indicators-ch').innerHTML = `${worldbank.genreFilter(indicatorsChileArray, 'FE').map(womenInfo).join('')}`;
+document.getElementById('women-indicators-me').innerHTML = `${worldbank.genreFilter(indicatorsMexicoArray, 'FE').map(womenInfo).join('')}`;
 // Mostrar indicadores mujeres en html con select
 const countrySelectWomen = document.getElementById('country-select-women');
 const womenShowIndicator = () => {
@@ -212,18 +213,20 @@ const menData = (guy) => {
   </ul>
   `;
 };
-const menInfo = man => {
+const menInfo = (man, index, country) => {
+  const averageMenArray = worldbank.calculateAverage(...dataOfData(worldbank.genreFilter(country, 'MA')));
   return `
   <div class="indicator-name"> ${man.indicatorName} </div>
   <section class="listado-data">
     ${menData(Object.entries(man.data))}
+    <p class="average-value"> El promedio es: ${averageMenArray[index]}<p/> 
   </section>
   `;
 };
-document.getElementById('men-indicators-pe').innerHTML = `${worldbank.menFilter(indicatorsPeruArray).map(menInfo).join('')}`;
-document.getElementById('men-indicators-br').innerHTML = `${worldbank.menFilter(indicatorsBrazilArray).map(menInfo).join('')}`;
-document.getElementById('men-indicators-ch').innerHTML = `${worldbank.menFilter(indicatorsChileArray).map(menInfo).join('')}`;
-document.getElementById('men-indicators-me').innerHTML = `${worldbank.menFilter(indicatorsMexicoArray).map(menInfo).join('')}`;
+document.getElementById('men-indicators-pe').innerHTML = `${worldbank.genreFilter(indicatorsPeruArray, 'MA').map(menInfo).join('')}`;
+document.getElementById('men-indicators-br').innerHTML = `${worldbank.genreFilter(indicatorsBrazilArray, 'MA').map(menInfo).join('')}`;
+document.getElementById('men-indicators-ch').innerHTML = `${worldbank.genreFilter(indicatorsChileArray, 'MA').map(menInfo).join('')}`;
+document.getElementById('men-indicators-me').innerHTML = `${worldbank.genreFilter(indicatorsMexicoArray, 'MA').map(menInfo).join('')}`;
 // Mostrar indicadores hombres en html con select
 const countrySelectMen = document.getElementById('country-select-men');
 
