@@ -9,7 +9,6 @@ const indicatorsChileArray = WORLDBANK.CHL.indicators;
 const indicatorsMexicoArray = WORLDBANK.MEX.indicators;
 
 // funcion que me muesta en un array de arrays los values de data
-
 const dataOfData = arr => {
   let acum = [];
   const arrData = arr.map(val => val.data);
@@ -18,11 +17,11 @@ const dataOfData = arr => {
   return acum;
 };
 
-const populationData = (people) => {
+const dataList = (list) => {
   return `
   <h5><strong>Año  -  Datos</strong></h5>
-  <ul class="population-list"> ${people.map(pop => `
-    <li>${pop.join(' - ')}</li>`).join('')}
+  <ul class="population-list"> ${list.map(value => `
+    <li>${value.join(' - ')}</li>`).join('')}
   </ul>
   `;
 };
@@ -31,7 +30,7 @@ const populationInfo = (pop, index, country) => {
   return `
   <div class="indicator-name"> ${pop.indicatorName}</div>
   <section class="listado-data">
-    ${populationData(Object.entries(pop.data))}
+    ${dataList(Object.entries(pop.data))}
     <p class ="average-value"> El promedio es: ${averagePopulationArray[index]}</p>
   </section>
   `; 
@@ -60,20 +59,13 @@ for (let i = 0; i < showBtn.length; i++) {
     });
   }
 } */
-const laborData = work => {
-  return `
-    <h5>Año  -  Datos</h5>
-    <ul> ${work.map(lab => `
-      <li>${lab.join(' - ')}</li>`).join('')}
-    </ul>
-  `;
-};
+
 const laborInfo = (lab, index, country) => {
   const averageLaborArray = worldbank.calculateAverage(...dataOfData(worldbank.filter(country, 'SL.TLF')));
   return `
   <div class="indicator-name"> ${lab.indicatorName} </div>
   <section class="listado-data">
-    ${laborData(Object.entries(lab.data))}
+    ${dataList(Object.entries(lab.data))}
     <p class ="average-value"> El promedio es: ${averageLaborArray[index]}</p>
   </section>
   `;
@@ -83,20 +75,12 @@ laborIndicators[1].innerHTML = `${worldbank.filter(indicatorsBrazilArray, 'SL.TL
 laborIndicators[2].innerHTML = `${worldbank.filter(indicatorsChileArray, 'SL.TLF').map(laborInfo).join('')}`;
 laborIndicators[3].innerHTML = `${worldbank.filter(indicatorsMexicoArray, 'SL.TLF').map(laborInfo).join('')}`;
 // const <p>${worldbank.calculateAverage(Object.values(lab.data))}</p>
-const unemploymentData = unemploy => {
-  return `
-    <h5>Año  -  Datos</h5>
-    <ul> ${unemploy.map(unemployed => `
-      <li>${unemployed.join(' - ')}</li>`).join('')}
-    </ul>
-  `;
-};
 const unemploymentInfo = (unemployed, index, country) => {
   const averageUnemploymentArray = worldbank.calculateAverage(...dataOfData(worldbank.filter(country, 'SL.UEM')));
   return `
   <div class="indicator-name"> ${unemployed.indicatorName}</div>
   <section class="listado-data">
-    ${unemploymentData(Object.entries(unemployed.data))} 
+    ${dataList(Object.entries(unemployed.data))} 
     <p class="average-value"> El promedio es: ${averageUnemploymentArray[index]}<p/>
    </section>
   `;
@@ -106,20 +90,12 @@ unemploymentIndicators[1].innerHTML = `${worldbank.filter(indicatorsBrazilArray,
 unemploymentIndicators[2].innerHTML = `${worldbank.filter(indicatorsChileArray, 'SL.UEM').map(unemploymentInfo).join('')}`;
 unemploymentIndicators[3].innerHTML = `${worldbank.filter(indicatorsMexicoArray, 'SL.UEM').map(unemploymentInfo).join('')}`;
 
-const educationData = educa => {
-  return `
-    <h5>Año  -  Datos</h5>
-    <ul> ${educa.map(edu => `
-      <li>${edu.join(' - ')}</li>`).join('')}
-    </ul>
-  `;
-};
 const educationInfo = (edu, index, country) => {
   const averageEducationArray = worldbank.calculateAverage(...dataOfData(worldbank.educationFilter(country, 'SE')));
   return `
   <div class="indicator-name"> ${edu.indicatorName}</div>
   <section class="listado-data">
-    ${educationData(Object.entries(edu.data))}
+    ${dataList(Object.entries(edu.data))}
     <p class="average-value"> El promedio es: ${averageEducationArray[index]}<p/>
    </section>
   `;
@@ -129,20 +105,12 @@ educationIndicators[1].innerHTML = `${worldbank.educationFilter(indicatorsBrazil
 educationIndicators[2].innerHTML = `${worldbank.educationFilter(indicatorsChileArray, 'SE').map(educationInfo).join('')}`;
 educationIndicators[3].innerHTML = `${worldbank.educationFilter(indicatorsMexicoArray, 'SE').map(educationInfo).join('')}`;
 
-const violenceData = assault => {
-  return `
-    <h5>Año  -  Datos</h5>
-    <ul> ${assault.map(violent => `
-      <li>${violent.join(' - ')}</li>`).join('')}
-    </ul>
-  `;
-};
 const violenceInfo = (violent, index, country) => {
   const averageViolenceArray = worldbank.calculateAverage(...dataOfData(worldbank.filter(country, 'SG.VAW')));
   return `
   <div class="indicator-name"> ${violent.indicatorName} </div>
   <section class="listado-data">
-    ${violenceData(Object.entries(violent.data))}
+    ${dataList(Object.entries(violent.data))}
     <p class="average-value"> El promedio es: ${averageViolenceArray[index]}<p/>
   </section>
   `;
@@ -152,20 +120,12 @@ violenceIndicators[1].innerHTML = `${worldbank.filter(indicatorsBrazilArray, 'SG
 violenceIndicators[2].innerHTML = `${worldbank.filter(indicatorsChileArray, 'SG.VAW').map(violenceInfo).join('')}`;
 violenceIndicators[3].innerHTML = `${worldbank.filter(indicatorsMexicoArray, 'SG.VAW').map(violenceInfo).join('')}`;
 // filtrado por sexo 
-const womenData = (girl) => {
-  return `
-  <h5>Año  -  Datos</h5>
-  <ul class="women-list"> ${girl.map(woman => `
-    <li>${woman.join(' - ')}</li>`).join('')}
-  </ul>
-  `;
-};
 const womenInfo = (woman, index, country) => {
   const averageWomenArray = worldbank.calculateAverage(...dataOfData(worldbank.genreFilter(country, 'FE')));
   return `
   <div class="indicator-name"> ${woman.indicatorName}</div>
   <section class="listado-data">
-    ${womenData(Object.entries(woman.data))}
+    ${dataList(Object.entries(woman.data))}
     <p class="average-value"> El promedio es: ${averageWomenArray[index]}<p/> 
   </section>
   `;
@@ -205,20 +165,12 @@ const womenShowIndicator = () => {
 };
 countrySelectWomen.addEventListener('click', womenShowIndicator);
 
-const menData = (guy) => {
-  return `
-  <h5>Año  -  Datos</h5>
-  <ul class="women-list"> ${guy.map(man => `
-    <li>${man.join(' - ')}</li>`).join('')}
-  </ul>
-  `;
-};
 const menInfo = (man, index, country) => {
   const averageMenArray = worldbank.calculateAverage(...dataOfData(worldbank.genreFilter(country, 'MA')));
   return `
   <div class="indicator-name"> ${man.indicatorName} </div>
   <section class="listado-data">
-    ${menData(Object.entries(man.data))}
+    ${dataList(Object.entries(man.data))}
     <p class="average-value"> El promedio es: ${averageMenArray[index]}<p/> 
   </section>
   `;
@@ -281,7 +233,6 @@ document.getElementById('peru-map').addEventListener('click', () => {
   document.getElementById('mexico-page').style.display = 'none';
   document.getElementById('women-page').style.display = 'none';
   document.getElementById('men-page').style.display = 'none';
-  document.getElementById('sort-page').style.display = 'none';
   document.getElementById('women-indicators-pe').style.display = 'none';
   document.getElementById('women-indicators-br').style.display = 'none';
   document.getElementById('women-indicators-ch').style.display = 'none';
@@ -295,7 +246,6 @@ document.getElementById('brazil-map').addEventListener('click', () => {
   document.getElementById('mexico-page').style.display = 'none';
   document.getElementById('women-page').style.display = 'none';
   document.getElementById('men-page').style.display = 'none';
-  document.getElementById('sort-page').style.display = 'none';
   document.getElementById('women-indicators-pe').style.display = 'none';
   document.getElementById('women-indicators-br').style.display = 'none';
   document.getElementById('women-indicators-ch').style.display = 'none';
@@ -309,7 +259,6 @@ document.getElementById('chile-map').addEventListener('click', () => {
   document.getElementById('mexico-page').style.display = 'none';
   document.getElementById('women-page').style.display = 'none';
   document.getElementById('men-page').style.display = 'none'; 
-  document.getElementById('sort-page').style.display = 'none';
   document.getElementById('women-indicators-pe').style.display = 'none';
   document.getElementById('women-indicators-br').style.display = 'none';
   document.getElementById('women-indicators-ch').style.display = 'none';
@@ -323,7 +272,6 @@ document.getElementById('mexico-map').addEventListener('click', () => {
   document.getElementById('mexico-page').style.display = 'block';
   document.getElementById('women-page').style.display = 'none';
   document.getElementById('men-page').style.display = 'none';
-  document.getElementById('sort-page').style.display = 'none';
   document.getElementById('women-indicators-pe').style.display = 'none';
   document.getElementById('women-indicators-br').style.display = 'none';
   document.getElementById('women-indicators-ch').style.display = 'none';
@@ -483,7 +431,6 @@ document.getElementById('women-option').addEventListener('click', () => {
   document.getElementById('chile-page').style.display = 'none';
   document.getElementById('mexico-page').style.display = 'none';
   document.getElementById('men-page').style.display = 'none';
-  document.getElementById('sort-page').style.display = 'none';
   document.getElementById('women-indicators-pe').style.display = 'none';
   document.getElementById('women-indicators-br').style.display = 'none';
   document.getElementById('women-indicators-ch').style.display = 'none';
@@ -497,28 +444,39 @@ document.getElementById('men-option').addEventListener('click', () => {
   document.getElementById('chile-page').style.display = 'none';
   document.getElementById('mexico-page').style.display = 'none';
   document.getElementById('women-page').style.display = 'none';
-  document.getElementById('sort-page').style.display = 'none';
   document.getElementById('men-indicators-pe').style.display = 'none';
   document.getElementById('men-indicators-br').style.display = 'none';
   document.getElementById('men-indicators-ch').style.display = 'none';
   document.getElementById('men-indicators-me').style.display = 'none';
 });
-document.getElementById('order-option').addEventListener('click', () => {
+document.getElementById('btn-asc').addEventListener('click', () => {
+  document.getElementById('upward-page').style.display = 'block';
+  document.getElementById('falling-page').style.display = 'none'; 
+  document.getElementById('men-page').style.display = 'none';
   document.getElementById('welcome-page').style.display = 'none';
   document.getElementById('peru-page').style.display = 'none';
   document.getElementById('brazil-page').style.display = 'none';
   document.getElementById('chile-page').style.display = 'none';
   document.getElementById('mexico-page').style.display = 'none';
   document.getElementById('women-page').style.display = 'none';
-  document.getElementById('men-page').style.display = 'none';
-  document.getElementById('sort-page').style.display = 'block';
-});
-document.getElementById('btn-asc').addEventListener('click', () => {
-  document.getElementById('upward-order').style.display = 'block';
-  document.getElementById('falling-order').style.display = 'none'; 
+  document.getElementById('men-indicators-pe').style.display = 'none';
+  document.getElementById('men-indicators-br').style.display = 'none';
+  document.getElementById('men-indicators-ch').style.display = 'none';
+  document.getElementById('men-indicators-me').style.display = 'none';
 });
 document.getElementById('btn-desc').addEventListener('click', () => {
-  document.getElementById('falling-order').style.display = 'block'; 
-  document.getElementById('upward-order').style.display = 'none';
+  document.getElementById('falling-page').style.display = 'block'; 
+  document.getElementById('upward-page').style.display = 'none';
+  document.getElementById('men-page').style.display = 'none';
+  document.getElementById('welcome-page').style.display = 'none';
+  document.getElementById('peru-page').style.display = 'none';
+  document.getElementById('brazil-page').style.display = 'none';
+  document.getElementById('chile-page').style.display = 'none';
+  document.getElementById('mexico-page').style.display = 'none';
+  document.getElementById('women-page').style.display = 'none';
+  document.getElementById('men-indicators-pe').style.display = 'none';
+  document.getElementById('men-indicators-br').style.display = 'none';
+  document.getElementById('men-indicators-ch').style.display = 'none';
+  document.getElementById('men-indicators-me').style.display = 'none';
 });
 

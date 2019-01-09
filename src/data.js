@@ -19,8 +19,7 @@ const orderIndicator = (arr) => {
       return 1;
     } if (prev.indicatorName < next.indicatorName) {
       return -1;
-    } 
-    return 0; 
+    } return 0; 
   });
   return orderIndicatorName; 
 };
@@ -41,7 +40,7 @@ const calculateAverage = (arr) => {
       return (Number(total) + Number(current));
     }, 0);
     let average = sum / value.length;
-    averageArray.push(average.toFixed(2));    
+    averageArray.push(Object.assign(average.toFixed(2)));    
   });
   return averageArray;
 };
