@@ -14,22 +14,26 @@ const genreFilter = (arr, string) => {
   return genreArray;
 };
 const orderIndicator = (arr) => {
-  let orderIndicatorName = arr.sort(function(prev, next) {
+  let orderIndicatorName = arr.sort((prev, next) => {
     if (prev.indicatorName > next.indicatorName) {
       return 1;
-    } if (prev.indicatorName < next.indicatorName) {
+    } else if (prev.indicatorName < next.indicatorName) {
       return -1;
-    } return 0; 
+    } else {
+      return 0;
+    }
   });
   return orderIndicatorName; 
 };
 const fallingIndicator = (arr) => {
-  let fallingIndicatorName = arr.sort(function(prev, next) {
+  let fallingIndicatorName = arr.sort((prev, next) => {
     if (prev.indicatorName > next.indicatorName) {
       return -1;
-    } if (prev.indicatorName < next.indicatorName) {
+    } else if (prev.indicatorName < next.indicatorName) {
       return 1;
-    } return 0; 
+    } else {
+      return 0;
+    } 
   });
   return fallingIndicatorName; 
 };
