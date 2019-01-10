@@ -98,7 +98,7 @@ footer{
 footer a{
   color: white; 
 }
-.listado, .hide-btn, .listado-data {
+.listado, .hide-btn {
   display: none;
 }
 #flag-peru, #flag-brazil, #flag-chile, #flag-mexico, #ind-women, #ind-men{

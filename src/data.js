@@ -19,7 +19,9 @@ const orderIndicator = (arr) => {
       return 1;
     } else if (prev.indicatorName < next.indicatorName) {
       return -1;
-    } 
+    } else {
+      return 0;
+    }
   });
   return orderIndicatorName; 
 };
@@ -29,7 +31,9 @@ const fallingIndicator = (arr) => {
       return -1;
     } else if (prev.indicatorName < next.indicatorName) {
       return 1;
-    }  
+    } else {
+      return 0;
+    } 
   });
   return fallingIndicatorName; 
 };
