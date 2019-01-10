@@ -63,7 +63,7 @@ const laborInfo = (lab, index, country) => {
   const averageLaborArray = worldbank.calculateAverage(...worldbank.dataOfData(worldbank.filter(country, 'SL.TLF')));
   return `
   <div class="indicator-name"> ${lab.indicatorName} </div>
-  <section class="listado-data">
+  <section class="listado-data-visible">
     ${dataList(Object.entries(lab.data))}
     <p class ="average-value"> Promedio: ${averageLaborArray[index]}</p>
   </section>
@@ -78,7 +78,7 @@ const unemploymentInfo = (unemployed, index, country) => {
   const averageUnemploymentArray = worldbank.calculateAverage(...worldbank.dataOfData(worldbank.filter(country, 'SL.UEM')));
   return `
   <div class="indicator-name"> ${unemployed.indicatorName}</div>
-  <section class="listado-data">
+  <section class="listado-data-visible">
     ${dataList(Object.entries(unemployed.data))} 
     <p class="average-value"> Promedio: ${averageUnemploymentArray[index]}<p/>
    </section>
@@ -93,7 +93,7 @@ const educationInfo = (edu, index, country) => {
   const averageEducationArray = worldbank.calculateAverage(...worldbank.dataOfData(worldbank.educationFilter(country, 'SE')));
   return `
   <div class="indicator-name"> ${edu.indicatorName}</div>
-  <section class="listado-data">
+  <section class="listado-data-visible">
     ${dataList(Object.entries(edu.data))}
     <p class="average-value"> Promedio: ${averageEducationArray[index]}<p/>
    </section>
@@ -108,7 +108,7 @@ const violenceInfo = (violent, index, country) => {
   const averageViolenceArray = worldbank.calculateAverage(...worldbank.dataOfData(worldbank.filter(country, 'SG.VAW')));
   return `
   <div class="indicator-name"> ${violent.indicatorName} </div>
-  <section class="listado-data">
+  <section class="listado-data-visible">
     ${dataList(Object.entries(violent.data))}
     <p class="average-value"> ´Promedio: ${averageViolenceArray[index]}<p/>
   </section>
@@ -123,7 +123,7 @@ const womenInfo = (woman, index, country) => {
   const averageWomenArray = worldbank.calculateAverage(...worldbank.dataOfData(worldbank.genreFilter(country, 'FE')));
   return `
   <div class="indicator-name"> ${woman.indicatorName}</div>
-  <section class="listado-data">
+  <section class="listado-data-visible">
     ${dataList(Object.entries(woman.data))}
     <p class="average-value"> Promedio: ${averageWomenArray[index]}<p/> 
   </section>
@@ -168,7 +168,7 @@ const menInfo = (man, index, country) => {
   const averageMenArray = worldbank.calculateAverage(...worldbank.dataOfData(worldbank.genreFilter(country, 'MA')));
   return `
   <div class="indicator-name"> ${man.indicatorName} </div>
-  <section class="listado-data">
+  <section class="listado-data-visible">
     ${dataList(Object.entries(man.data))}
     <p class="average-value"> Promedio: ${averageMenArray[index]}<p/> 
   </section>
