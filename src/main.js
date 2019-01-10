@@ -22,25 +22,24 @@ const dataList = (list) => {
 const populationInfo = (pop, index, country) => {
   const averagePopulationArray = worldbank.calculateAverage(...worldbank.dataOfData(worldbank.filter(country, 'SP.POP')));
   return `
-  <div class="indicator-name"> ${pop.indicatorName}
-    <div class="buttons">
-      <button class="show-btn" id ="show-btn-${pop.indicatorCode}" data-code="${pop.indicatorCode}">Ver datos</button>
-      <button class="hide-btn" id ="hide-btn-${pop.indicatorCode}" data-code="${pop.indicatorCode}">Ocultar</button>
-    </div>
-  </div>
+  <div class="indicator-name"> ${pop.indicatorName}</div>
   <section class="listado-data" id="listas-${pop.indicatorCode}" data-code="${pop.indicatorCode}">
     ${dataList(Object.entries(pop.data))}
     <p class ="average-value"> Promedio: ${averagePopulationArray[index]}</p>
   </section>
   `; 
 };
-
 // map will run the function populationInfo once for each item in the original array and each time the function runs whatever it returns gets added to the new array
 populationIndicators[0].innerHTML = `${worldbank.filter(indicatorsPeruArray, 'SP.POP').map(populationInfo).join('')}`;
 populationIndicators[1].innerHTML = `${worldbank.filter(indicatorsBrazilArray, 'SP.POP').map(populationInfo).join('')}`;
 populationIndicators[2].innerHTML = `${worldbank.filter(indicatorsChileArray, 'SP.POP').map(populationInfo).join('')}`;
 populationIndicators[3].innerHTML = `${worldbank.filter(indicatorsMexicoArray, 'SP.POP').map(populationInfo).join('')}`;
 
+/* 
+<div class="buttons">
+  <button class="show-btn" id ="show-btn-${pop.indicatorCode}" data-code="${pop.indicatorCode}">Ver datos</button>
+  <button class="hide-btn" id ="hide-btn-${pop.indicatorCode}" data-code="${pop.indicatorCode}">Ocultar</button>
+</div>
 let showBtn = document.querySelectorAll('.show-btn');
 let hideBtn = document.querySelectorAll('.hide-btn');
 for (let index of showBtn) {
@@ -57,7 +56,7 @@ for (let key of hideBtn) {
     document.getElementById(`show-btn-${key.dataset.code}`).style.display = 'block';
     document.getElementById(`listas-${key.dataset.code}`).style.display = 'none';
   });
-}
+}*/
 
 const laborInfo = (lab, index, country) => {
   const averageLaborArray = worldbank.calculateAverage(...worldbank.dataOfData(worldbank.filter(country, 'SL.TLF')));
