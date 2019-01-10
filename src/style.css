@@ -44,6 +44,9 @@ ul .dropdown-menu li a:hover{
 .container{
   margin-bottom: 80px;
 }
+.indicators-header {
+  margin-left: 3.5%;
+};
 #countries-list {
     list-style: none;
 }
@@ -58,6 +61,7 @@ ul .dropdown-menu li a:hover{
 }
 .population-option, .labor-option, .unemployment-option, .education-option, .violence-option{
   cursor: pointer;
+  text-align: center;
 }
 .population-option:hover, .labor-option:hover, .unemployment-option:hover, .education-option:hover, .violence-option:hover{
   text-decoration-line: underline;
@@ -65,9 +69,13 @@ ul .dropdown-menu li a:hover{
 .population-indicators, .labor-indicators, .unemployment-indicators, .education-indicators, .violence-indicators, #upward-page, #falling-page, #women-page, #men-page{
   display: none;
 }
+.population-indicators, .labor-indicators, .unemployment-indicators, .education-indicators, .violence-indicators, #women-indicators-pe, #women-indicators-br, #women-indicators-ch, #women-indicators-me, #men-indicators-pe, #men-indicators-br, #men-indicators-ch, #men-indicators-me {
+  padding-top: 2%;
+}
 .indicators-icons{
   display: flex;
   justify-content: space-around;
+  margin-top: 2%;
 }
 section{
   margin-bottom: 70px;
@@ -90,12 +98,9 @@ footer{
 footer a{
   color: white; 
 }
-.listado, .hide-btn {
+.listado, .hide-btn, .listado-data {
   display: none;
 }
-/* .listado-data {
-  display: none;
-} */
 #flag-peru, #flag-brazil, #flag-chile, #flag-mexico, #ind-women, #ind-men{
   background:#002244;
   color: #FFF; 
@@ -112,21 +117,36 @@ h4{
   padding-left: 2%;
 }
 .indicator-name {
+  margin-left: 20%;
+  box-sizing: border-box;
+  padding-bottom: 1.5%;
+}
+.listado-data {
+  margin-left: 22%;
+}
+ul.data-list {
+  list-style-type: none;
+}
+.indicator-name {
   color: #002244;
   font-weight: 600;
 }
 .indicators-filter, #women-indicators-pe, #women-indicators-br, #women-indicators-ch, #women-indicators-me, #men-indicators-pe, #men-indicators-br, #men-indicators-ch, #men-indicators-me{
   background: #F6F6F6;
-  text-align: center;
+  margin-top: 2%; 
+  /* text-align: center; */
 }
 #upward-order, #falling-order{
   background: #F6F6F6;
   padding-left: 2%;
 }
 .average-value{
-  background: #e4fffd;  
-  margin-left: 42%;
-  margin-right: 42%;
+  background: #e4fffd; 
+  text-align: center; 
+  box-sizing: border-box;
+  margin-left: 1%;
+  margin-right: 70%;
+  margin-top: 0.8%;
   padding-top: 0.3%;
   padding-bottom: 0.3%;
   font-size: 20px;
@@ -139,15 +159,21 @@ h4{
 /* Por debajo de 1024px */
 @media screen and (max-width: 1024px){
   .title h1{
-    font-size: 40px;
+    font-size: 38px;
   }
   .title img{
     margin-top: -3%;
     height: 30px;
   }
-  .average-value{
-    margin-left: 35%;
+  /* .average-value{
+    margin-left: %;
     margin-right: 35%;
+  } */
+  .indicator-name {
+    margin-left: 3%;
+  }
+  .listado-data {
+    margin-left: 12%;
   }
 }
 /* Por debajo de 700px */
@@ -156,16 +182,22 @@ h4{
     text-align: center;
   }
   .title h1{
-    font-size: 40px;
-    display: block;
+    /* font-size: 40px; */
+    display: none;
   }
   .title img{
     margin-top: 3%;
     height: 30px;
   }
   .average-value{
-    margin-left: 22%;
+    margin-left: 12%;
     margin-right: 22%;
+  }
+  .indicator-name {
+    margin-left: 3%;
+  }
+  .listado-data {
+    margin-left: 15%;
   }
 }
   /* Por debajo de 400px */
@@ -174,15 +206,15 @@ h4{
     text-align: center;
   }
   .title h1{
-    font-size: 30px;
-    display: block;
+    /* font-size: 30px; */
+    display: none;
   }
   .title img{
     height: 20px;
   }
   .average-value{
-    margin-left: 20%;
-    margin-right: 20%;
+    margin-left: 5%;
+    margin-right: 18%;
   }
   .indicators-icons .ind-icon{
     width: 50px;
@@ -190,5 +222,11 @@ h4{
   }
   .population-option, .labor-option, .unemployment-option, .education-option, .violence-option{
     font-size: 13px;
+  }
+  .indicator-name {
+    margin-left: 3%;
+  }
+  .listado-data {
+    margin-left: 15%;
   }
 }

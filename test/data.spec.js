@@ -163,6 +163,24 @@ const output7 = [
 ];
 const output8 = ['51.20', '42.72', '23.67'];
 
+
+const input5 = [
+  {
+    'data': {
+      '1960': 0.334943612263856,
+      '1961': 0.349147022654834,
+      '1962': 0.353646103597639,
+    }
+  }
+];
+
+const output9 = [[[
+  0.334943612263856,
+  0.349147022654834, 
+  0.353646103597639
+]]];
+
+
 describe('worldbank', () => {
   it('deberia ser un objeto', () => {
     expect(typeof worldbank).toBe('object');
@@ -253,5 +271,10 @@ describe('worldbank.calculateAverage', () => {
   });
   it('deberia calcular el promedio de los valores de la data', () => {
     expect(worldbank.calculateAverage(input4)).toEqual(output8);
+  });
+});
+describe('worldbank.dataOfData', () => {
+  it('deberia retornar un array con los valores del objeto', () => {
+    expect(worldbank.dataOfData(input5)).toEqual(output9);
   });
 });

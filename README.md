@@ -38,13 +38,14 @@ Los usuarios nos dijeron que para que la página sea atractiva tiene que present
 ## Historias de usuario
 
 Como historias de usuarios tenemos:
-* Como usuario me gustaria poder ver la información por cada país para poder conocer  la diferencia entre de cada país.
+* Como usuario me gustaria poder ver la información por cada país para poder conocer  la diferencia entre de cada uno.
 * Como usuario me gustaria poder tener un link que me redireccione a la página oficial que me pueda brindar mayor información.
 * Como usuario me gustaria poder escoger y ver la información por sexo entre hombres y mujeres para poder compararla y ver la diferencia de estos datos.
 * Como usuario me gustaria ver la información de los años y datos en una tabla para que sea más fácil de poder comprender.
-* Como usuario me gustaria ver la información dividida entre género para poder ver cual es la realidad de cada país respecto a la diferencia de género y como ha ido cambiando a través de los años
-* Como usuario me gustaria poder ver la información clasificada por género para poder ver como es la diferencia entre hombres y mujeres respecto a nivel de estudios, tipos de empleo y estabilidad económica, violencia.
-* Como usuario me gustaria poder ver el promedio de la data por que qusiera comparar de manera facil la diferencia de cada pais sin tener que ver el valor de cada año.
+* Como usuario me gustaria ver la información dividida entre género para poder ver cual es la realidad de cada país respecto a la diferencia de género.
+* Como usuario me gustaria poder ver la información clasificada por género para poder ver como es la diferencia entre hombres y mujeres respecto a nivel de estudios, tipos de empleo, estabilidad económica y violencia y como ha cambiado a través de los años.
+* Como usuario me gustaria poder ver el promedio de cada indicador para facilmente poder comparar entre un valor de un país y otro.
+* Como usuario me gustaria poder tener un listado con los indicadores para poder ver que información es relevante para mí.
 
 
 ## Testeo de usabilidad
