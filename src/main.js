@@ -37,8 +37,8 @@ populationIndicators[3].innerHTML = `${worldbank.filter(indicatorsMexicoArray, '
 
 /* 
 <div class="buttons">
-  <button class="show-btn" id ="show-btn-${pop.indicatorCode}" data-code="${pop.indicatorCode}">Ver datos</button>
-  <button class="hide-btn" id ="hide-btn-${pop.indicatorCode}" data-code="${pop.indicatorCode}">Ocultar</button>
+  <button class="show-btn" id ="show-btn-${pop.countryCode}-${pop.indicatorCode}" data-code="${pop.indicatorCode}">Ver datos</button>
+  <button class="hide-btn" id ="hide-btn-${pop.countryCode}-${pop.indicatorCode}" data-code="${pop.indicatorCode}">Ocultar</button>
 </div>
 let showBtn = document.querySelectorAll('.show-btn');
 let hideBtn = document.querySelectorAll('.hide-btn');
