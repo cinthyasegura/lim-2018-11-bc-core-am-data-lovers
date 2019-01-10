@@ -236,6 +236,8 @@ document.getElementById('peru-map').addEventListener('click', () => {
   document.getElementById('women-indicators-br').style.display = 'none';
   document.getElementById('women-indicators-ch').style.display = 'none';
   document.getElementById('women-indicators-me').style.display = 'none';
+  document.getElementById('upward-page').style.display = 'none';
+  document.getElementById('falling-page').style.display = 'none';
 });
 document.getElementById('brazil-map').addEventListener('click', () => {
   document.getElementById('welcome-page').style.display = 'none';
@@ -249,6 +251,8 @@ document.getElementById('brazil-map').addEventListener('click', () => {
   document.getElementById('women-indicators-br').style.display = 'none';
   document.getElementById('women-indicators-ch').style.display = 'none';
   document.getElementById('women-indicators-me').style.display = 'none';
+  document.getElementById('upward-page').style.display = 'none';
+  document.getElementById('falling-page').style.display = 'none';
 });
 document.getElementById('chile-map').addEventListener('click', () => {
   document.getElementById('welcome-page').style.display = 'none';
@@ -262,6 +266,8 @@ document.getElementById('chile-map').addEventListener('click', () => {
   document.getElementById('women-indicators-br').style.display = 'none';
   document.getElementById('women-indicators-ch').style.display = 'none';
   document.getElementById('women-indicators-me').style.display = 'none';
+  document.getElementById('upward-page').style.display = 'none';
+  document.getElementById('falling-page').style.display = 'none';
 });
 document.getElementById('mexico-map').addEventListener('click', () => {
   document.getElementById('welcome-page').style.display = 'none';
@@ -275,6 +281,8 @@ document.getElementById('mexico-map').addEventListener('click', () => {
   document.getElementById('women-indicators-br').style.display = 'none';
   document.getElementById('women-indicators-ch').style.display = 'none';
   document.getElementById('women-indicators-me').style.display = 'none';
+  document.getElementById('upward-page').style.display = 'none';
+  document.getElementById('falling-page').style.display = 'none';
 });
 // peru
 document.getElementsByClassName('population-option')[0].addEventListener('click', () => {
@@ -434,6 +442,8 @@ document.getElementById('women-option').addEventListener('click', () => {
   document.getElementById('women-indicators-br').style.display = 'none';
   document.getElementById('women-indicators-ch').style.display = 'none';
   document.getElementById('women-indicators-me').style.display = 'none';
+  document.getElementById('upward-page').style.display = 'none';
+  document.getElementById('falling-page').style.display = 'none';
 });
 document.getElementById('men-option').addEventListener('click', () => {
   document.getElementById('men-page').style.display = 'block';
@@ -447,6 +457,8 @@ document.getElementById('men-option').addEventListener('click', () => {
   document.getElementById('men-indicators-br').style.display = 'none';
   document.getElementById('men-indicators-ch').style.display = 'none';
   document.getElementById('men-indicators-me').style.display = 'none';
+  document.getElementById('upward-page').style.display = 'none';
+  document.getElementById('falling-page').style.display = 'none';
 });
 document.getElementById('btn-asc').addEventListener('click', () => {
   document.getElementById('upward-page').style.display = 'block';
