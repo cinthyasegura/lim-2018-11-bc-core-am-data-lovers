@@ -54,7 +54,7 @@ Despues de entrevistar a nuestros usuarios hicimos nuestro bosquejo con la idea 
 
 Nuestro primer bosquejo
 ![primer-diseño](src/imagen/primer-diseño.jpeg)
-![mapa](src/imagen/mapa.jpeg)
+![mapa](src/imagen/mapa.png)
 
 Sin embargo durante el testeo de usabilidad mucho de ellos no lo encontraron facil y rapido de acceder a la información mas revelante, por ello hicimos un cambio a nuestro diseño, 
 
