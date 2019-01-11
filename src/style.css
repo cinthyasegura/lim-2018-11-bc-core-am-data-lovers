@@ -16,9 +16,6 @@ body {
   color:#009FDA;
   padding: 1%;
 }
-.show-btn:hover, .hide-btn:hover {
-  box-shadow: #002244;
-}
 .title h1{
   box-sizing: border-box;
   font-family: 'Cuprum', sans-serif;
@@ -44,6 +41,9 @@ ul .dropdown-menu{
 ul .dropdown-menu li a:hover{
   color: #009FDA;
 }
+.carousel-inner {
+  height: 50rem;
+}
 .container{
   margin-bottom: 80px;
 }
@@ -59,6 +59,12 @@ ul .dropdown-menu li a:hover{
 #peru-page, #brazil-page, #chile-page, #mexico-page, #first-page, #sort-page, #women-page, #men-page{
   display: none;
 }
+.show-btn, .hide-btn {
+  background-color: #F6F6F6;
+  color: #0071BC;
+  border: none;
+  padding: 2px;
+}
 .population-option, .labor-option, .unemployment-option, .education-option, .violence-option{
   cursor: pointer;
   text-align: center;
@@ -66,7 +72,7 @@ ul .dropdown-menu li a:hover{
 .population-option:hover, .labor-option:hover, .unemployment-option:hover, .education-option:hover, .violence-option:hover{
   text-decoration-line: underline;
 }
-.population-indicators, .labor-indicators, .unemployment-indicators, .education-indicators, .violence-indicators, #upward-page, #falling-page, #women-page, #men-page, .listado-data{
+.population-indicators, .labor-indicators, .unemployment-indicators, .education-indicators, .violence-indicators, .listado, .hide-btn, #upward-page, #falling-page, #women-page, #men-page, .listado-data{
   display: none;
 }
 .population-indicators, .labor-indicators, .unemployment-indicators, .education-indicators, .violence-indicators, #women-indicators-pe, #women-indicators-br, #women-indicators-ch, #women-indicators-me, #men-indicators-pe, #men-indicators-br, #men-indicators-ch, #men-indicators-me {
@@ -98,9 +104,6 @@ footer{
 footer a{
   color: white; 
 }
-.listado, .hide-btn {
-  display: none;
-}
 #flag-peru, #flag-brazil, #flag-chile, #flag-mexico, #ind-women, #ind-men{
   background:#002244;
   color: #FFF; 
@@ -120,21 +123,18 @@ h4{
   margin-left: 20%;
   box-sizing: border-box;
   padding-bottom: 1.5%;
+  font-weight: 600;
+  color: #333333;
 }
-.listado-data, .listado-data-viible {
+.listado-data, .listado-data-visible {
   margin-left: 22%;
 }
 ul.data-list {
   list-style-type: none;
 }
-.indicator-name {
-  color: #002244;
-  font-weight: 600;
-}
 .indicators-filter, #women-indicators-pe, #women-indicators-br, #women-indicators-ch, #women-indicators-me, #men-indicators-pe, #men-indicators-br, #men-indicators-ch, #men-indicators-me{
   background: #F6F6F6;
   margin-top: 2%; 
-  /* text-align: center; */
 }
 #upward-order, #falling-order{
   background: #F6F6F6;
@@ -164,10 +164,6 @@ ul.data-list {
     margin-top: -3%;
     height: 30px;
   }
-  /* .average-value{
-    margin-left: %;
-    margin-right: 35%;
-  } */
   .indicator-name {
     margin-left: 3%;
   }
@@ -181,7 +177,6 @@ ul.data-list {
     text-align: center;
   }
   .title h1{
-    /* font-size: 40px; */
     display: none;
   }
   .title img{
@@ -205,7 +200,6 @@ ul.data-list {
     text-align: center;
   }
   .title h1{
-    /* font-size: 30px; */
     display: none;
   }
   .title img{
