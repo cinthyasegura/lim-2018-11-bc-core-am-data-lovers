@@ -1,6 +1,6 @@
 const filter = (arr, string) => {
   let filterArray = [];
-  filterArray = arr.filter(indicator => indicator.indicatorCode.slice(0, 6) === string); 
+  filterArray = arr.filter(indicator => indicator.indicatorCode.slice(0, 6) === string);
   return filterArray;
 };
 const educationFilter = (arr, string) => {

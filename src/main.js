@@ -10,7 +10,6 @@ const indicatorsMexicoArray = WORLDBANK.MEX.indicators;
 
 // funcion que me muesta en un array de arrays los values de data
 
-
 const dataList = (list) => {
   return `
   <h5><strong>Año -  Datos</strong></h5>
@@ -22,8 +21,13 @@ const dataList = (list) => {
 const populationInfo = (pop, index, country) => {
   const averagePopulationArray = worldbank.calculateAverage(...worldbank.dataOfData(worldbank.filter(country, 'SP.POP')));
   return `
-  <div class="indicator-name"> ${pop.indicatorName}</div>
-  <section class="listado-data" id="listas-${pop.indicatorCode}" data-code="${pop.indicatorCode}">
+  <div class="indicator-name"> ${pop.indicatorName}
+    <div class="buttons">
+      <button class="show-btn" id ="show-btn-${pop.countryCode}-${pop.indicatorCode}" data-code="${pop.countryCode}-${pop.indicatorCode}">Ver datos</button>
+      <button class="hide-btn" id ="hide-btn-${pop.countryCode}-${pop.indicatorCode}" data-code="${pop.countryCode}-${pop.indicatorCode}">Ocultar</button>
+    </div>
+  </div>
+  <section class="listado-data" id="listas-${pop.countryCode}-${pop.indicatorCode}" data-code="${pop.countryCode}-${pop.indicatorCode}">
     ${dataList(Object.entries(pop.data))}
     <p class ="average-value"> Promedio: ${averagePopulationArray[index]}</p>
   </section>
@@ -35,34 +39,16 @@ populationIndicators[1].innerHTML = `${worldbank.filter(indicatorsBrazilArray, '
 populationIndicators[2].innerHTML = `${worldbank.filter(indicatorsChileArray, 'SP.POP').map(populationInfo).join('')}`;
 populationIndicators[3].innerHTML = `${worldbank.filter(indicatorsMexicoArray, 'SP.POP').map(populationInfo).join('')}`;
 
-/* 
-<div class="buttons">
-  <button class="show-btn" id ="show-btn-${pop.indicatorCode}" data-code="${pop.indicatorCode}">Ver datos</button>
-  <button class="hide-btn" id ="hide-btn-${pop.indicatorCode}" data-code="${pop.indicatorCode}">Ocultar</button>
-</div>
-let showBtn = document.querySelectorAll('.show-btn');
-let hideBtn = document.querySelectorAll('.hide-btn');
-for (let index of showBtn) {
-  index.addEventListener('click', () => {
-    index.style.display = 'none';
-    document.getElementById(`hide-btn-${index.dataset.code}`).style.display = 'block';
-    document.getElementById(`listas-${index.dataset.code}`).style.display = 'block';
-  });
-}
-
-for (let key of hideBtn) {
-  key.addEventListener('click', () => {
-    key.style.display = 'none';
-    document.getElementById(`show-btn-${key.dataset.code}`).style.display = 'block';
-    document.getElementById(`listas-${key.dataset.code}`).style.display = 'none';
-  });
-}*/
-
 const laborInfo = (lab, index, country) => {
   const averageLaborArray = worldbank.calculateAverage(...worldbank.dataOfData(worldbank.filter(country, 'SL.TLF')));
   return `
-  <div class="indicator-name"> ${lab.indicatorName} </div>
-  <section class="listado-data">
+  <div class="indicator-name"> ${lab.indicatorName} 
+  <div class="buttons">
+      <button class="show-btn" id ="show-btn-${lab.countryCode}-${lab.indicatorCode}" data-code="${lab.countryCode}-${lab.indicatorCode}">Ver datos</button>
+      <button class="hide-btn" id ="hide-btn-${lab.countryCode}-${lab.indicatorCode}" data-code="${lab.countryCode}-${lab.indicatorCode}">Ocultar</button>
+    </div>
+  </div>
+  <section class="listado-data" id="listas-${lab.countryCode}-${lab.indicatorCode}" data-code="${lab.countryCode}-${lab.indicatorCode}">
     ${dataList(Object.entries(lab.data))}
     <p class ="average-value"> Promedio: ${averageLaborArray[index]}</p>
   </section>
@@ -72,12 +58,18 @@ laborIndicators[0].innerHTML = `${worldbank.filter(indicatorsPeruArray, 'SL.TLF'
 laborIndicators[1].innerHTML = `${worldbank.filter(indicatorsBrazilArray, 'SL.TLF').map(laborInfo).join('')}`;
 laborIndicators[2].innerHTML = `${worldbank.filter(indicatorsChileArray, 'SL.TLF').map(laborInfo).join('')}`;
 laborIndicators[3].innerHTML = `${worldbank.filter(indicatorsMexicoArray, 'SL.TLF').map(laborInfo).join('')}`;
+
 // const <p>${worldbank.calculateAverage(Object.values(lab.data))}</p>
 const unemploymentInfo = (unemployed, index, country) => {
   const averageUnemploymentArray = worldbank.calculateAverage(...worldbank.dataOfData(worldbank.filter(country, 'SL.UEM')));
   return `
-  <div class="indicator-name"> ${unemployed.indicatorName}</div>
-  <section class="listado-data">
+  <div class="indicator-name"> ${unemployed.indicatorName}
+    <div class="buttons">
+      <button class="show-btn" id ="show-btn-${unemployed.countryCode}-${unemployed.indicatorCode}" data-code="${unemployed.countryCode}-${unemployed.indicatorCode}">Ver datos</button>
+      <button class="hide-btn" id ="hide-btn-${unemployed.countryCode}-${unemployed.indicatorCode}" data-code="${unemployed.countryCode}-${unemployed.indicatorCode}">Ocultar</button>
+    </div>
+  </div>
+  <section class="listado-data" id="listas-${unemployed.countryCode}-${unemployed.indicatorCode}" data-code="${unemployed.countryCode}-${unemployed.indicatorCode}">
     ${dataList(Object.entries(unemployed.data))} 
     <p class="average-value"> Promedio: ${averageUnemploymentArray[index]}<p/>
    </section>
@@ -91,8 +83,13 @@ unemploymentIndicators[3].innerHTML = `${worldbank.filter(indicatorsMexicoArray,
 const educationInfo = (edu, index, country) => {
   const averageEducationArray = worldbank.calculateAverage(...worldbank.dataOfData(worldbank.educationFilter(country, 'SE')));
   return `
-  <div class="indicator-name"> ${edu.indicatorName}</div>
-  <section class="listado-data">
+  <div class="indicator-name"> ${edu.indicatorName}
+    <div class="buttons">
+      <button class="show-btn" id ="show-btn-${edu.countryCode}-${edu.indicatorCode}" data-code="${edu.countryCode}-${edu.indicatorCode}">Ver datos</button>
+      <button class="hide-btn" id ="hide-btn-${edu.countryCode}-${edu.indicatorCode}" data-code="${edu.countryCode}-${edu.indicatorCode}">Ocultar</button>
+    </div>
+  </div>
+  <section class="listado-data" id="listas-${edu.countryCode}-${edu.indicatorCode}" data-code="${edu.countryCode}-${edu.indicatorCode}">
     ${dataList(Object.entries(edu.data))}
     <p class="average-value"> Promedio: ${averageEducationArray[index]}<p/>
    </section>
@@ -106,8 +103,13 @@ educationIndicators[3].innerHTML = `${worldbank.educationFilter(indicatorsMexico
 const violenceInfo = (violent, index, country) => {
   const averageViolenceArray = worldbank.calculateAverage(...worldbank.dataOfData(worldbank.filter(country, 'SG.VAW')));
   return `
-  <div class="indicator-name"> ${violent.indicatorName} </div>
-  <section class="listado-data">
+  <div class="indicator-name"> ${violent.indicatorName} 
+    <div class="buttons">
+      <button class="show-btn" id ="show-btn-${violent.countryCode}-${violent.indicatorCode}" data-code="${violent.countryCode}-${violent.indicatorCode}">Ver datos</button>
+      <button class="hide-btn" id ="hide-btn-${violent.countryCode}-${violent.indicatorCode}" data-code="${violent.countryCode}-${violent.indicatorCode}">Ocultar</button>
+    </div>
+  </div>
+  <section class="listado-data" id="listas-${violent.countryCode}-${violent.indicatorCode}" data-code="${violent.countryCode}-${violent.indicatorCode}">
     ${dataList(Object.entries(violent.data))}
     <p class="average-value"> ´Promedio: ${averageViolenceArray[index]}<p/>
   </section>
@@ -117,6 +119,24 @@ violenceIndicators[0].innerHTML = `${worldbank.filter(indicatorsPeruArray, 'SG.V
 violenceIndicators[1].innerHTML = `${worldbank.filter(indicatorsBrazilArray, 'SG.VAW').map(violenceInfo).join('')}`;
 violenceIndicators[2].innerHTML = `${worldbank.filter(indicatorsChileArray, 'SG.VAW').map(violenceInfo).join('')}`;
 violenceIndicators[3].innerHTML = `${worldbank.filter(indicatorsMexicoArray, 'SG.VAW').map(violenceInfo).join('')}`;
+
+let showBtn = document.querySelectorAll('.show-btn');
+let hideBtn = document.querySelectorAll('.hide-btn');
+for (let index of showBtn) {
+  index.addEventListener('click', () => {
+    index.style.display = 'none';
+    document.getElementById(`hide-btn-${index.dataset.code}`).style.display = 'block';
+    document.getElementById(`listas-${index.dataset.code}`).style.display = 'block';
+  });
+}
+for (let key of hideBtn) {
+  key.addEventListener('click', () => {
+    key.style.display = 'none';
+    document.getElementById(`show-btn-${key.dataset.code}`).style.display = 'block';
+    document.getElementById(`listas-${key.dataset.code}`).style.display = 'none';
+  });
+}
+
 // filtrado por sexo 
 const womenInfo = (woman, index, country) => {
   const averageWomenArray = worldbank.calculateAverage(...worldbank.dataOfData(worldbank.genreFilter(country, 'FE')));
@@ -235,6 +255,8 @@ document.getElementById('peru-map').addEventListener('click', () => {
   document.getElementById('women-indicators-br').style.display = 'none';
   document.getElementById('women-indicators-ch').style.display = 'none';
   document.getElementById('women-indicators-me').style.display = 'none';
+  document.getElementById('upward-page').style.display = 'none';
+  document.getElementById('falling-page').style.display = 'none';
 });
 document.getElementById('brazil-map').addEventListener('click', () => {
   document.getElementById('welcome-page').style.display = 'none';
@@ -248,6 +270,8 @@ document.getElementById('brazil-map').addEventListener('click', () => {
   document.getElementById('women-indicators-br').style.display = 'none';
   document.getElementById('women-indicators-ch').style.display = 'none';
   document.getElementById('women-indicators-me').style.display = 'none';
+  document.getElementById('upward-page').style.display = 'none';
+  document.getElementById('falling-page').style.display = 'none';
 });
 document.getElementById('chile-map').addEventListener('click', () => {
   document.getElementById('welcome-page').style.display = 'none';
@@ -261,6 +285,8 @@ document.getElementById('chile-map').addEventListener('click', () => {
   document.getElementById('women-indicators-br').style.display = 'none';
   document.getElementById('women-indicators-ch').style.display = 'none';
   document.getElementById('women-indicators-me').style.display = 'none';
+  document.getElementById('upward-page').style.display = 'none';
+  document.getElementById('falling-page').style.display = 'none';
 });
 document.getElementById('mexico-map').addEventListener('click', () => {
   document.getElementById('welcome-page').style.display = 'none';
@@ -274,6 +300,8 @@ document.getElementById('mexico-map').addEventListener('click', () => {
   document.getElementById('women-indicators-br').style.display = 'none';
   document.getElementById('women-indicators-ch').style.display = 'none';
   document.getElementById('women-indicators-me').style.display = 'none';
+  document.getElementById('upward-page').style.display = 'none';
+  document.getElementById('falling-page').style.display = 'none';
 });
 // peru
 document.getElementsByClassName('population-option')[0].addEventListener('click', () => {
@@ -433,6 +461,8 @@ document.getElementById('women-option').addEventListener('click', () => {
   document.getElementById('women-indicators-br').style.display = 'none';
   document.getElementById('women-indicators-ch').style.display = 'none';
   document.getElementById('women-indicators-me').style.display = 'none';
+  document.getElementById('upward-page').style.display = 'none';
+  document.getElementById('falling-page').style.display = 'none';
 });
 document.getElementById('men-option').addEventListener('click', () => {
   document.getElementById('men-page').style.display = 'block';
@@ -446,6 +476,8 @@ document.getElementById('men-option').addEventListener('click', () => {
   document.getElementById('men-indicators-br').style.display = 'none';
   document.getElementById('men-indicators-ch').style.display = 'none';
   document.getElementById('men-indicators-me').style.display = 'none';
+  document.getElementById('upward-page').style.display = 'none';
+  document.getElementById('falling-page').style.display = 'none';
 });
 document.getElementById('btn-asc').addEventListener('click', () => {
   document.getElementById('upward-page').style.display = 'block';
