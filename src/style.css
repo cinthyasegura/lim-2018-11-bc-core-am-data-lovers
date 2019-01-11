@@ -41,9 +41,9 @@ ul .dropdown-menu{
 ul .dropdown-menu li a:hover{
   color: #009FDA;
 }
-.carousel-inner {
+/* .carousel-inner {
   height: 50rem;
-}
+} */
 .container{
   margin-bottom: 80px;
 }
