@@ -33,7 +33,6 @@ const populationInfo = (pop, index, country) => {
   </section>
   `; 
 };
-
 // map will run the function populationInfo once for each item in the original array and each time the function runs whatever it returns gets added to the new array
 populationIndicators[0].innerHTML = `${worldbank.filter(indicatorsPeruArray, 'SP.POP').map(populationInfo).join('')}`;
 populationIndicators[1].innerHTML = `${worldbank.filter(indicatorsBrazilArray, 'SP.POP').map(populationInfo).join('')}`;
