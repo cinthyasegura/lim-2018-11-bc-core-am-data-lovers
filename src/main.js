@@ -120,6 +120,46 @@ violenceIndicators[1].innerHTML = `${worldbank.filter(indicatorsBrazilArray, 'SG
 violenceIndicators[2].innerHTML = `${worldbank.filter(indicatorsChileArray, 'SG.VAW').map(violenceInfo).join('')}`;
 violenceIndicators[3].innerHTML = `${worldbank.filter(indicatorsMexicoArray, 'SG.VAW').map(violenceInfo).join('')}`;
 
+// filtrado por sexo 
+const womenInfo = (woman, index, country) => {
+  const averageWomenArray = worldbank.calculateAverage(...worldbank.dataOfData(worldbank.genreFilter(country, 'FE')));
+  return `
+  <div class="indicator-name"> ${woman.indicatorName}</div>
+  <div class="buttons">
+    <button class="show-btn" id ="show-btn-${woman.countryName}-${woman.countryCode}-${woman.indicatorCode}" data-code="${woman.countryName}-${woman.countryCode}-${woman.indicatorCode}">Ver datos</button>
+    <button class="hide-btn" id ="hide-btn-${woman.countryName}-${woman.countryCode}-${woman.indicatorCode}" data-code="${woman.countryName}-${woman.countryCode}-${woman.indicatorCode}">Ocultar</button>
+  </div>
+  <section class="listado-data" id="listas-${woman.countryName}-${woman.countryCode}-${woman.indicatorCode}" data-code="${woman.countryName}-${woman.countryCode}-${woman.indicatorCode}">
+    ${dataList(Object.entries(woman.data))}
+    <p class="average-value"> Promedio: ${averageWomenArray[index]}<p/> 
+  </section>
+  `;
+};
+document.getElementById('women-indicators-pe').innerHTML = `${worldbank.genreFilter(indicatorsPeruArray, 'FE').map(womenInfo).join('')}`;
+document.getElementById('women-indicators-br').innerHTML = `${worldbank.genreFilter(indicatorsBrazilArray, 'FE').map(womenInfo).join('')}`;
+document.getElementById('women-indicators-ch').innerHTML = `${worldbank.genreFilter(indicatorsChileArray, 'FE').map(womenInfo).join('')}`;
+document.getElementById('women-indicators-me').innerHTML = `${worldbank.genreFilter(indicatorsMexicoArray, 'FE').map(womenInfo).join('')}`;
+// Mostrar indicadores mujeres en html con select
+
+const menInfo = (man, index, country) => {
+  const averageMenArray = worldbank.calculateAverage(...worldbank.dataOfData(worldbank.genreFilter(country, 'MA')));
+  return `
+  <div class="indicator-name"> ${man.indicatorName} </div>
+  <div class="buttons">
+    <button class="show-btn" id ="show-btn-${man.countryName}-${man.countryCode}-${man.indicatorCode}" data-code="${man.countryName}-${man.countryCode}-${man.indicatorCode}">Ver datos</button>
+    <button class="hide-btn" id ="hide-btn-${man.countryName}-${man.countryCode}-${man.indicatorCode}" data-code="${man.countryName}-${man.countryCode}-${man.indicatorCode}">Ocultar</button>
+  </div>
+  <section class="listado-data" id="listas-${man.countryName}-${man.countryCode}-${man.indicatorCode}" data-code="${man.countryName}-${man.countryCode}-${man.indicatorCode}">
+    ${dataList(Object.entries(man.data))}
+    <p class="average-value"> Promedio: ${averageMenArray[index]}<p/> 
+  </section>
+  `;
+};
+document.getElementById('men-indicators-pe').innerHTML = `${worldbank.genreFilter(indicatorsPeruArray, 'MA').map(menInfo).join('')}`;
+document.getElementById('men-indicators-br').innerHTML = `${worldbank.genreFilter(indicatorsBrazilArray, 'MA').map(menInfo).join('')}`;
+document.getElementById('men-indicators-ch').innerHTML = `${worldbank.genreFilter(indicatorsChileArray, 'MA').map(menInfo).join('')}`;
+document.getElementById('men-indicators-me').innerHTML = `${worldbank.genreFilter(indicatorsMexicoArray, 'MA').map(menInfo).join('')}`;
+
 let showBtn = document.querySelectorAll('.show-btn');
 let hideBtn = document.querySelectorAll('.hide-btn');
 for (let index of showBtn) {
@@ -136,23 +176,7 @@ for (let key of hideBtn) {
     document.getElementById(`listas-${key.dataset.code}`).style.display = 'none';
   });
 }
-
-// filtrado por sexo 
-const womenInfo = (woman, index, country) => {
-  const averageWomenArray = worldbank.calculateAverage(...worldbank.dataOfData(worldbank.genreFilter(country, 'FE')));
-  return `
-  <div class="indicator-name"> ${woman.indicatorName}</div>
-  <section class="listado-data-visible">
-    ${dataList(Object.entries(woman.data))}
-    <p class="average-value"> Promedio: ${averageWomenArray[index]}<p/> 
-  </section>
-  `;
-};
-document.getElementById('women-indicators-pe').innerHTML = `${worldbank.genreFilter(indicatorsPeruArray, 'FE').map(womenInfo).join('')}`;
-document.getElementById('women-indicators-br').innerHTML = `${worldbank.genreFilter(indicatorsBrazilArray, 'FE').map(womenInfo).join('')}`;
-document.getElementById('women-indicators-ch').innerHTML = `${worldbank.genreFilter(indicatorsChileArray, 'FE').map(womenInfo).join('')}`;
-document.getElementById('women-indicators-me').innerHTML = `${worldbank.genreFilter(indicatorsMexicoArray, 'FE').map(womenInfo).join('')}`;
-// Mostrar indicadores mujeres en html con select
+// select para mujeres
 const countrySelectWomen = document.getElementById('country-select-women');
 
 const getSelectValue = () => {
@@ -216,21 +240,6 @@ countrySelectWomen.addEventListener('change', getSelectValue);
   }
 };
 countrySelectWomen.addEventListener('click', womenShowIndicator); */
-
-const menInfo = (man, index, country) => {
-  const averageMenArray = worldbank.calculateAverage(...worldbank.dataOfData(worldbank.genreFilter(country, 'MA')));
-  return `
-  <div class="indicator-name"> ${man.indicatorName} </div>
-  <section class="listado-data-visible">
-    ${dataList(Object.entries(man.data))}
-    <p class="average-value"> Promedio: ${averageMenArray[index]}<p/> 
-  </section>
-  `;
-};
-document.getElementById('men-indicators-pe').innerHTML = `${worldbank.genreFilter(indicatorsPeruArray, 'MA').map(menInfo).join('')}`;
-document.getElementById('men-indicators-br').innerHTML = `${worldbank.genreFilter(indicatorsBrazilArray, 'MA').map(menInfo).join('')}`;
-document.getElementById('men-indicators-ch').innerHTML = `${worldbank.genreFilter(indicatorsChileArray, 'MA').map(menInfo).join('')}`;
-document.getElementById('men-indicators-me').innerHTML = `${worldbank.genreFilter(indicatorsMexicoArray, 'MA').map(menInfo).join('')}`;
 // Mostrar indicadores hombres en html con select
 const countrySelectMen = document.getElementById('country-select-men');
 
