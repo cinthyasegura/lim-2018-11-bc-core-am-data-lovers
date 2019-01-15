@@ -1,51 +1,67 @@
-const populationFilter = (arr, string) => {
-  let populationArray = [];
-  populationArray = arr.filter(pop => pop.indicatorCode.slice(0, 6) === string); // pop is like arr[í]
-  return populationArray;
-};
-const laborFilter = (arr, string) => {
-  let laborArray = [];
-  laborArray = arr.filter(lab => lab.indicatorCode.slice(0, 6) === string);
-  return laborArray;
-};
-const unemploymentFilter = (arr, string) => {
-  let unemploymentArray = [];
-  unemploymentArray = arr.filter(unemployed => unemployed.indicatorCode.slice(0, 6) === string);
-  return unemploymentArray;
+const filter = (arr, string) => {
+  let filterArray = [];
+  filterArray = arr.filter(indicator => indicator.indicatorCode.slice(0, 6) === string);
+  return filterArray;
 };
 const educationFilter = (arr, string) => {
   let educationArray = [];
   educationArray = arr.filter(edu => edu.indicatorCode.slice(0, 2) === string);
   return educationArray;
 };
-const violenceFilter = (arr, string) => {
-  let violenceArray = [];
-  violenceArray = arr.filter(violent => violent.indicatorCode.slice(0, 6) === string);
-  return violenceArray;
+const genreFilter = (arr, string) => {
+  let genreArray = [];
+  genreArray = arr.filter(genre => genre.indicatorCode.includes(string));
+  return genreArray;
 };
-const womenFilter = (arr) => {
-  let womenArray = [];
-  womenArray = arr.filter(woman => woman.indicatorCode.includes('FE'));
-  return womenArray;
+const orderIndicator = (arr) => {
+  let orderIndicatorName = arr.sort((prev, next) => {
+    if (prev.indicatorName > next.indicatorName) {
+      return 1;
+    } else if (prev.indicatorName < next.indicatorName) {
+      return -1;
+    } else {
+      return 0;
+    }
+  });
+  return orderIndicatorName; 
 };
-const menFilter = (arr, string) => {
-  let menArray = [];
-  menArray = arr.filter(man => man.indicatorCode.includes(string));
-  return menArray;
+const fallingIndicator = (arr) => {
+  let fallingIndicatorName = arr.sort((prev, next) => {
+    if (prev.indicatorName > next.indicatorName) {
+      return -1;
+    } else if (prev.indicatorName < next.indicatorName) {
+      return 1;
+    } else {
+      return 0;
+    } 
+  });
+  return fallingIndicatorName; 
 };
-// const dataFilter = arr => {
-//   let dataArray = [];
-//   dataArray = arr.map(da => da.data)
-//   return dataArray;
-// };
-// console.log(dataFilter(WORLDBANK.PER.indicators));
+const calculateAverage = (arr) => {
+  let averageArray = [];
+  arr.forEach(value => {
+    let sum = value.reduce((total, current) => {
+      return (Number(total) + Number(current));
+    }, 0);
+    let average = sum / value.length;
+    averageArray.push(average.toFixed(2));    
+  });
+  return averageArray;
+};
+const dataOfData = arr => {
+  let acum = [];
+  const arrData = arr.map(val => val.data);
+  const valuesOfData = arrData.map(val => Object.values(val));
+  acum.push(valuesOfData);
+  return acum;
+};
 
 window.worldbank = {
-  populationFilter,
-  laborFilter,
-  unemploymentFilter,
+  filter,
   educationFilter,
-  violenceFilter,
-  womenFilter,
-  menFilter
+  genreFilter,
+  orderIndicator,
+  fallingIndicator,
+  calculateAverage,
+  dataOfData
 };
