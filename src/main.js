@@ -154,7 +154,41 @@ document.getElementById('women-indicators-ch').innerHTML = `${worldbank.genreFil
 document.getElementById('women-indicators-me').innerHTML = `${worldbank.genreFilter(indicatorsMexicoArray, 'FE').map(womenInfo).join('')}`;
 // Mostrar indicadores mujeres en html con select
 const countrySelectWomen = document.getElementById('country-select-women');
-const womenShowIndicator = () => {
+
+const getSelectValue = () => {
+  const countrySelectWomenValue = document.getElementById('country-select-women').value;
+  switch (countrySelectWomenValue) {
+  case 'Perú':
+    document.getElementById('women-indicators-pe').style.display = 'block';
+    document.getElementById('women-indicators-br').style.display = 'none';
+    document.getElementById('women-indicators-ch').style.display = 'none';
+    document.getElementById('women-indicators-me').style.display = 'none';
+    break;
+  case 'Brasil':
+    document.getElementById('women-indicators-br').style.display = 'block';
+    document.getElementById('women-indicators-pe').style.display = 'none';
+    document.getElementById('women-indicators-ch').style.display = 'none';
+    document.getElementById('women-indicators-me').style.display = 'none';
+    break;
+  case 'Chile':
+    document.getElementById('women-indicators-ch').style.display = 'block';
+    document.getElementById('women-indicators-pe').style.display = 'none';
+    document.getElementById('women-indicators-br').style.display = 'none';
+    document.getElementById('women-indicators-me').style.display = 'none';
+    break;
+  case 'México':
+    document.getElementById('women-indicators-me').style.display = 'block';
+    document.getElementById('women-indicators-pe').style.display = 'none';
+    document.getElementById('women-indicators-br').style.display = 'none';
+    document.getElementById('women-indicators-ch').style.display = 'none';
+    break;
+  }
+};
+// getSelectValue();
+countrySelectWomen.addEventListener('change', getSelectValue);
+
+
+/* const womenShowIndicator = () => {
   if (countrySelectWomen.selectedIndex === 0) {
     document.getElementById('select1').style.display = 'block';
     document.getElementById('women-indicators-pe').style.display = 'block';
@@ -181,7 +215,7 @@ const womenShowIndicator = () => {
     document.getElementById('women-indicators-me').style.display = 'block';
   }
 };
-countrySelectWomen.addEventListener('click', womenShowIndicator);
+countrySelectWomen.addEventListener('click', womenShowIndicator); */
 
 const menInfo = (man, index, country) => {
   const averageMenArray = worldbank.calculateAverage(...worldbank.dataOfData(worldbank.genreFilter(country, 'MA')));
