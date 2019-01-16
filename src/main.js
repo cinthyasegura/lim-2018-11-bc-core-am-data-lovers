@@ -9,7 +9,6 @@ const indicatorsChileArray = WORLDBANK.CHL.indicators;
 const indicatorsMexicoArray = WORLDBANK.MEX.indicators;
 
 // funcion que me muesta en un array de arrays los values de data
-
 const dataList = (list) => {
   return `
   <h5><strong>Año -  Datos</strong></h5>
@@ -34,10 +33,10 @@ const populationInfo = (pop, index, country) => {
   `; 
 };
 // map will run the function populationInfo once for each item in the original array and each time the function runs whatever it returns gets added to the new array
-populationIndicators[0].innerHTML = `${worldbank.filter(indicatorsPeruArray, 'SP.POP').map(populationInfo).join('')}`;
-populationIndicators[1].innerHTML = `${worldbank.filter(indicatorsBrazilArray, 'SP.POP').map(populationInfo).join('')}`;
-populationIndicators[2].innerHTML = `${worldbank.filter(indicatorsChileArray, 'SP.POP').map(populationInfo).join('')}`;
-populationIndicators[3].innerHTML = `${worldbank.filter(indicatorsMexicoArray, 'SP.POP').map(populationInfo).join('')}`;
+populationIndicators[0].innerHTML = `${worldbank.filter(indicatorsPeruArray, 'SP.POP').map(populationInfo)}`;
+populationIndicators[1].innerHTML = `${worldbank.filter(indicatorsBrazilArray, 'SP.POP').map(populationInfo)}`;
+populationIndicators[2].innerHTML = `${worldbank.filter(indicatorsChileArray, 'SP.POP').map(populationInfo)}`;
+populationIndicators[3].innerHTML = `${worldbank.filter(indicatorsMexicoArray, 'SP.POP').map(populationInfo)}`;
 
 const laborInfo = (lab, index, country) => {
   const averageLaborArray = worldbank.calculateAverage(...worldbank.dataOfData(worldbank.filter(country, 'SL.TLF')));
@@ -54,10 +53,10 @@ const laborInfo = (lab, index, country) => {
   </section>
   `;
 };
-laborIndicators[0].innerHTML = `${worldbank.filter(indicatorsPeruArray, 'SL.TLF').map(laborInfo).join('')}`;
-laborIndicators[1].innerHTML = `${worldbank.filter(indicatorsBrazilArray, 'SL.TLF').map(laborInfo).join('')}`;
-laborIndicators[2].innerHTML = `${worldbank.filter(indicatorsChileArray, 'SL.TLF').map(laborInfo).join('')}`;
-laborIndicators[3].innerHTML = `${worldbank.filter(indicatorsMexicoArray, 'SL.TLF').map(laborInfo).join('')}`;
+laborIndicators[0].innerHTML = `${worldbank.filter(indicatorsPeruArray, 'SL.TLF').map(laborInfo)}`;
+laborIndicators[1].innerHTML = `${worldbank.filter(indicatorsBrazilArray, 'SL.TLF').map(laborInfo)}`;
+laborIndicators[2].innerHTML = `${worldbank.filter(indicatorsChileArray, 'SL.TLF').map(laborInfo)}`;
+laborIndicators[3].innerHTML = `${worldbank.filter(indicatorsMexicoArray, 'SL.TLF').map(laborInfo)}`;
 
 // const <p>${worldbank.calculateAverage(Object.values(lab.data))}</p>
 const unemploymentInfo = (unemployed, index, country) => {
@@ -75,10 +74,10 @@ const unemploymentInfo = (unemployed, index, country) => {
    </section>
   `;
 };
-unemploymentIndicators[0].innerHTML = `${worldbank.filter(indicatorsPeruArray, 'SL.UEM').map(unemploymentInfo).join('')}`;
-unemploymentIndicators[1].innerHTML = `${worldbank.filter(indicatorsBrazilArray, 'SL.UEM').map(unemploymentInfo).join('')}`;
-unemploymentIndicators[2].innerHTML = `${worldbank.filter(indicatorsChileArray, 'SL.UEM').map(unemploymentInfo).join('')}`;
-unemploymentIndicators[3].innerHTML = `${worldbank.filter(indicatorsMexicoArray, 'SL.UEM').map(unemploymentInfo).join('')}`;
+unemploymentIndicators[0].innerHTML = `${worldbank.filter(indicatorsPeruArray, 'SL.UEM').map(unemploymentInfo)}`;
+unemploymentIndicators[1].innerHTML = `${worldbank.filter(indicatorsBrazilArray, 'SL.UEM').map(unemploymentInfo)}`;
+unemploymentIndicators[2].innerHTML = `${worldbank.filter(indicatorsChileArray, 'SL.UEM').map(unemploymentInfo)}`;
+unemploymentIndicators[3].innerHTML = `${worldbank.filter(indicatorsMexicoArray, 'SL.UEM').map(unemploymentInfo)}`;
 
 const educationInfo = (edu, index, country) => {
   const averageEducationArray = worldbank.calculateAverage(...worldbank.dataOfData(worldbank.educationFilter(country, 'SE')));
@@ -95,10 +94,10 @@ const educationInfo = (edu, index, country) => {
    </section>
   `;
 };
-educationIndicators[0].innerHTML = `${worldbank.educationFilter(indicatorsPeruArray, 'SE').map(educationInfo).join('')}`;
-educationIndicators[1].innerHTML = `${worldbank.educationFilter(indicatorsBrazilArray, 'SE').map(educationInfo).join('')}`;
-educationIndicators[2].innerHTML = `${worldbank.educationFilter(indicatorsChileArray, 'SE').map(educationInfo).join('')}`;
-educationIndicators[3].innerHTML = `${worldbank.educationFilter(indicatorsMexicoArray, 'SE').map(educationInfo).join('')}`;
+educationIndicators[0].innerHTML = `${worldbank.educationFilter(indicatorsPeruArray, 'SE').map(educationInfo)}`;
+educationIndicators[1].innerHTML = `${worldbank.educationFilter(indicatorsBrazilArray, 'SE').map(educationInfo)}`;
+educationIndicators[2].innerHTML = `${worldbank.educationFilter(indicatorsChileArray, 'SE').map(educationInfo)}`;
+educationIndicators[3].innerHTML = `${worldbank.educationFilter(indicatorsMexicoArray, 'SE').map(educationInfo)}`;
 
 const violenceInfo = (violent, index, country) => {
   const averageViolenceArray = worldbank.calculateAverage(...worldbank.dataOfData(worldbank.filter(country, 'SG.VAW')));
@@ -115,10 +114,10 @@ const violenceInfo = (violent, index, country) => {
   </section>
   `;
 };
-violenceIndicators[0].innerHTML = `${worldbank.filter(indicatorsPeruArray, 'SG.VAW').map(violenceInfo).join('')}`;
-violenceIndicators[1].innerHTML = `${worldbank.filter(indicatorsBrazilArray, 'SG.VAW').map(violenceInfo).join('')}`;
-violenceIndicators[2].innerHTML = `${worldbank.filter(indicatorsChileArray, 'SG.VAW').map(violenceInfo).join('')}`;
-violenceIndicators[3].innerHTML = `${worldbank.filter(indicatorsMexicoArray, 'SG.VAW').map(violenceInfo).join('')}`;
+violenceIndicators[0].innerHTML = `${worldbank.filter(indicatorsPeruArray, 'SG.VAW').map(violenceInfo)}`;
+violenceIndicators[1].innerHTML = `${worldbank.filter(indicatorsBrazilArray, 'SG.VAW').map(violenceInfo)}`;
+violenceIndicators[2].innerHTML = `${worldbank.filter(indicatorsChileArray, 'SG.VAW').map(violenceInfo)}`;
+violenceIndicators[3].innerHTML = `${worldbank.filter(indicatorsMexicoArray, 'SG.VAW').map(violenceInfo)}`;
 
 // filtrado por sexo 
 const womenInfo = (woman, index, country) => {
@@ -136,10 +135,10 @@ const womenInfo = (woman, index, country) => {
   </section>
   `;
 };
-document.getElementById('women-indicators-pe').innerHTML = `${worldbank.genreFilter(indicatorsPeruArray, 'FE').map(womenInfo).join('')}`;
-document.getElementById('women-indicators-br').innerHTML = `${worldbank.genreFilter(indicatorsBrazilArray, 'FE').map(womenInfo).join('')}`;
-document.getElementById('women-indicators-ch').innerHTML = `${worldbank.genreFilter(indicatorsChileArray, 'FE').map(womenInfo).join('')}`;
-document.getElementById('women-indicators-me').innerHTML = `${worldbank.genreFilter(indicatorsMexicoArray, 'FE').map(womenInfo).join('')}`;
+document.getElementById('women-indicators-pe').innerHTML = `${worldbank.genreFilter(indicatorsPeruArray, 'FE').map(womenInfo)}`;
+document.getElementById('women-indicators-br').innerHTML = `${worldbank.genreFilter(indicatorsBrazilArray, 'FE').map(womenInfo)}`;
+document.getElementById('women-indicators-ch').innerHTML = `${worldbank.genreFilter(indicatorsChileArray, 'FE').map(womenInfo)}`;
+document.getElementById('women-indicators-me').innerHTML = `${worldbank.genreFilter(indicatorsMexicoArray, 'FE').map(womenInfo)}`;
 // Mostrar indicadores mujeres en html con select
 
 const menInfo = (man, index, country) => {
@@ -157,10 +156,10 @@ const menInfo = (man, index, country) => {
   </section>
   `;
 };
-document.getElementById('men-indicators-pe').innerHTML = `${worldbank.genreFilter(indicatorsPeruArray, 'MA').map(menInfo).join('')}`;
-document.getElementById('men-indicators-br').innerHTML = `${worldbank.genreFilter(indicatorsBrazilArray, 'MA').map(menInfo).join('')}`;
-document.getElementById('men-indicators-ch').innerHTML = `${worldbank.genreFilter(indicatorsChileArray, 'MA').map(menInfo).join('')}`;
-document.getElementById('men-indicators-me').innerHTML = `${worldbank.genreFilter(indicatorsMexicoArray, 'MA').map(menInfo).join('')}`;
+document.getElementById('men-indicators-pe').innerHTML = `${worldbank.genreFilter(indicatorsPeruArray, 'MA').map(menInfo)}`;
+document.getElementById('men-indicators-br').innerHTML = `${worldbank.genreFilter(indicatorsBrazilArray, 'MA').map(menInfo)}`;
+document.getElementById('men-indicators-ch').innerHTML = `${worldbank.genreFilter(indicatorsChileArray, 'MA').map(menInfo)}`;
+document.getElementById('men-indicators-me').innerHTML = `${worldbank.genreFilter(indicatorsMexicoArray, 'MA').map(menInfo)}`;
 
 let showBtn = document.querySelectorAll('.show-btn');
 let hideBtn = document.querySelectorAll('.hide-btn');

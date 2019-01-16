@@ -130,6 +130,9 @@ footer a{
 .form-group {
   margin-top: 2.5%;
 }
+.title h1{
+  font-size: 35px;
+}
 h3{
   display: inline;
   padding-left: 1%;
@@ -144,8 +147,17 @@ h4{
   font-weight: 600;
   color: #333333;
 }
+/* #search-btn {
+  width: 22px;
+  height: 24px;
+  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6-B9L8C611ctbNl9CXEgdqCThOGbb1fJRD_tb6nKEi-sFqwVlhw);
+  background-position: center;
+  background-size: 20px;
+  border-radius: 3px;
+  border-color: #009FDA;
+} */
 .listado-data {
-  margin-left: 22%;
+  margin-left: 45%;
 }
 .data-list {
   list-style-type: none;
@@ -176,7 +188,7 @@ h4{
 /* Por debajo de 1024px */
 @media screen and (max-width: 1024px){
   .title h1{
-    font-size: 38px;
+    font-size: 25px;
   }
   .title img{
     margin-top: -3%;

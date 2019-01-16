@@ -25,7 +25,7 @@
             <li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" href="#">Indicadores por país
               <span class="caret"></span></a>
-              <ul class="dropdown-menu">
+              <ul class="dropdown-menu" id="countries">
                 <li><a id="peru-map" href="#">Perú</a></li>
                 <li><a id="brazil-map" href="#">Brasil</a></li>
                 <li><a id="chile-map" href="#">Chile</a></li>
@@ -44,14 +44,15 @@
               <a class="dropdown-toggle" data-toggle="dropdown" href="#">Ordenar los indicadores
               <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a id="btn-asc" href="#">Ascendente</a></li>
-                <li><a id="btn-desc" href="#">Descendente</a></li>
+                <li><a id="btn-asc" href="#">A - Z Ascendente</a></li>
+                <li><a id="btn-desc" href="#">Z - A Descendente</a></li>
               </ul>
             </li>
           </ul>
         </div>
-        </nav>
-      </header>
+      </nav>
+    </header>
+    <!-- pagina de inicio -->
     <div id="welcome-page">
       <div>
         <div class="container">
@@ -82,18 +83,17 @@
                 <img src="imagen/violencia.jpg" alt="Violencia">
               </div>
             </div>
-
-                <!-- Left and right controls -->
-                <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-                  <span class="glyphicon glyphicon-chevron-left"></span>
-                  <span class="sr-only">Previous</span>
-                </a>
-                <a class="right carousel-control" href="#myCarousel" data-slide="next">
-                  <span class="glyphicon glyphicon-chevron-right"></span>
-                  <span class="sr-only">Next</span>
-                </a>
-              </div>
-            </div>
+             <!-- Left and right controls -->
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+              <span class="glyphicon glyphicon-chevron-left"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" data-slide="next">
+              <span class="glyphicon glyphicon-chevron-right"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   
@@ -286,22 +286,13 @@
     </div>
 
     <div id="upward-page" class="pages">
-      <h4>Ascendente:</h4>
       <div id="upward-order"></div>
     </div> 
 
     <div id="falling-page" class="pages">
-      <h4>Descendente:</h4>
       <div id="falling-order"></div>
     </div>   
-
-    
-  
-    <!-- <script src="./data/injuries/injuries.js"></script> -->
-    <!-- <script src="./data/pokemon/pokemon.js"></script> -->
-    <!-- <script src="./data/steam/steam.js"></script> -->
     <script src="./data/worldbank/worldbank.js"></script>
-    <!-- <script src="./data/lol/lol.js"></script> -->
     <script src="data.js"></script>
     <script src="main.js"></script>
     <footer id="footer">
